@@ -21,7 +21,7 @@ class cartesian(object):
 
 
 def insert_clothes():
-    f = open("./SqlPyScript/insert_clothes.txt", "w+",encoding = 'UTF-8')
+    f = open("./SqlPyScript/insert_clothes.sql", "w+",encoding = 'UTF-8')
 
     tag1 = ["折扣","新品"]
     tag2 = ["男士","女士"]
@@ -140,7 +140,7 @@ def insert_user():
     """
     array length
     """
-    f = open("./SqlPyScript/insert_users.txt", "w+",encoding = 'UTF-8')
+    f = open("./SqlPyScript/insert_users.sql", "w+",encoding = 'UTF-8')
 
     for x in range(0, 100):
         first_name = first_name_array[random.randint(0, len(first_name_array)-1)]
