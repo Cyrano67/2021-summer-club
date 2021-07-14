@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="payinfo-api" />
+        <module name="ordersinfo-service" />
+        <module name="payinfo-service" />
+        <module name="cart-service" />
+        <module name="clothes-service" />
+        <module name="cart-mapper" />
+        <module name="ordersinfo-mapper" />
+        <module name="shippinginfo-service" />
+        <module name="clothes-mapper" />
+        <module name="payinfo-mapper" />
+        <module name="shippinginfo-api" />
+        <module name="picture-service" />
+        <module name="userlist-api" />
+        <module name="picture-api" />
+        <module name="clothes-api" />
+        <module name="vspace-pojo" />
+        <module name="vspace-web" />
+        <module name="shippinginfo-mapper" />
+        <module name="cart-api" />
+        <module name="ordersinfo-api" />
+        <module name="userlist-service" />
+        <module name="userlist-mapper" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cart-api" target="8" />
+      <module name="cart-mapper" target="8" />
+      <module name="cart-service" target="8" />
+      <module name="clothes-api" target="8" />
+      <module name="clothes-mapper" target="8" />
+      <module name="clothes-service" target="8" />
+      <module name="ordersinfo-api" target="8" />
+      <module name="ordersinfo-mapper" target="8" />
+      <module name="ordersinfo-service" target="8" />
+      <module name="payinfo-api" target="8" />
+      <module name="payinfo-mapper" target="8" />
+      <module name="payinfo-service" target="8" />
+      <module name="picture-api" target="8" />
+      <module name="picture-service" target="8" />
+      <module name="shippinginfo-api" target="8" />
+      <module name="shippinginfo-mapper" target="8" />
+      <module name="shippinginfo-service" target="8" />
+      <module name="userlist-api" target="8" />
+      <module name="userlist-mapper" target="8" />
+      <module name="userlist-service" target="8" />
+      <module name="vspace" target="8" />
+      <module name="vspace-pojo" target="8" />
+      <module name="vspace-web" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cart-api" options="-parameters" />
+      <module name="cart-mapper" options="-parameters" />
+      <module name="cart-service" options="-parameters" />
+      <module name="clothes-api" options="-parameters" />
+      <module name="clothes-mapper" options="-parameters" />
+      <module name="clothes-service" options="-parameters" />
+      <module name="ordersinfo-api" options="-parameters" />
+      <module name="ordersinfo-mapper" options="-parameters" />
+      <module name="ordersinfo-service" options="-parameters" />
+      <module name="payinfo-api" options="-parameters" />
+      <module name="payinfo-mapper" options="-parameters" />
+      <module name="payinfo-service" options="-parameters" />
+      <module name="picture-api" options="-parameters" />
+      <module name="picture-service" options="-parameters" />
+      <module name="shippinginfo-api" options="-parameters" />
+      <module name="shippinginfo-mapper" options="-parameters" />
+      <module name="shippinginfo-service" options="-parameters" />
+      <module name="userlist-api" options="-parameters" />
+      <module name="userlist-mapper" options="-parameters" />
+      <module name="userlist-service" options="-parameters" />
+      <module name="vspace-pojo" options="-parameters" />
+      <module name="vspace-web" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,78 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.cestc</groupId>
+    <artifactId>vspace</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+    <artifactId>shippinginfo-mapper</artifactId>
+  <dependencies>
+  <dependency>
+  	<groupId>com.cestc</groupId>
+  	<artifactId>vspace-pojo</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </dependency>
+  
+	<!--mybatis整合springboot依赖-->
+	<dependency>
+	<groupId>org.mybatis.spring.boot</groupId>
+	<artifactId>mybatis-spring-boot-starter</artifactId>
+	</dependency>
+	<!--mysql数据库驱动依赖-->
+	<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	</dependency>
+	
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-jdbc</artifactId>
+	</dependency>
+	<!--pojo依赖-->
+	<!--添加配置助手依赖-->
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-configuration-processor</artifactId>
+	</dependency>
+	<!--添加日志依赖: 在父pom中已经去除了log4j的依赖-->
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-logging</artifactId>
+	</dependency>
+	<!--添加单元测试依赖-->
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-test</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+     <dependency>
+         <groupId>com.dameng</groupId>
+         <artifactId>Dm7JdbcDriver17</artifactId>
+         <version>7.6.0.77</version>
+     </dependency>
+     <dependency>
+         <groupId>com.dameng</groupId>
+         <artifactId>DmDialect-for-hibernate4.0</artifactId>
+         <version>7.6.0.165</version>
+     </dependency>
+
+	
+	</dependencies>
+	<build>
+	<plugins>
+	<plugin>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-maven-plugin</artifactId>
+<!--如果是子项目不需要单独运行取消生产可执行jar包-->
+	<configuration>
+	<skip>true</skip>
+	</configuration>
+	</plugin>
+	</plugins>
+	</build>
+  
+  
+</project>

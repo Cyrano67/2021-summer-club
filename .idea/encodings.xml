@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/cart-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cart-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clothes-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clothes-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clothes-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ordersinfo-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ordersinfo-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ordersinfo-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payinfo-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payinfo-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/payinfo-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/picture-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/picture-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shippinginfo-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shippinginfo-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shippinginfo-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/userlist-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/userlist-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/userlist-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vspace-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vspace-web/src/main/java" charset="UTF-8" />
+  </component>
+</project>
