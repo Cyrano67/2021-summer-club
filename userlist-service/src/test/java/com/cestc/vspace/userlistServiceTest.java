@@ -21,6 +21,7 @@ public class userlistServiceTest {
 	@Test
 	public void test() {
 		System.out.println(userservice.findById(2));
+		System.out.println("1");
 	}
 
 //	public static void main(String[] args) {
