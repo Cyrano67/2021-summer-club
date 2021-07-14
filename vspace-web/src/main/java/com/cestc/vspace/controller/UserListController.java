@@ -20,9 +20,11 @@ public class UserListController {
 		System.out.println();
 		return user;
 	}
-	
+
+
 	public UserListController() {
 		// TODO Auto-generated constructor stub
+
 	}
 
 }
