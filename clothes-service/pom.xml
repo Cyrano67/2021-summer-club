@@ -89,6 +89,12 @@
 			<artifactId>clothes-mapper</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<!--添加分页插件依赖-->
+		<dependency>
+		  <groupId>com.github.pagehelper</groupId>
+		  <artifactId>pagehelper-spring-boot-starter</artifactId>
+		</dependency>
   </dependencies>
   
 </project>

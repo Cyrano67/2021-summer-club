@@ -16,6 +16,4 @@ public class UserMapperApplication {
 		// TODO Auto-generated method stub
 		SpringApplication.run(UserMapperApplication.class,args);
 	}
-
-
 }
