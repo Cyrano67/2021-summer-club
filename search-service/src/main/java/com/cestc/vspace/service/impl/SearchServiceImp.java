@@ -26,6 +26,7 @@ import java.util.Map;
  * CreateDate: 2021/7/15 10:45
  * Description:
  */
+
 @Service
 public class SearchServiceImp implements SearchService {
     //通过springIOC容器自动装配一个solrClient对象

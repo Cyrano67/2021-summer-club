@@ -2,7 +2,7 @@
 server:
    #address: 192.168.2.11
    address: 127.0.0.1
-   port: 9002
+   port: 9003
 #配置dubbo信息
 dubbo:
    application:

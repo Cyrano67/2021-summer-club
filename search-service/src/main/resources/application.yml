@@ -2,11 +2,11 @@
 server:
   #address: 192.168.2.11
   address: 127.0.0.1
-  port: 9001
+  port: 9005
 #配置dubbo信息
 dubbo:
   application:
-    name: user-service-provider
+    name: search-service-provider
   registry:
     #注册中心地址
     #指定超时时间,单位毫秒
@@ -23,7 +23,7 @@ dubbo:
   #协议
   protocol:
     name: dubbo
-    port: 20880
+    port: 20885
   #指定定扫描的基础包
   scan:
     base-packages: com.cestc.vspace.service.impl
