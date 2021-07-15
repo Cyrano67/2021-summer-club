@@ -152,5 +152,7 @@
     <module>picture-api</module>
     <module>picture-service</module>
     <module>vspace-web</module>
-	</modules>
+		<module>search-api</module>
+        <module>search-service</module>
+    </modules>
 </project>
