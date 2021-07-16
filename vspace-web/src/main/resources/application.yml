@@ -1,6 +1,6 @@
 #配置服务项目的ip地址 端口号
 server:
-   port: 9006
+   port: 9020
    servlet:
       context-path: /
    address: 127.0.0.1

@@ -4,7 +4,7 @@ package com.cestc.vspace.controller;
 import com.cestc.vspace.dto.Condition;
 import com.cestc.vspace.dto.PageResult;
 import com.cestc.vspace.pojo.Clothes;
-import com.cestc.vspace.service.clothesService;
+import com.cestc.vspace.service.ClothesService;
 import com.cestc.vspace.service.SearchService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.apache.dubbo.config.annotation.Service;
@@ -28,7 +28,7 @@ import java.util.List;
 public class ClothesController {
     //远程调度商品服务
     @Reference
-    private clothesService clothesService;
+    private ClothesService clothesService;
     //远程调度搜索服务
     @Reference
     private SearchService searchService;
