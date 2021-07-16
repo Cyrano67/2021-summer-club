@@ -4,10 +4,10 @@ package com.cestc.vspace.controller;/*
 */
 
 import com.cestc.vspace.pojo.OrdersInfo;
-import com.cestc.vspace.service.ordersinfoService;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.cestc.vspace.service.OrdersinfoService;
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("Orderinfo")
 public class OrderinfoController {
     @Reference
-    private ordersinfoService ordersinfoservice;
+    private OrdersinfoService ordersinfoservice;
 
     @RequestMapping("find_by_num")
     public OrdersInfo findOrder_By_Num(int num){

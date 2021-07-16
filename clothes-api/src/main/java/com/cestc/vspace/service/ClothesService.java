@@ -4,7 +4,7 @@ import com.cestc.vspace.pojo.Clothes;
 import com.cestc.vspace.pojo.UserList;
 import java.util.List;
 
-public interface clothesService {
+public interface ClothesService {
 	//根据商品编号查询商品信息
 	Clothes findById(int id);
 	

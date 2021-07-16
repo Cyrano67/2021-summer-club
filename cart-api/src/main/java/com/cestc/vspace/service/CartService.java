@@ -5,7 +5,7 @@ import com.cestc.vspace.pojo.Cart;
 
 import java.util.List;
 
-public interface cartService {
+public interface CartService {
 	
 	Cart findById(int caid);
 	

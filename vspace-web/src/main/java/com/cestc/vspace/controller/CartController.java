@@ -1,9 +1,7 @@
 package com.cestc.vspace.controller;
 
 import com.cestc.vspace.pojo.Cart;
-import com.cestc.vspace.pojo.UserList;
-import com.cestc.vspace.service.cartService;
-import com.cestc.vspace.service.userlistService;
+import com.cestc.vspace.service.CartService;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +14,7 @@ import java.util.List;
 public class CartController {
 
     @Reference
-    private cartService cartService;
+    private CartService cartService;
 
     @RequestMapping("findBycid")
     public Cart findCartById(){

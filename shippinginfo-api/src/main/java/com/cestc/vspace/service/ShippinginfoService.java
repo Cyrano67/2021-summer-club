@@ -3,7 +3,7 @@ package com.cestc.vspace.service;
 import com.cestc.vspace.pojo.ShippingInfo;
 import com.cestc.vspace.pojo.UserList;
 
-public interface shippinginfoService {
+public interface ShippinginfoService {
 	
 	ShippingInfo findById(int id);
 	

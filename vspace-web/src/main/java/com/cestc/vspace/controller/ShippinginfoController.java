@@ -4,16 +4,16 @@ package com.cestc.vspace.controller;/*
 */
 
 import com.cestc.vspace.pojo.ShippingInfo;
-import com.cestc.vspace.service.shippinginfoService;
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.cestc.vspace.service.ShippinginfoService;
 
 @RestController
 @RequestMapping("/shippinginfo")
 public class ShippinginfoController {
     @Reference
-    private shippinginfoService shippinginfo;
+    private ShippinginfoService shippinginfo;
     @RequestMapping("/findById")
     public ShippingInfo findbyId(int sid){
         ShippingInfo sh = shippinginfo.findById(sid);

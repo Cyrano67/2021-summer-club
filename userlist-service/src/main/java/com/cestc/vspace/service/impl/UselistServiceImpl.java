@@ -5,16 +5,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cestc.vspace.mapper.UserListMapper;
 import com.cestc.vspace.pojo.UserList;
-import com.cestc.vspace.service.userlistService;
+import com.cestc.vspace.service.UserlistService;
 
 
 @Service
-public class uselistServiceImpl implements userlistService{
+public class UselistServiceImpl implements UserlistService {
 	
 	@Autowired
 	private UserListMapper usermapper;
 	
-	public uselistServiceImpl() {
+	public UselistServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
 

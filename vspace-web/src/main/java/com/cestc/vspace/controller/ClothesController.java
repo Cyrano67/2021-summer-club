@@ -2,9 +2,8 @@ package com.cestc.vspace.controller;
 
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.cestc.vspace.service.clothesService;
 import com.cestc.vspace.pojo.Clothes;
+import com.cestc.vspace.service.ClothesService;
 
 import java.util.List;
 
@@ -12,7 +11,7 @@ import java.util.List;
 public class ClothesController {
     //远程调度商品服务
     @Reference
-    private clothesService clothesService;
+    private ClothesService clothesService;
     @RequestMapping("/findByUid")
     public Clothes findUserById(int cid){
         Clothes clo = clothesService.findById(cid);

@@ -5,14 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cestc.vspace.pojo.UserList;
-import com.cestc.vspace.service.userlistService;
+import com.cestc.vspace.service.UserlistService;
 
 @RestController
 @RequestMapping("/user")
 public class UserListController {
 	
 	@Reference
-	private userlistService userlistService;
+	private UserlistService userlistService;
 	
 	@RequestMapping("/findByUid")
 	public UserList findUserById(){

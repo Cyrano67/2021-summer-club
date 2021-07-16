@@ -5,7 +5,7 @@ import com.cestc.vspace.pojo.OrdersInfo;
 import com.cestc.vspace.pojo.UserList;
 import java.util.List;
 
-public interface ordersinfoService {
+public interface OrdersinfoService {
 	
 	OrdersInfo findById(int id);
 	
