@@ -4,7 +4,7 @@ package com.cestc.vspace.controller;/*
 */
 
 import com.cestc.vspace.pojo.ShippingInfo;
-import jdk.nashorn.internal.ir.annotations.Reference;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.cestc.vspace.service.ShippinginfoService;
