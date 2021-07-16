@@ -29,7 +29,6 @@ public class cartServiceImpl implements cartService{
 	@Override
 	public boolean register(Cart cart) {
 		// TODO Auto-generated method stub
-		//冲突
 		cartmapper.insert(cart);
 		return false;
 	}
