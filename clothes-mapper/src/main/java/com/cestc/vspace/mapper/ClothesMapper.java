@@ -9,6 +9,11 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface ClothesMapper {
+
+
+    //自定义方法查询全网价格最高的9种商品
+    List<Clothes> findTop9();
+
     int countByExample(ClothesExample example);
 
     int deleteByExample(ClothesExample example);

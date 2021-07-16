@@ -82,4 +82,10 @@ public class ShippingInfo implements Serializable{
     public void setReceiverZip(String receiverZip) {
         this.receiverZip = receiverZip == null ? null : receiverZip.trim();
     }
+
+    public ShippingInfo(Integer sid,String receiverName,String receiverPhone,String receiverProvince,String receiverCity,String receiverStreet,String receiverAddress,String receiverZip){
+        this.sid=sid;this.receiverName=receiverName;this.receiverPhone=receiverPhone;this.receiverProvince=receiverProvince;
+        this.receiverCity=receiverCity;this.receiverAddress=receiverAddress;this.receiverZip=receiverZip;
+
+    }
 }

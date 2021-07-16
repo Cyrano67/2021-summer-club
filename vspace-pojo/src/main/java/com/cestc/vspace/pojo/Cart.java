@@ -40,4 +40,9 @@ public class Cart {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
+
+    public Cart(Integer caid,Integer cid,Integer uid,Integer quantity){
+        this.caid=caid;this.cid=cid;
+        this.uid=uid;this.quantity=quantity;
+    }
 }

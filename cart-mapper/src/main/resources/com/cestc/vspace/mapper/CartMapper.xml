@@ -82,6 +82,16 @@
       order by ${orderByClause}
     </if>
   </select>
+
+  <!--根据uid和cid进行寻找-->
+  <select id="selectByCD" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from CART
+    where CID = #{cid,jdbcType=INTEGER}
+    and UID = #{uid,jdbcType=INTEGER}
+  </select>
+  <!--根据uid和cid进行寻找-->
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

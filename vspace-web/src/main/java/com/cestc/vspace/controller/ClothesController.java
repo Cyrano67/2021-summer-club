@@ -1,3 +1,4 @@
+
 package com.cestc.vspace.controller;
 
 import com.cestc.vspace.dto.Condition;
@@ -20,7 +21,7 @@ import sun.awt.SunHints;
  */
 
 @RestController
-@RequestMapping("/clothes")
+@RequestMapping("/clo")
 public class ClothesController {
     //远程调度商品服务
     @Reference
@@ -29,7 +30,23 @@ public class ClothesController {
     @Reference
     private SearchService searchService;
 
-
+    @RequestMapping("/findByUid")
+    public Clothes findUserById(int cid){
+        Clothes clo = clothesService.findById(cid);
+        System.out.println();
+        return clo;
+    }
+    //查询全网价格最高的9种商品
+    @RequestMapping("FindTop9")
+    List<Clothes> FindTop9Clothes(){
+        return clothesService.findTop9Clothes();
+    }
+    //更新商品信息
+    @RequestMapping("/updateClothes")
+    public int UpdateRecord(Integer cid,String cname,Integer price,String discription,String picAddr,String merchant,String size){
+        Clothes cc=new Clothes(cid,cname,price,discription,picAddr,merchant,size);
+        return clothesService.updateRecord(cc);
+    }
     //多条件分页查询
     @RequestMapping("/demo")
     public PageResult findPageByCondition(@RequestBody Condition  condition){
@@ -46,3 +63,4 @@ public class ClothesController {
     }
 
 }
+

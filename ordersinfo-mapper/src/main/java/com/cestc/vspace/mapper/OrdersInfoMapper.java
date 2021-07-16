@@ -4,7 +4,7 @@ import com.cestc.vspace.pojo.OrdersInfo;
 import com.cestc.vspace.pojo.OrdersInfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-
+@org.apache.ibatis.annotations.Mapper
 public interface OrdersInfoMapper {
     int countByExample(OrdersInfoExample example);
 

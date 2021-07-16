@@ -28,10 +28,18 @@
 		<link rel="stylesheet" href="style.css">
 		<!-- responsive css -->
         <link rel="stylesheet" href="css/responsive.css">
+        <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
 		<!-- modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <!--导入angularjs插件-->
+	    <!--导入app模块js插件-->
+	    <script src="js/base/base.js"></script>
+	    <!--导入base_controller.js-->
+	    <script src="js/controller/base_controller.js"></script>
+		<script src="js/login.js"></script>
     </head>
     <body>
+    
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -359,11 +367,11 @@
 								<a href="#"><i class="fa fa-facebook"></i> Sign in with facebook</a>
 								<a class="twitter" href="#"><i class="fa fa-twitter"></i> Sign in with twitter</a>
 							</div>
-							<form action="#">
-								<label>Email Address</label>
-								<input type="text" />
+							<form id="form_login" ng-app="loginApp" ng-controller="loginCtrl" >
+								<label>Phone Number</label>
+								<input type="text" ng-model="user.phone"/>
 								<label>Password</label>
-								<input type="password" />
+								<input type="text" ng-model="user.password"/>
 								<div class="login-lost">
 									<span class="log-rem">
 										<input type="checkbox" />
@@ -373,7 +381,8 @@
 										<a href="#">Forgot your password?</a>
 									</span>
 								</div>
-								<input class="login-sub" type="submit" value="Login" />
+								<input ng-click="login_req()" class="login-sub" type="submit" value="Login" />
+
 							</form>
 						</div>
 					</div>

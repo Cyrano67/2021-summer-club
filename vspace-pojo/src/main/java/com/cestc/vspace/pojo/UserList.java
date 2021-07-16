@@ -13,7 +13,7 @@ public class UserList implements Serializable{
 
     private String phone;
 
-    private byte[] role;
+    private int role;
 
     public Integer getUid() {
         return uid;
@@ -55,11 +55,11 @@ public class UserList implements Serializable{
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public byte[] getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(byte[] role) {
+    public void setRole(int role) {
         this.role = role;
     }
 }
