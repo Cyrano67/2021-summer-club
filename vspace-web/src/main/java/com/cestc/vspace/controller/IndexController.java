@@ -22,7 +22,7 @@ public class IndexController {
     // 跳转details页面
     @RequestMapping("/details")
     public String goDetail(){
-        return "test";
+        return "product-details";
     }
 
     public IndexController() {}
