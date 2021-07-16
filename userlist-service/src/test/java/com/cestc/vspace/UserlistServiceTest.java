@@ -6,17 +6,17 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.cestc.vspace.service.userlistService;
+import com.cestc.vspace.service.UserlistService;
 
 @SpringBootTest(classes ={UserServiceApplication.class})
 @RunWith(SpringRunner.class)
-public class userlistServiceTest {
+public class UserlistServiceTest {
 
-	public userlistServiceTest() {
+	public UserlistServiceTest() {
 		// TODO Auto-generated constructor stub
 	}
 	@Reference
-	private userlistService userservice;
+	private UserlistService userservice;
 	
 	@Test
 	public void test() {

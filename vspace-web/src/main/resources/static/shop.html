@@ -29,8 +29,23 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+		<!-- 分页css样式表 -->
+		<link rel="stylesheet" type="text/css" href="js/pagehelper/pagination.css"/>
+
+		<!-- angularjs 插件-->
+		<script src="js/angularjs/angular.min.js"></script>
+
+		<script src="js/base/base-pagination.js"></script>
+
+		<!-- 分页插件	-->
+		<script src="js/pagehelper/pagination.js" type="text/javascript" charset="utf-8"></script>
+
+		<script src="js/controller/base_controller.js"></script>
+
+		<script src="js/controller/shop-controller.js"></script>
     </head>
-    <body>
+	<body ng-app="vspace" ng-controller="shop-controller" ng-init="initShop()">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -1063,7 +1078,9 @@
 										</div>
 										<!-- single-product end -->
 									</div>
+
 								</div>
+
 								<div role="tabpanel" class="tab-pane" id="profile">
 									<div class="row shop-list">
 										<!-- single-product start -->
@@ -1338,6 +1355,11 @@
 										<!-- single-product end -->
 									</div>
 								</div>
+							</div>
+						</div>
+						<div style="text-align: center;">
+							<div class="page">
+								<tm-pagination conf="paginationConf"></tm-pagination>
 							</div>
 						</div>
 					</div>

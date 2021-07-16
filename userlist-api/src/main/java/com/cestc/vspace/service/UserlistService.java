@@ -2,7 +2,7 @@ package com.cestc.vspace.service;
 
 import com.cestc.vspace.pojo.UserList;
 
-public interface userlistService {
+public interface UserlistService {
 	
 	UserList findById(int id);
 	

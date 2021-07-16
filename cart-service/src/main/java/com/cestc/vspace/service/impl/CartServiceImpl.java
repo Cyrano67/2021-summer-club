@@ -5,19 +5,17 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cestc.vspace.mapper.CartMapper;
-import com.cestc.vspace.service.cartService;
-
-import java.util.LinkedList;
+import com.cestc.vspace.service.CartService;
 import java.util.List;
 
 
 @Service
-public class cartServiceImpl implements cartService{
+public class CartServiceImpl implements CartService {
 	
 	@Autowired
 	private CartMapper cartmapper;
 	
-	public cartServiceImpl() {
+	public CartServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
 

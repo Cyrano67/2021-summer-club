@@ -1,7 +1,7 @@
 #配置服务项目的ip地址 端口号
 server:
-   address: 192.168.2.11
-   port: 9005
+   address: 127.0.0.1
+   port: 9003
 #配置dubbo信息
 dubbo:
    application:
@@ -10,7 +10,8 @@ dubbo:
    #注册中心地址
    #指定超时时间,单位毫秒
       timeout: 5000
-      address: zookeeper://122.9.144.83:2181 #单机zookeeper注册中心配置情况
+      address: zookeeper://116.63.139.22:10000
+#      address: zookeeper://122.9.144.83:2181 #单机zookeeper注册中心配置情况
       #address: zookeeper://192.168.2.51:2181?backup=192.168.2.52:2181,192.168.2.53:2181
       #zookeeper集群
       #配置元数据中心 --> 用于存储服务的元数据,消费者在消费服务的时候只需要注册中心提供某个服务的关键数据即可,
@@ -18,11 +19,12 @@ dubbo:
       simplified: true #注册到注册中心的URL是否采用精简模式（与低版本兼容）
    metadata-report:
       #address: zookeeper://192.168.2.51:2181?backup=192.168.2.52:2181,192.168.2.53:2181
-      address: zookeeper://122.9.144.83:2181
+      address: zookeeper://116.63.139.22:10000
+#      address: zookeeper://122.9.144.83:2181
 #协议
    protocol:
       name: dubbo
-      port: 20880
+      port: 20883
    #指定定扫描的基础包
    scan:
       base-packages: com.cestc.vspace.service.impl

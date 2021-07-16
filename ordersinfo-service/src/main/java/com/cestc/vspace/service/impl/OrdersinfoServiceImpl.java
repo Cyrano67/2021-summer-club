@@ -4,22 +4,17 @@ import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cestc.vspace.mapper.OrdersInfoMapper;
-import com.cestc.vspace.pojo.Cart;
-import com.cestc.vspace.pojo.Clothes;
 import com.cestc.vspace.pojo.OrdersInfo;
-import com.cestc.vspace.pojo.PayInfo;
-import com.cestc.vspace.pojo.UserList;
-import com.cestc.vspace.service.ordersinfoService;
 import com.cestc.vspace.pojo.OrdersInfoExample;
 import java.util.List;
-
+import com.cestc.vspace.service.OrdersinfoService;
 @Service
-public class ordersinfoServiceImpl implements ordersinfoService{
+public class OrdersinfoServiceImpl implements OrdersinfoService {
 	
 	@Autowired
 	private OrdersInfoMapper ordersinfomapper;
 	
-	public ordersinfoServiceImpl() {
+	public OrdersinfoServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
 

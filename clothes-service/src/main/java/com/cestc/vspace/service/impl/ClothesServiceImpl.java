@@ -5,17 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.cestc.vspace.pojo.ClothesExample;
 import com.cestc.vspace.mapper.ClothesMapper;
 import com.cestc.vspace.pojo.Clothes;
-import com.cestc.vspace.pojo.UserList;
-import com.cestc.vspace.service.clothesService;
+import com.cestc.vspace.service.ClothesService;
+
 import java.util.List;
 
 @Service
-public class clothesServiceImpl implements clothesService{
+public class ClothesServiceImpl implements ClothesService {
 	
 	@Autowired
 	private ClothesMapper closemapper;
 	
-	public clothesServiceImpl() {
+	public ClothesServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
 
