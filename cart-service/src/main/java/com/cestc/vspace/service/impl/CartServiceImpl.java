@@ -38,11 +38,11 @@ public class CartServiceImpl implements CartService {
 		return false;
 	}
 	@Override
-    public Cart findbyCD(int cid,int uid){
+    public Cart findByCD(int cid,int uid){
 		return cartmapper.selectByCD(cid,uid);
 	}
 	@Override
-	public int updateOfquality(Cart cart_ori,int number){
+	public int updateOfQuality(Cart cart_ori,int number){
 
 		Integer quantity=cart_ori.getQuantity();
 		cart_ori.setQuantity(number+quantity);
@@ -62,7 +62,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public List<Cart> find_of_usre(Integer uid){
+	public List<Cart> findOfUser(Integer uid){
 		CartExample cartExample=new CartExample();
 		cartExample.createCriteria().andUidEqualTo(uid);
 		List<Cart> carts = cartmapper.selectByExample(cartExample);

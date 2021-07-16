@@ -21,6 +21,7 @@ public interface CartMapper {
     List<Cart> selectByExample(CartExample example);
 
     Cart selectByPrimaryKey(Integer caid);
+
     Cart selectByCD(Integer cid,Integer uid);
 
     int updateByExampleSelective(@Param("record") Cart record, @Param("example") CartExample example);
