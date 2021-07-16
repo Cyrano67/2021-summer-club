@@ -1,0 +1,1 @@
+let app = angular.module("richman-details-show-app",[]);
