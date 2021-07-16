@@ -8,4 +8,6 @@ public interface shippinginfoService {
 	ShippingInfo findById(int id);
 	
 	boolean register(ShippingInfo user);
+
+	boolean delete(Integer sid);
 }

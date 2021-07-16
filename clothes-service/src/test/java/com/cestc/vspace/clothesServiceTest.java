@@ -5,8 +5,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
+import com.cestc.vspace.pojo.Clothes;
 import com.cestc.vspace.service.clothesService;
+import java.util.List;
 
 @SpringBootTest(classes ={ClothServiceApplication.class})
 @RunWith(SpringRunner.class)
@@ -20,7 +21,16 @@ public class clothesServiceTest {
 	
 	@Test
 	public void test() {
-		System.out.println(clothservice.findById(1));
+		Clothes cloth;
+		cloth=clothservice.findById(1);
+		cloth.setCname("大码");
+
+		List<Clothes> list;
+		list=clothservice.findTop9Clothes();
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).getCname());
+		}
+
 	}
 
 //	public static void main(String[] args) {

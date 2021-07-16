@@ -70,4 +70,10 @@ public class Clothes {
     public void setSize(String size) {
         this.size = size == null ? null : size.trim();
     }
+
+    public Clothes(Integer cid,String cname,Integer price,String discription,String picAddr,String merchant,String size){
+        this.cid=cid;this.cname=cname;this.price=price;this.discription=discription;
+        this.picAddr=picAddr;this.merchant=merchant;this.size=size;
+
+    }
 }

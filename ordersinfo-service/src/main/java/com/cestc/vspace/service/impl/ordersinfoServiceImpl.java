@@ -10,7 +10,8 @@ import com.cestc.vspace.pojo.OrdersInfo;
 import com.cestc.vspace.pojo.PayInfo;
 import com.cestc.vspace.pojo.UserList;
 import com.cestc.vspace.service.ordersinfoService;
-
+import com.cestc.vspace.pojo.OrdersInfoExample;
+import java.util.List;
 
 @Service
 public class ordersinfoServiceImpl implements ordersinfoService{
@@ -30,10 +31,48 @@ public class ordersinfoServiceImpl implements ordersinfoService{
 	}
 
 	@Override
-	public boolean register(OrdersInfo order) {
+	public boolean insertOrders(List<OrdersInfo> orders){
 		// TODO Auto-generated method stub
-		ordersinfomapper.insert(order);
+		//循环插入数据
+		for (OrdersInfo order : orders) {
+			ordersinfomapper.insert(order);
+		}
 		return true;
 	}
+	@Override
+	public OrdersInfo findOrderByNum(int num){
+		OrdersInfoExample orderExample = new OrdersInfoExample();
+		orderExample.createCriteria().andOrderNoEqualTo(num);
+		List<OrdersInfo> Orders = ordersinfomapper.selectByExample(orderExample);
+		return Orders.get(0);
+	}
+
+	@Override
+	public boolean deleteOrderById(OrdersInfo order){
+		//调用orderMapper接口方法进行数据删除("修改")操作
+		int i = ordersinfomapper.updateByPrimaryKeySelective(order);
+		if (i > 0) {
+			return true;
+		}
+		return false;
+
+	}
+
+	@Override
+	public boolean updateOrderByNum(OrdersInfo order){
+		OrdersInfoExample example = new OrdersInfoExample();
+		example.createCriteria().andOrderNoEqualTo(order.getOrderNo());
+		int i = ordersinfomapper.updateByExampleSelective(order, example);
+		return i > 0;
+	}
+
+	@Override
+	public boolean updateOrderById(OrdersInfo order){
+		OrdersInfoExample example = new OrdersInfoExample();
+		example.createCriteria().andOidEqualTo(order.getOid());
+		int i = ordersinfomapper.updateByExampleSelective(order, example);
+		return i > 0;
+	}
+
 
 }

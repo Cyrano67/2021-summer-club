@@ -142,4 +142,14 @@ public class OrdersInfo {
     public void setCaid(Integer caid) {
         this.caid = caid;
     }
+
+    public OrdersInfo(Integer oid,Integer orderNo,Integer payment,Integer paymentType,Integer postage,Integer status,Integer shippingId,Date paymentTime,Date sendTime,Date endTime,Date closeTime,Date createTime,Date updateTime,Integer caid){
+        //oid,orderNo,payment,paymentType,postage,status,shippingId,paymentTime,sendTime,endTime,closeTime,createTime,updateTime,caid
+        this.oid=oid;this.orderNo=orderNo;this.payment=payment;this.paymentType=paymentType;
+        this.postage=postage;this.status=status;this.shippingId=shippingId;
+        this.paymentTime=paymentTime;this.sendTime=sendTime;
+        this.endTime=endTime;this.closeTime=closeTime;
+        this.createTime=createTime;this.updateTime=updateTime;
+        this.caid=caid;
+    }
 }

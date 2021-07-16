@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cestc.vspace.mapper.ClothesMapper" >
+
+  <!--查询全网价格最高的商品-->
+  <select id="findTop9" resultMap="BaseResultMap">
+    select * from CLOTHES where CID in(
+      select * from (
+                      select g.CID from CLOTHES g
+                      order by PRICE
+                      desc limit 0,9
+                    ) t
+    ) order by CID
+
+  </select>
+
   <resultMap id="BaseResultMap" type="com.cestc.vspace.pojo.Clothes" >
     <id column="CID" property="cid" jdbcType="INTEGER" />
     <result column="CNAME" property="cname" jdbcType="VARCHAR" />
@@ -10,6 +23,7 @@
     <result column="MERCHANT" property="merchant" jdbcType="VARCHAR" />
     <result column="SIZE" property="size" jdbcType="VARCHAR" />
   </resultMap>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

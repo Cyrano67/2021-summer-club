@@ -22,7 +22,11 @@ public class shippinginfoServiceImpl implements shippinginfoService{
 	public shippinginfoServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
-
+	@Override
+	public boolean delete(Integer sid){
+		shippinginfomapper.deleteByPrimaryKey(sid);
+		return false;
+	}
 
 
 	@Override
@@ -34,7 +38,15 @@ public class shippinginfoServiceImpl implements shippinginfoService{
 
 	@Override
 	public boolean register(ShippingInfo user) {
-		// TODO Auto-generated method stub
+//		// TODO Auto-generated method stub
+//		System.out.println("============");
+//		System.out.print("!!!!!!!!");
+//		System.out.print("!!!!!!!!");
+//		System.out.print("!!!!!!!!");
+//		System.out.print("!!!!!!!!");
+//		System.out.print("!!!!!!!!");
+//		System.out.print("!!!!!!!!");
+//		System.out.println("============");
 		shippinginfomapper.insert(user);
 		return true;
 	}
