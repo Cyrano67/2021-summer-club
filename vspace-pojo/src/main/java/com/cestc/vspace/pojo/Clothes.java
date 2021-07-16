@@ -94,4 +94,8 @@ public class Clothes {
         this.picAddr=picAddr;this.merchant=merchant;this.size=size;
 
     }
+
+    public Clothes(){
+
+    }
 }

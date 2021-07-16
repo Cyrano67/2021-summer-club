@@ -3,6 +3,7 @@ package com.cestc.vspace.controller;
 
 import com.cestc.vspace.dto.Condition;
 import com.cestc.vspace.dto.PageResult;
+import com.cestc.vspace.pojo.Clothes;
 import com.cestc.vspace.service.clothesService;
 import com.cestc.vspace.service.SearchService;
 import org.apache.dubbo.config.annotation.Reference;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import sun.awt.SunHints;
+
+import java.util.List;
 
 /**
  * @Author: zhong

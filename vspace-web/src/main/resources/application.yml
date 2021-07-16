@@ -21,8 +21,6 @@ dubbo:
       simplified: true #注册到注册中心的URL是否采用精简模式（与低版本兼容）
    metadata-report:
       address: zookeeper://122.9.144.83:2181
-
-
 #配置springboot热部署
 spring:
    devtools:
