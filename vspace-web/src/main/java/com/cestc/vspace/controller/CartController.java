@@ -1,10 +1,8 @@
 package com.cestc.vspace.controller;
 
 import com.cestc.vspace.pojo.Cart;
-import com.cestc.vspace.pojo.UserList;
 import com.cestc.vspace.service.CartService;
-import com.cestc.vspace.service.UserlistService;
-import org.apache.dubbo.config.annotation.Reference;
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,9 +36,9 @@ public class CartController {
     }
     @RequestMapping("incereseCart")
     public boolean increase(Integer caid,Integer cid,Integer uid,Integer quantity){
-        if(cartService.findbyCD(cid,uid)!=null){
-            Cart cc=cartService.findbyCD(cid,uid);
-            cartService.updateOfquality(cc,quantity);
+        if(cartService.findByCD(cid,uid)!=null){
+            Cart cc=cartService.findByCD(cid,uid);
+            cartService.updateOfQuality(cc,quantity);
         }
         else {
             Cart cc=cartService.findById(caid);
@@ -50,7 +48,7 @@ public class CartController {
     }
     @RequestMapping("find_of_user")
     public List<Cart> find_by_user(Integer uid){
-        List<Cart> carts=cartService.find_of_usre(uid);
+        List<Cart> carts=cartService.findOfUser(uid);
         Iterator<Cart> iter = carts.iterator();
         while(iter.hasNext()) {
             System.out.println(iter.next().getCaid());
