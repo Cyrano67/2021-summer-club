@@ -23,9 +23,13 @@ public class OrderinfoController {
         return ordersinfoservice.findOrderByNum(num);
     }
 
+//    @RequestMapping("delete_by_id")
+//    public boolean deleteOrder_By_Id(Integer oid, Integer orderNo, Integer payment, Integer paymentType, Integer postage, Integer status, Integer shippingId, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime, Integer caid){
+//        OrdersInfo ord=new OrdersInfo(oid,orderNo,payment,paymentType,postage,status,shippingId,paymentTime,sendTime,endTime,closeTime,createTime,updateTime,caid);
+//        return ordersinfoservice.deleteOrderById(ord);
+//    }
     @RequestMapping("delete_by_id")
-    public boolean deleteOrder_By_Id(Integer oid, Integer orderNo, Integer payment, Integer paymentType, Integer postage, Integer status, Integer shippingId, Date paymentTime, Date sendTime, Date endTime, Date closeTime, Date createTime, Date updateTime, Integer caid){
-        OrdersInfo ord=new OrdersInfo(oid,orderNo,payment,paymentType,postage,status,shippingId,paymentTime,sendTime,endTime,closeTime,createTime,updateTime,caid);
+    public boolean deleteOrder_By_Id(OrdersInfo ord){
         return ordersinfoservice.deleteOrderById(ord);
     }
 
@@ -35,5 +39,4 @@ public class OrderinfoController {
         return ordersinfoservice.insertOrders(orders);
     }
 
-    //欠缺：两个更新接口：updateOrderByNum&updateOrderById
 }
