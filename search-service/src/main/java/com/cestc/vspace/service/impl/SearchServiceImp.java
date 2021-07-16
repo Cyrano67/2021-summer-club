@@ -37,6 +37,19 @@ public class SearchServiceImp implements SearchService {
     @Autowired
     private SolrClient solrClient;
 
+    @Override
+    public PageResult searchPageTest(Condition condition) {
+        SolrQuery query = new SolrQuery();
+        System.out.println("Solr establish");
+        query.set("q","cloth_keywords:" + condition.getSearchString() + "");
+        System.out.println("keywords set");
+        query.addFilterQuery("cloth_price:[" + condition.getMinPrice() + " TO " + condition.getMaxPrice() + "]");
+        System.out.println("price set");
+
+        PageResult pageResult = new PageResult();
+        pageResult.setPages(condition.getPageSize());
+        return pageResult;
+    }
     //在搜索服务中注入服装服务模块clothesService,通过调用服装服务模块的方法从数据库查询到商品信息,
     //然后通过search-service中的addSolrDoc(List list)将数据写入到solr索引库中,
     //此时search-service即是服务的提供者也是消费者

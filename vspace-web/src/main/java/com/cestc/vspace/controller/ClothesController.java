@@ -24,7 +24,7 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/clo")
+@RequestMapping("/clothes")
 public class ClothesController {
     //远程调度商品服务
     @Reference
@@ -61,7 +61,8 @@ public class ClothesController {
         //分页查询: 此处是直接从数据库查询的数据进行分页
         //PageResult pageResult = clothesService.findPageByCondition(condition);
         //分页查询: 从solr索引库中查询
-        PageResult pageResult = searchService.searchPage(condition);
+        PageResult pageResult = searchService.searchPageTest(condition);
+        System.out.println("dataList: " + pageResult.getDataList());
         return pageResult;
     }
 
