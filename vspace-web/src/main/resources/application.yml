@@ -20,6 +20,10 @@ dubbo:
       #将服务本身必须要但是消费者不需要的数据存放到元数据中心,这样可以提供性能和服务调度的效率
       simplified: true #注册到注册中心的URL是否采用精简模式（与低版本兼容）
 
+   # for datasoruce bug
+   metadata-report:
+      address: ${dubbo.registry.address}
+
 #配置springboot热部署
 spring:
    devtools:

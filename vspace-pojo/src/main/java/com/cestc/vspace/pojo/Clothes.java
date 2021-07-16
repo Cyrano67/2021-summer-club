@@ -1,6 +1,8 @@
 package com.cestc.vspace.pojo;
 
-public class Clothes {
+import java.io.Serializable;
+
+public class Clothes implements Serializable {
     private Integer cid;
 
     private String cname;
