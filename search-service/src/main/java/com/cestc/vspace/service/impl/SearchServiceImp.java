@@ -37,7 +37,7 @@ public class SearchServiceImp implements SearchService {
     @Autowired
     private SolrClient solrClient;
 
-    //在搜索服务中注入商品服务模块,通过调用商品服务模块的方法从数据库查询到商品信息,
+    //在搜索服务中注入服装服务模块clothesService,通过调用服装服务模块的方法从数据库查询到商品信息,
     //然后通过search-service中的addSolrDoc(List list)将数据写入到solr索引库中,
     //此时search-service即是服务的提供者也是消费者
     @Override
@@ -92,13 +92,13 @@ public class SearchServiceImp implements SearchService {
         System.out.println("solr过滤查询语句是: " + Arrays.toString(query.getFilterQueries()));
 
         //执行查询命令得到查询结果
-        List<ClothesWithBLOBS> goodsList = null;
+        List<ClothesWithBLOBS> clothesList = null;
         long totalItems = 0;
         int pages = 0;
         try {
             QueryResponse queryResponse = solrClient.query(query);
             //将查询结果映射成实体集合(注意该实体属性需要通过solr提供的@Field进行注解)
-            goodsList = queryResponse.getBeans(ClothesWithBLOBS.class);
+            clothesList = queryResponse.getBeans(ClothesWithBLOBS.class);
             //获取数据总记录数
             SolrDocumentList results = queryResponse.getResults();
             totalItems = results.getNumFound();
@@ -109,7 +109,7 @@ public class SearchServiceImp implements SearchService {
                 Map<String, Map<String, List<String>>> highlighting = queryResponse.getHighlighting();
                 if (highlighting != null) {
                     //将高亮结果循环绑定给返回结果集合
-                    for (ClothesWithBLOBS goods : goodsList) {
+                    for (ClothesWithBLOBS goods : clothesList) {
                         //根据商品编号获取高集合(该集合的长度由指定的高亮字段的数量决定)
                         //注意key是String类型,goodsId是Long类型,通过拼接转化成String(否则获取不了数据)
                         Map<String, List<String>> highMap = highlighting.get(goods.getCid() + "");
@@ -136,7 +136,7 @@ public class SearchServiceImp implements SearchService {
         PageResult pageResult = new PageResult();
         pageResult.setPages(pages);
         pageResult.setTotalItems(totalItems);
-        pageResult.setDataList(goodsList);
+        pageResult.setDataList(clothesList);
         return pageResult;
     }
 

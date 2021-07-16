@@ -11,7 +11,7 @@
   <artifactId>vspace-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>vspace-web Maven Webapp</name>
+  <name>vspace-web</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 	  <!--添加分页插件依赖-->

@@ -10,7 +10,7 @@ import org.apache.solr.client.solrj.beans.Field;
  */
 public class ClothesWithBLOBS extends Clothes {
 
-    @Field("goods_image_url")
+    @Field("clothes_image_url")
     private String imageUrl;
 
 

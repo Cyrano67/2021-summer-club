@@ -5,9 +5,12 @@ import com.cestc.vspace.dto.PageResult;
 import com.cestc.vspace.service.clothesService;
 import com.cestc.vspace.service.SearchService;
 import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import sun.awt.SunHints;
 
 /**
  * @Author: zhong
@@ -18,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/clothes")
-
 public class ClothesController {
     //远程调度商品服务
     @Reference
@@ -27,18 +29,20 @@ public class ClothesController {
     @Reference
     private SearchService searchService;
 
+
     //多条件分页查询
-    @RequestMapping("/findPageByCondition")
-    public PageResult findPageByCondition(@RequestBody Condition condition){
+    @RequestMapping("/demo")
+    public PageResult findPageByCondition(@RequestBody Condition  condition){
+        System.out.println("test access: "+ condition.getSearchString() + condition.getPageNo());
         //根据一级级类型编号,查询出所有的二级级类型编号
         /* if (condition.getCategoryId() != 0) {
             condition.setCategoryIdList(categoryService.findSecondCategoryIdList(condition.getCategoryId()));
         }*/
         //分页查询: 此处是直接从数据库查询的数据进行分页
         //PageResult pageResult = clothesService.findPageByCondition(condition);
-        System.out.println("~~~~~~~~~~~~搜索关键字是: " + condition.getSearchString() + "~~~~~~~~~~~~~");
         //分页查询: 从solr索引库中查询
         PageResult pageResult = searchService.searchPage(condition);
         return pageResult;
     }
+
 }
