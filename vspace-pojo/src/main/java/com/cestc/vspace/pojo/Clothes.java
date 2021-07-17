@@ -1,21 +1,37 @@
 package com.cestc.vspace.pojo;
 
+import org.apache.solr.client.solrj.beans.Field;
 import java.io.Serializable;
 
-public class Clothes implements Serializable {
+public class Clothes {
+    @Field("cloth_id")
     private Integer cid;
 
+    @Field("cloth_name")
     private String cname;
 
+    @Field("cloth_price")
     private Integer price;
 
+    @Field("discription")
     private String discription;
 
+    @Field("address")
     private String picAddr;
 
+    @Field("merchant")
     private String merchant;
 
+    @Field("size")
     private String size;
+
+    @Override
+    public String toString() {
+        return "Cloth{" +
+                "cloth_id=" + cid +
+                ", cloth_name='" + cname +
+                '}';
+    }
 
     public Integer getCid() {
         return cid;
@@ -76,6 +92,10 @@ public class Clothes implements Serializable {
     public Clothes(Integer cid,String cname,Integer price,String discription,String picAddr,String merchant,String size){
         this.cid=cid;this.cname=cname;this.price=price;this.discription=discription;
         this.picAddr=picAddr;this.merchant=merchant;this.size=size;
+
+    }
+
+    public Clothes(){
 
     }
 }

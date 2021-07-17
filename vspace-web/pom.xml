@@ -11,7 +11,7 @@
   <artifactId>vspace-web</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>vspace-web Maven Webapp</name>
+  <name>vspace-web</name>
   <url>http://maven.apache.org</url>
   <dependencies>
 	  <!--添加分页插件依赖-->
@@ -35,8 +35,6 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-configuration-processor</artifactId>
 	</dependency>
-
-
 		<dependency>
 			<groupId>com.cestc</groupId>
 			<artifactId>cart-api</artifactId>
@@ -46,7 +44,7 @@
 			<groupId>com.cestc</groupId>
 			<artifactId>vspace-pojo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<type>war</type>
+			<type>jar</type>
 		</dependency>
 		<dependency>
 			<groupId>com.cestc</groupId>
@@ -129,7 +127,13 @@
 		<artifactId>alipay-sdk-java</artifactId>
 		<version>3.1.0</version>
 		</dependency>
-		
+      <dependency>
+          <groupId>com.cestc</groupId>
+          <artifactId>search-api</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+          <scope>compile</scope>
+      </dependency>
+
   </dependencies>
   <build>
     <finalName>vspace-web</finalName>

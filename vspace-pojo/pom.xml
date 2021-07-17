@@ -9,7 +9,7 @@
   </parent>
   <artifactId>vspace-pojo</artifactId>
   <packaging>jar</packaging>
-  <name>vspace-pojo Maven Webapp</name>
+  <name>vspace-pojop</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
@@ -17,6 +17,10 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>org.apache.solr</groupId>
+          <artifactId>solr-solrj</artifactId>
+      </dependency>
   </dependencies>
   <build>
 	  <plugins>
