@@ -1,7 +1,7 @@
 app.controller("shop-controller",function ($scope,$controller,$http){
 
-    //使用如下方式继承base_controller
-    // $controller("base_controller",{$scope:$scope});
+    //使用如下方式继承loginStatus_controller
+    $controller("lgstCtrl",{$scope:$scope});
 
     //初始化Shop页面使用的初始化方法
     $scope.initShop = function (){

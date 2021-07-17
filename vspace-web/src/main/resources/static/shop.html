@@ -43,7 +43,11 @@
 
 		<script src="js/controller/base_controller.js"></script>
 
+		<script src="js/LoginStatusAdapt.js"></script>
+
 		<script src="js/controller/shop-controller.js"></script>
+
+
     </head>
 	<body ng-app="vspace" ng-controller="shop-controller" ng-init="initShop()">
         <!--[if lt IE 8]>
@@ -89,9 +93,10 @@
 									</ul>
 								</div>
 								<div class="account">
-									<a class="login" href="login.html">Sign in</a>
-									<span>Or</span>
-									<a class="register" href="login.html">Register</a>
+									<span>{{Hello()}}</span>
+									<span>{{User()}}</span>
+									<a class="login" href="login">{{Login()}}</a>
+									<a class="logout" href="logout">{{Logout()}}</a>
 								</div>
 							</div>
 						</div>

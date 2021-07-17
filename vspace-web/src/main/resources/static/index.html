@@ -32,7 +32,8 @@
 		<!-- modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
-         <script src="js/LoginStatus.js"></script>
+		<script src="js/base/base.js"></script>
+	 	<script src="js/LoginStatusAdapt.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -77,7 +78,7 @@
 										</li>
 									</ul>
 								</div>
-								<div class="account" ng-app="loginstatus" ng-controller="lgstCtrl">
+								<div class="account" ng-app="vspace" ng-controller="lgstCtrl">
 									<span>{{Hello()}}</span>
 									<span>{{User()}}</span>
 									<a class="login" href="login">{{Login()}}</a>
