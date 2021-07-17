@@ -3,7 +3,7 @@ package com.cestc.vspace.pojo;
 import org.apache.solr.client.solrj.beans.Field;
 import java.io.Serializable;
 
-public class Clothes {
+public class Clothes implements Serializable {
     @Field("cloth_id")
     private Integer cid;
 

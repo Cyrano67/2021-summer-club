@@ -29,8 +29,14 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+		<!-- 定义初始化动作-->
+		<script src="js/angularjs/angular.min.js"></script>
+		<script src="js/base/base_detail.js"></script>
+		<script src="js/controller/base_controller.js"></script>
+		<script src="js/showDetail.js"></script>
     </head>
-    <body>
+    <body ng-app="richman-details-show-app" ng-controller="richman-details-show-ctrl">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -373,10 +379,10 @@
 							</div>
 							<div class="col-md-7 col-sm-7 col-xs-12 shop-list shop-details">
 								<div class="product-content">
-									<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
+									<h2> {{cname}} </h2>
 									<div class="price">
-										<span>$80.00</span>
-										<span class="old">$90.11</span>
+										<span> ￥{{price}} </span>
+<!--										<span class="old">$90.11</span>-->
 									</div>
 									<div class="s-p-rating">
 										<span class="rating">
