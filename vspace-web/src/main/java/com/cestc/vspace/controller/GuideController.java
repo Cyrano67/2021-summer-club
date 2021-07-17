@@ -39,6 +39,11 @@ public class GuideController {
 			System.out.println("session validated: "+autologin);
 		return "login.html";
 	}
+
+	@RequestMapping("/detail")
+	public String todetail(){
+		return "product-details.html";
+	}
 	
 	public GuideController() {
 		// TODO Auto-generated constructor stub

@@ -6,7 +6,7 @@ app.controller("richman-details-show-ctrl",function($scope,$controller,$http){
     var host = location.host;
 
     // for test,自己设置sessionStorage
-    sessionStorage.setItem("product_id",1);
+    // sessionStorage.setItem("product_id",1);
 
     // 从session中得到需要打开的商品ID
     $scope.cid=sessionStorage.getItem("product_id");
