@@ -26,15 +26,25 @@ app.controller("base_controller",function($scope,$http){
     //创建方法: 在购物车页面加载的时候调用,用于查询当前用户的所用购物车信息
     $scope.findCartsByPhone=function (){
         //验证是否登录
-        if (!$scope.checkLogin()) {
-            //跳转到登录页面
-            window.location.href="login-register.html";
-            return;
-        }
-        $http.get("/cart/findCartsByPhone?phone=" + window.sessionStorage.getItem("phone")).success(function(results){
+//        if (!$scope.checkLogin()) {
+//            //跳转到登录页面
+//            window.location.href="login.html";
+//            return;
+//        }
+//        $http.get("/cart/find_of_user?uid=" + window.sessionStorage.getItem("uid")).success(function(results){
+//            //循环转换imageUrl为json
+//            for (let i = 0; i < results.length; i++) {
+//                results[i].relateOne.picAddr = JSON.parse(results[i].relateOne.picAddr);
+//            }
+//            $scope.results = results;
+//            console.log(results);
+//            //计算总价
+////            $scope.calculateSumPrice($scope.results);
+//        });
+        $http.get("/cart/find_of_user?uid=3").success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.imageUrl = JSON.parse(results[i].relateOne.imageUrl);
+                results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
             }
             $scope.results = results;
             console.log(results);
@@ -46,7 +56,7 @@ app.controller("base_controller",function($scope,$http){
     $scope.calculateSumPrice=function(results){
         var totalPrice = 0;
         for (let i = 0; i < results.length; i++) {
-            totalPrice += results[i].entity.ammount * results[i].relateOne.price * results[i].relateOne.discount;
+            totalPrice += results[i].entity.quantity * results[i].relateOne.price;
         }
         $scope.goodsTotalPrice = parseFloat(totalPrice.toFixed(2));//保留两位小数
         //随机生成一个运费
@@ -97,8 +107,8 @@ app.controller("base_controller",function($scope,$http){
     }
 
     //创建方法: 用于删除购物车信息
-    $scope.deleteCart=function(cartId){
-        $http.get("/cart/deleteCart?cartId=" + cartId).success(function(result){
+    $scope.deleteCart=function(caid){
+        $http.get("/cart/deleteCart?caid=" + caid).success(function(result){
             //删除成功之后,重新查询
             $scope.findCartsByPhone();
         });

@@ -351,7 +351,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
-						<form ng-app="cartApp" ng-controller="cartController" action="#">
+						<form ng-app="cartApp" ng-controller="cartController" ng-init="initialCart()" action="#">
 							<div class="table-content table-responsive">
 								<table>
 									<thead>
@@ -365,22 +365,39 @@
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
+										<tr ng-repeat="product in products">
+											<td class="product-thumbnail"><a href="#"><img ng-src="{{r.relateOne.picAddr}}" alt="" /></a></td>
+											<td class="product-name"><a href="#">{{r.relateOne.cname}}</a>a></td>
+											<td class="product-price"><span class="amount">${{r.relateOne.price | number:2}}</span></td>
+											<td class="product-quantity">
+												<div class="pro-qty">
+													<span class="dec qtybtn" ng-click="minus($index,r.entity.caid)">-</span>
+													<input type="text" ng-model="r.entity.quantity"/>
+													<span class="inc qtybtn" ng-click="add($index,r.entity.caid)">+</span>
+												</div>
+											</td>
+											<td class="product-subtotal"><span>${{r.relateOne.price * r.entity.quantity | number:2}}</span></td>
+											<td class="product-remove">
+												<a href="#"><i class="fa fa-times"></i></a>
+												<a href="#" ng-click="deleteCart(r.entity.caid)">
+													<i class="fa fa-trash-o"></i>
+												</a>
+											</td>
 <!--											<td class="product-thumbnail"><a href="#"><img src="img/cart/2.jpg" alt="" /></a></td>-->
-											<td class="product-thumbnail"><a href="#"><img ng-src="{{basic.headImages}}" alt="" /></a></td>
-											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
-											<td class="product-price"><span class="amount">£125.00</span></td>
-											<td class="product-quantity"><input type="number" value="1" /></td>
-											<td class="product-subtotal">£125.00</td>
-											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-										</tr>
-										<tr>
-											<td class="product-thumbnail"><a href="#"><img src="img/cart/3.jpg" alt="" /></a></td>
-											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
-											<td class="product-price"><span class="amount">£90.00</span></td>
-											<td class="product-quantity"><input type="number" value="1" /></td>
-											<td class="product-subtotal">£90.00</td>
-											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+<!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{basic.headImages}}" alt="" /></a></td>-->
+<!--											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>-->
+<!--											<td class="product-price"><span class="amount">£125.00</span></td>-->
+<!--											<td class="product-quantity"><input type="number" value="1" /></td>-->
+<!--											<td class="product-subtotal">£125.00</td>-->
+<!--											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
+<!--										</tr>-->
+<!--										<tr>-->
+<!--											<td class="product-thumbnail"><a href="#"><img src="img/cart/3.jpg" alt="" /></a></td>-->
+<!--											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>-->
+<!--											<td class="product-price"><span class="amount">£90.00</span></td>-->
+<!--											<td class="product-quantity"><input type="number" value="1" /></td>-->
+<!--											<td class="product-subtotal">£90.00</td>-->
+<!--											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
 										</tr>
 									</tbody>
 								</table>
