@@ -14,9 +14,9 @@
 ### 关于向商品详情页跳转
 
 1. 使用任意一个继承了`js/base_controller`的`ng-controller`
-2. 在跳转链接处引用`jumpDetail(product_id)`方法，其中`product_id`是商品的链接
+2. 在跳转链接处引用`jumpDetail(product_id)`方法，其中`product_id`是商品的ID
 
-例子：
+​    例子：
 
 ```html
 <div ng-app="test-app" ng-controller="test-ctrl">
@@ -25,4 +25,6 @@
     </a>
 </div>
 ```
+
+*注：session中写入了`product_id`的item，注意不要同名哈*
 
