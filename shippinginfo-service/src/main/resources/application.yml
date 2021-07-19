@@ -25,7 +25,7 @@ dubbo:
 #协议
    protocol:
       name: dubbo
-      port: 20886
+      port: 20889
    #指定定扫描的基础包
    scan:
       base-packages: com.cestc.vspace.service.impl
