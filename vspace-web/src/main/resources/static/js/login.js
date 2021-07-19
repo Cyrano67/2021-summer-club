@@ -57,6 +57,6 @@ loginApp.controller('loginCtrl',function ($scope, $http, $location) {
                 window.sessionStorage.setItem("uname",response.msg);
                 window.location = "index.html";
             }
-        });
+        }); 
     }
 });
