@@ -46,7 +46,6 @@ public class SearchServiceImp implements SearchService {
         SolrQuery query = new SolrQuery();
         query.set("q","discription:" + condition.getSearchString() + "");
 
-
 //        //设置fq多条件过滤查询: 多条件之间使用and | or 关键字连接
 //        if (condition.getCategoryIdList() != null) {
 //            String categoryIdCondition = "(";

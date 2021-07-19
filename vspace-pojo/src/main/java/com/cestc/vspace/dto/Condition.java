@@ -20,7 +20,7 @@ public class Condition implements Serializable {
     private Integer minPrice;
     //最高价格
     private Integer maxPrice;
-    //商品排序类型
+    //商品排序类型（新增）
     private Integer sortType;
     //搜索关键词
     private String searchString;
