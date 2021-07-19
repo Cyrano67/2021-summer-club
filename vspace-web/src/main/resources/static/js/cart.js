@@ -1,44 +1,56 @@
+var app = angular.module("cartApp", []);
+
 //通过模块对象创建一个控制器对象
-app.controller("vspace-cart-controller",function($scope,$controller,$http){
+app.controller("cartController",function($scope,$controller,$http){
+
+//    $scope.products = [{"img":"http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg","name":"name1","price":"$10","quantity":"10","cartID":"10"}]
+
     //使用如下方式继承base_controller
     $controller("base_controller",{$scope:$scope});
     //创建一个方法在页面加载的时候调用
     $scope.initialCart=function(){
         //调用父控制器中的init()方法
-        $scope.init();
+//        $scope.init();
         //页面加载的时候查询当前用户的所有购物车信息
         $scope.findCartsByPhone();
         //查询当前用户的默认收货地址
-        $scope.findDefaultReceiveAddr();
+//        $scope.findDefaultReceiveAddr();
     }
 
     //创建方法: 用于更新购物车
-    $scope.updateCart=function(cartId,ammount){
-        var cart = {"cartId":cartId,"ammount":ammount};
-        $http.post("/cart/updateCart",cart).success(function(result){
+    $scope.updateCart=function(caid,cid,uid,quantity){
+        var cart = {"caid":caid,"cid":cid,"uid":uid,"quantity":quantity};
+        $http.post("/cart/increaseCart",cart).success(function(result){
             console.log("update success!");
         });
     }
 
+    //创建方法: 用于更新购物车
+//    $scope.deleteCart=function(caid){
+//        $http.post("/cart/deleteById",caid).success(function(result){
+//            console.log("delete success!");
+//        });
+//    }
+
     //点击"+"
-    $scope.add=function(index,cartId){
-        $scope.results[index].entity.ammount ++;
+    $scope.add=function(index,caid){
+        $scope.results[index].entity.quantity ++;
         //计算总价
         $scope.calculateSumPrice($scope.results);
         //同步到数据库
-        $scope.updateCart(cartId,$scope.results[index].entity.ammount);
+        $scope.updateCart(caid,$scope.results[index].entity.cid,$scope.results[index].entity.uid,$scope.results[index].entity.quantity);
     }
 
     //点击"-"
-    $scope.minus=function(index,cartId){
-        $scope.results[index].entity.ammount --;
-        if ($scope.results[index].entity.ammount < 1) {
-            $scope.results[index].entity.ammount = 1
+    $scope.minus=function(index,caid){
+        $scope.results[index].entity.quantity --;
+        if ($scope.results[index].entity.quantity < 1) {
+            $scope.results[index].entity.quantity = 1
         }
         //计算总价
         $scope.calculateSumPrice($scope.results);
         //同步到数据库
-        $scope.updateCart(cartId,$scope.results[index].entity.ammount);
+        $scope.updateCart(caid,$scope.results[index].entity.cid,$scope.results[index].entity.uid,$scope.results[index].entity.quantity);
     }
 
     //创建方法查询当前用户的默认收货地址
