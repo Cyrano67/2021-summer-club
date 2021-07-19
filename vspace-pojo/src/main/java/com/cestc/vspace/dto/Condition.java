@@ -17,9 +17,9 @@ public class Condition implements Serializable {
     //商品二级类型编号
     private Integer categoryId;
     //最低价格
-    private double minPrice;
+    private Integer minPrice;
     //最高价格
-    private double maxPrice;
+    private Integer maxPrice;
     //搜索关键词
     private String searchString;
 
@@ -71,19 +71,19 @@ public class Condition implements Serializable {
         this.categoryId = categoryId;
     }
 
-    public double getMinPrice() {
+    public Integer getMinPrice() {
         return minPrice;
     }
 
-    public void setMinPrice(double minPrice) {
+    public void setMinPrice(Integer minPrice) {
         this.minPrice = minPrice;
     }
 
-    public double getMaxPrice() {
+    public Integer getMaxPrice() {
         return maxPrice;
     }
 
-    public void setMaxPrice(double maxPrice) {
+    public void setMaxPrice(Integer maxPrice) {
         this.maxPrice = maxPrice;
     }
 

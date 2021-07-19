@@ -15,7 +15,7 @@ public interface SearchService {
     //创建方法: 按关键字搜索[并分页][排序]显示
     //①: 将关键字、分页信息、查询条件等信息都封装到Condition中
     //②: 将查询结果封装到PageResult实体中
-    PageResult searchPage(Condition condition);
+//    PageResult searchPage(Condition condition);
     PageResult searchPageTest(Condition condition);
     //将集合数据写入sorl索引库(修改相同: 如果存在就修改,如果不存在就增加)
     void addSolrDoc(List list);

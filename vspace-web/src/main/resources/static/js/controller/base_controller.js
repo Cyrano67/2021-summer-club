@@ -44,7 +44,7 @@ app.controller("base_controller",function($scope,$http){
         $http.get("/cart/find_of_user?uid=3").success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.picAddr = "http://116.63.130.162:49163/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
+                results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
             }
             $scope.results = results;
             console.log(results);
@@ -67,7 +67,7 @@ app.controller("base_controller",function($scope,$http){
     //由于多个页面中都会存在根据编号查询商品信息的情况,此处将
     //创建方法: 根据编号查询商品信息
     $scope.findGoodsById=function(goodsId){
-        $http.get("/index/findGoodsById?goodsId=" + goodsId).success(function(goods){
+        $http.get("/clothes/findByUid?goodsId=" + goodsId).success(function(goods){
             goods.imageUrl = JSON.parse(goods.imageUrl);
             console.log(goods);
             $scope.quickViewGoods = goods;

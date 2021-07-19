@@ -38,6 +38,9 @@ spring:
       exclude: WEB-INF/**
   freemarker:
     cache: false #页面不加载缓存,修改及时生效
+  data:
+    solr:
+      host: http://116.63.137.183:8080/solr-4.10.3/collection1
 #配置spring boot的日志: 默认使用slf4j(接口) + logback(实现)作为日志框架
 logging:
   config: classpath:logback-spring.xml

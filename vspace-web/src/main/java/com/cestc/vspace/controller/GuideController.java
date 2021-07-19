@@ -44,6 +44,12 @@ public class GuideController {
 	public String todetail(){
 		return "product-details.html";
 	}
+
+	// 测试用
+	@RequestMapping("/test")
+	public String totest(){
+		return "product-details.html";
+	}
 	
 	public GuideController() {
 		// TODO Auto-generated constructor stub
