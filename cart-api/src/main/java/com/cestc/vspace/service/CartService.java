@@ -6,15 +6,22 @@ import com.cestc.vspace.pojo.Cart;
 import java.util.List;
 
 public interface CartService {
-	
+
+	// 根据购物车ID查找
 	Cart findById(int caid);
-	
+
+	// 加入购物车？
 	boolean register(Cart cart);
 
+	// 根据购物车ID删除
 	boolean deleteById(int caid);
-	int updateOfquality(Cart cart_ori,int number);
-	Cart findbyCD(int cid,int uid);
+
+	// 更新购物车
+	int updateOfQuatity(Cart cart_ori,int number);
+
+	Cart findByCD(int cid,int uid);
+
 	boolean delete(Integer caid);
 
-	List<Cart> find_of_usre(Integer uid);
+	List<Cart> findOfUser(Integer uid);
 }

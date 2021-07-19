@@ -8,6 +8,8 @@ public class Result implements Serializable {
 	
 	private String Msg;
 	
+	private String alterMsg;
+	
 	public boolean getResultTag() {
 		return this.resultTag;
 	}
@@ -22,6 +24,14 @@ public class Result implements Serializable {
 
 	public void setMsg(String msg) {
 		this.Msg = msg;
+	}
+	
+	public String getalterMsg() {
+		return this.alterMsg;
+	}
+
+	public void setalterMsg(String msg) {
+		this.alterMsg = msg;
 	}
 	
 	public Result() {

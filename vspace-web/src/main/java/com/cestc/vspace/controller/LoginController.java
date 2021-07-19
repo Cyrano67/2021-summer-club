@@ -68,6 +68,7 @@ public class LoginController {
 			System.out.println(uname.intern());
 			result.setResultTag(true);
 			result.setMsg(uname);
+			result.setalterMsg(uid.toString());
 		}else {
 			System.out.println("---------------用户名或密码错误--------------------------------");
 //			request.setAttribute("login_msg", "用户名或密码错误");
@@ -114,6 +115,7 @@ public class LoginController {
 			System.out.println(uname.intern());
 			result.setResultTag(true);
 			result.setMsg(uname);
+			result.setalterMsg(uid.toString());
 		}else {
 			System.out.println("---------------用户名或密码错误--------------------------------");
 //			request.setAttribute("login_msg", "用户名或密码错误");
