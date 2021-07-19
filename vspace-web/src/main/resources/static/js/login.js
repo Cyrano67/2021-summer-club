@@ -4,7 +4,7 @@ loginApp.controller('loginCtrl',function ($scope, $http, $location) {
     //定义一个对象用于封装登录用户信息
     $scope.user = {"uid":0,"uname":"","password":"","email":"","phone":"","role":0};
     //定义一个对象用于封装注册用于信息
-    $scope.regUser = {"uid":0,"uname":"richman9527","password":"","email":"","phone":"","role":0};
+    $scope.regUser = {"uid":0,"uname":"","password":"","email":"","phone":"","role":0};
     /**
      * 创建一个方法用于登录
      */

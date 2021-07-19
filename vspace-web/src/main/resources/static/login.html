@@ -357,7 +357,7 @@
 		</div>
 		<!-- breadcrumb-area end -->
 		<!-- login-area start -->
-		<div class="login-area">
+		<div class="login-area"  ng-app="loginApp" ng-controller="loginCtrl" >
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">
@@ -368,7 +368,7 @@
 								<a href="#"><i class="fa fa-facebook"></i> Sign in with facebook</a>
 								<a class="twitter" href="#"><i class="fa fa-twitter"></i> Sign in with twitter</a>
 							</div>
-							<form id="form_login" ng-app="loginApp" ng-controller="loginCtrl" >
+							<form id="form_login">
 								<label>Phone Number</label>
 								<input type="text" ng-model="user.phone"/>
 								<label>Password</label>
@@ -383,19 +383,26 @@
 									</span>
 								</div>
 								<input ng-click="login_req()" class="login-sub" type="submit" value="Login" />
-
 							</form>
+							
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="login-content login-margin">
 							<h2 class="login-title">create a new account</h2>
 							<p>Create your own Unicase account.</p>
-							<form action="#">
-								<label>Email Address</label>
-								<input type="text" />
-								<input class="login-sub" type="submit" value="sign up" />
+							<form id="form_login">
+								<label>Phone Number</label>
+								<input type="text" ng-model="regUser.phone"/>
+								<label>User Name</label>
+								<input type="text" ng-model="regUser.uname"/>
+								<label>Password</label>
+								<input type="text" ng-model="regUser.password"/>
+								<label>Repeat Password</label>
+								<input type="text" ng-model="regUser.rppwd"/>
+								<input ng-click="register()" class="login-sub" type="submit" value="Signup" />
 							</form>
+							
 							<div class="sign-up-today">
 								<h2 class="login-title">sign up today and you'll be able to:</h2>
 								<ul>
