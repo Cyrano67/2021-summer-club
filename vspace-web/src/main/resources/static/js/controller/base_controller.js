@@ -2,13 +2,13 @@
 app.controller("base_controller",function($scope,$http){
     $scope.myAccount = "我的账户";
     //创建一个方法在页面加载的时候调用
-    // $scope.init=function(){
-    //     //调用验证登录的方法,设置myAccount变量的数据
-    //     //if ($scope.checkLogin()) {
-    //         //在初始化的时候,如果登录成功者进行当前用户购物车的信息查询
-    //         //$scope.findCartsByPhone(3);
-    //     //}
-    // }
+    $scope.init=function(){
+        //调用验证登录的方法,设置myAccount变量的数据
+        if ($scope.checkLogin()) {
+            //在初始化的时候,如果登录成功者进行当前用户购物车的信息查询
+            $scope.findCartsByPhone();
+        }
+    }
 
     //单独创建方法用于验证是否登录
 
@@ -25,14 +25,26 @@ app.controller("base_controller",function($scope,$http){
 
     //创建方法: 在购物车页面加载的时候调用,用于查询当前用户的所用购物车信息
     $scope.findCartsByPhone=function (){
-        //window.sessionStorage.setItem("uid",3);
-        $http.get("/cart/find_by_user?uid=" + window.sessionStorage.getItem("uid")).success(function(results){
+        //验证是否登录
+//        if (!$scope.checkLogin()) {
+//            //跳转到登录页面
+//            window.location.href="login.html";
+//            return;
+//        }
+//        $http.get("/cart/find_of_user?uid=" + window.sessionStorage.getItem("uid")).success(function(results){
+//            //循环转换imageUrl为json
+//            for (let i = 0; i < results.length; i++) {
+//                results[i].relateOne.picAddr = JSON.parse(results[i].relateOne.picAddr);
+//            }
+//            $scope.results = results;
+//            console.log(results);
+//            //计算总价
+////            $scope.calculateSumPrice($scope.results);
+//        });
+        $http.get("/cart/find_of_user?uid=3").success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.picAddr= JSON.parse(results[i].relateOne.picAddr);
-                results[i].relateOne.price=JSON.parse(results[i].relateOne.price);
-                results[i].relateOne.cname=JSON.parse(results[i].relateOne.cname);
-                results[i].entity.quantity=JSON.parse(results[i].entity.quantity);
+                results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
             }
             $scope.results = results;
             console.log(results);
@@ -47,6 +59,8 @@ app.controller("base_controller",function($scope,$http){
             totalPrice += results[i].entity.quantity * results[i].relateOne.price;
         }
         $scope.goodsTotalPrice = parseFloat(totalPrice.toFixed(2));//保留两位小数
+        //随机生成一个运费
+        //$scope.freight = parseFloat(Math.round(Math.random() * (15 - 5 + 1) + 5).toFixed(2));
         $scope.freight = 0.00;//此案例默认包邮,邮费设置为0
         $scope.totalPrice = ($scope.goodsTotalPrice + $scope.freight).toFixed(2);
     }
@@ -71,11 +85,11 @@ app.controller("base_controller",function($scope,$http){
     //创建方法: 添加购物车
     $scope.insertCart=function(goodsId){
         //验证是否登录
-        if (!$scope.checkLogin()) {
-            //跳转到登录页面
-            window.location.href="login-register.html";
-            return;
-        }
+        // if (!$scope.checkLogin()) {
+        //     //跳转到登录页面
+        //     window.location.href="login-register.html";
+        //     return;
+        // }
         //创建一个json对象用于存放购物车数据
         var cart = {"phone":window.sessionStorage.getItem("phone"),"goodsId":goodsId,"ammount":"1"};
         $http.post("/cart/insertCart",cart).success(function(result){
@@ -91,9 +105,10 @@ app.controller("base_controller",function($scope,$http){
             $scope.categories = result;
         });
     }
+
     //创建方法: 用于删除购物车信息
-    $scope.deleteCart=function(cartId){
-        $http.get("/cart/deleteCart?cartId=" + cartId).success(function(result){
+    $scope.deleteCart=function(caid){
+        $http.get("/cart/deleteCart?caid=" + caid).success(function(result){
             //删除成功之后,重新查询
             $scope.findCartsByPhone();
         });

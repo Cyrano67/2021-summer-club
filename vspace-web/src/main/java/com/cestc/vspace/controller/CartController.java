@@ -1,8 +1,10 @@
 package com.cestc.vspace.controller;
 
 import com.cestc.vspace.pojo.Cart;
+import com.cestc.vspace.pojo.UserList;
 import com.cestc.vspace.service.CartService;
-import jdk.nashorn.internal.ir.annotations.Reference;
+import com.cestc.vspace.service.UserlistService;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,25 +19,26 @@ public class CartController {
     private CartService cartService;
 
     @RequestMapping("findBycid")
-    public Cart findCartById(){
-        Cart cart =cartService.findById(1);
+    public Cart findBycid(int caid){
+        Cart cart =cartService.findById(caid);
         System.out.println();
         return cart;
     }
 
     @RequestMapping("Register")
-    public boolean register(Cart recordd){
+    public boolean Register(Cart recordd){
         boolean flag =cartService.register(recordd);
         return flag;
     }
 
     @RequestMapping("deleteById")
-    public boolean delete(int caid){
+    public boolean deleteById(int caid){
         boolean flag=cartService.deleteById(caid);
         return flag;
     }
-    @RequestMapping("increaseCart")
-    public boolean increase(Integer caid,Integer cid,Integer uid,Integer quantity){
+
+    @RequestMapping("incereseCart")
+    public boolean incereseCart(Integer caid,Integer cid,Integer uid,Integer quantity){
         if(cartService.findByCD(cid,uid)!=null){
             Cart cc=cartService.findByCD(cid,uid);
             cartService.updateOfQuatity(cc,quantity);
@@ -46,7 +49,7 @@ public class CartController {
         }
         return true;
     }
-    @RequestMapping("find_of_user")
+    @RequestMapping("find_by_user")
     public List<Cart> find_by_user(Integer uid){
         List<Cart> carts=cartService.findOfUser(uid);
         Iterator<Cart> iter = carts.iterator();

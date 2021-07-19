@@ -33,7 +33,6 @@
 		<script src="assets/js/angularjs/angular.min.js"></script>
 		<script src="js/vendor/cart.js"></script>
     </head>
-	<body ng-app="vspace" cart-controller="vspace-cart-controller" ng-init="initialCart()">
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -102,20 +101,20 @@
 									<nav>
 										<ul>
 											<li><a href="index.html">home</a>
-												<ul>
-													<li><a href="index.html">home version 1</a></li>
-													<li><a href="index-2.html">home version 2</a></li>
-													<li><a href="index-3.html">home version 3</a></li>
-													<li><a href="index-4.html">home version box</a></li>
-												</ul>
+<!--												<ul>-->
+<!--													<li><a href="index.html">home version 1</a></li>-->
+<!--													<li><a href="index-2.html">home version 2</a></li>-->
+<!--													<li><a href="index-3.html">home version 3</a></li>-->
+<!--													<li><a href="index-4.html">home version box</a></li>-->
+<!--												</ul>-->
 											</li>
 											<li><a href="about.html">about</a></li>
-											<li><a href="blog.html">blog</a>
-												<ul>
-													<li><a href="blog.html">blog</a></li>
-													<li><a href="single-blog.html">Blog Details</a></li>
-												</ul>
-											</li>
+<!--											<li><a href="blog.html">blog</a>-->
+<!--												<ul>-->
+<!--													<li><a href="blog.html">blog</a></li>-->
+<!--													<li><a href="single-blog.html">Blog Details</a></li>-->
+<!--												</ul>-->
+<!--											</li>-->
 											<li><a href="shop.html">shop</a>
 												<div class="mega-menu mega-menu-2">
 													<span>
@@ -146,20 +145,20 @@
 											</li>
 											<li><a href="shop.html">cloth</a>										</li>
 											<li><a href="#">pages</a>
-												<ul>
-													<li><a href="about.html">about</a></li>
-													<li><a href="contact.html">contact</a></li>
-													<li><a href="cart.html">shopping cart</a></li>
-													<li><a href="checkout.html">checkout</a></li>
-													<li><a href="wishlist.html">wishlist</a></li>
-													<li><a href="login.html">login</a></li>
-													<li><a href="shop.html">shop left sidebar</a></li>
-													<li><a href="shop-right-sidebar.html">shop right sidebar</a></li>
-													<li><a href="shop-4-column.html">shop 4 column</a></li>
-													<li><a href="product-details.html">product details</a></li>
-													<li><a href="404.html">404 error</a></li>
-												</ul>
-											</li>
+<!--												<ul>-->
+<!--													<li><a href="about.html">about</a></li>-->
+<!--													<li><a href="contact.html">contact</a></li>-->
+<!--													<li><a href="cart.html">shopping cart</a></li>-->
+<!--													<li><a href="checkout.html">checkout</a></li>-->
+<!--													<li><a href="wishlist.html">wishlist</a></li>-->
+<!--													<li><a href="login.html">login</a></li>-->
+<!--													<li><a href="shop.html">shop left sidebar</a></li>-->
+<!--													<li><a href="shop-right-sidebar.html">shop right sidebar</a></li>-->
+<!--													<li><a href="shop-4-column.html">shop 4 column</a></li>-->
+<!--													<li><a href="product-details.html">product details</a></li>-->
+<!--													<li><a href="404.html">404 error</a></li>-->
+<!--												</ul>-->
+<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
 										</ul>
 									</nav>
@@ -170,52 +169,64 @@
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
-											<span>3</span>
+											<span>{{results.length}}</span>
 										</a>
 									</div>
 									<ul>
-										<li>
+										<li ng-repeat="r in results">
 											<div class="cart-img">
 												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
 											</div>
 											<div class="cart-info">
-												<h4><a href="#">Vestibulum suscipit</a></h4>
-												<span>£165.00 <span>x 1</span></span>
+												<h4><a href="#">{{r.relateOne.cname}}</a></h4>
+												<span>{{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
 											</div>
 											<div class="del-icon">
-												<i class="fa fa-times-circle"></i>
+												<i class="fa fa-times-circle" ng-click="deleteCart(r.entity.caid)"></i>
 											</div>
 										</li>
-										<li>
-											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
-											</div>
-											<div class="cart-info">
-												<h4><a href="#">Vestibulum suscipit</a></h4>
-												<span>£165.00 <span>x 1</span></span>
-											</div>
-											<div class="del-icon">
-												<i class="fa fa-times-circle"></i>
-											</div>
-										</li>
-										<li>
-											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
-											</div>
-											<div class="cart-info">
-												<h4><a href="#">Vestibulum suscipit</a></h4>
-												<span>£165.00 <span>x 1</span></span>
-											</div>
-											<div class="del-icon">
-												<i class="fa fa-times-circle"></i>
-											</div>
-										</li>
+<!--										<li>-->
+<!--											<div class="cart-img">-->
+<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+<!--											</div>-->
+<!--											<div class="cart-info">-->
+<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+<!--												<span>£165.00 <span>x 1</span></span>-->
+<!--											</div>-->
+<!--											<div class="del-icon">-->
+<!--												<i class="fa fa-times-circle"></i>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="cart-img">-->
+<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+<!--											</div>-->
+<!--											<div class="cart-info">-->
+<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+<!--												<span>£165.00 <span>x 1</span></span>-->
+<!--											</div>-->
+<!--											<div class="del-icon">-->
+<!--												<i class="fa fa-times-circle"></i>-->
+<!--											</div>-->
+<!--										</li>-->
+<!--										<li>-->
+<!--											<div class="cart-img">-->
+<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+<!--											</div>-->
+<!--											<div class="cart-info">-->
+<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+<!--												<span>£165.00 <span>x 1</span></span>-->
+<!--											</div>-->
+<!--											<div class="del-icon">-->
+<!--												<i class="fa fa-times-circle"></i>-->
+<!--											</div>-->
+<!--										</li>-->
 										<li class="cart-border">
 											<div class="subtotal-text">Subtotal: </div>
-											<div class="subtotal-price">£300.00</div>
+											<div class="subtotal-price">{{goodsTotalPrice}}</div>
 										</li>
 										<li>
-											<a class="cart-button" href="checkout.html">view cart</a>
+											<a class="cart-button" href="cart.html">view cart</a>
 											<a class="checkout" href="checkout.html">checkout</a>
 										</li>
 									</ul>
@@ -355,7 +366,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
-						<form action="#">
+						<form ng-app="cartApp" ng-controller="cartController" ng-init="initialCart()" action="#">
 							<div class="table-content table-responsive">
 								<table>
 									<thead>
@@ -369,68 +380,67 @@
 										</tr>
 									</thead>
 									<tbody>
-									   <!--
-										<tr>
-											<td class="product-thumbnail"><a href="#"><img src="img/cart/2.jpg" alt="" /></a></td>
-											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
-											<td class="product-price"><span class="amount">£125.00</span></td>
-											<td class="product-quantity"><input type="number" value="1" /></td>
-											<td class="product-subtotal">£125.00</td>
-											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
+										<tr ng-repeat="r in results">
+<!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{r.relateOne.picAddr}}" alt=""></a></td>-->
+											<td class="product-thumbnail">
+												<a href="#">
+													<img src="http://116.63.130.162:49163/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg" alt="">
+												</a>
+											</td>
+											<td class="product-name">
+												<a href="#">{{r.relateOne.cname}}</a>
+											</td>
+											<td class="product-price">
+												<span class="amount">${{r.relateOne.price | number:2}}</span>
+											</td>
+											<td class="product-quantity">
+												<div class="pro-qty">
+													<span class="dec qtybtn" ng-click="minus($index,r.entity.caid)">-</span>
+													<input type="text" ng-model="r.entity.quantity"/>
+													<span class="inc qtybtn" ng-click="add($index,r.entity.caid)">+</span>
+												</div>
+											</td>
+											<td class="product-subtotal">
+												<span>${{r.relateOne.price * r.entity.quantity | number:2}}</span>
+											</td>
+											<td class="product-remove">
+<!--												<a href="#"><i class="fa fa-times"></i></a>-->
+												<a href="#" ng-click="deleteCart(r.entity.caid)">
+													<i class="fa fa-trash-o"></i>
+												</a>
+											</td>
+<!--											<td class="product-thumbnail"><a href="#"><img src="img/cart/2.jpg" alt="" /></a></td>-->
+<!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{basic.headImages}}" alt="" /></a></td>-->
+<!--											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>-->
+<!--											<td class="product-price"><span class="amount">£125.00</span></td>-->
+<!--											<td class="product-quantity"><input type="number" value="1" /></td>-->
+<!--											<td class="product-subtotal">£125.00</td>-->
+<!--											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
+<!--										</tr>-->
+<!--										<tr>-->
+<!--											<td class="product-thumbnail"><a href="#"><img src="img/cart/3.jpg" alt="" /></a></td>-->
+<!--											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>-->
+<!--											<td class="product-price"><span class="amount">£90.00</span></td>-->
+<!--											<td class="product-quantity"><input type="number" value="1" /></td>-->
+<!--											<td class="product-subtotal">£90.00</td>-->
+<!--											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
 										</tr>
-										<tr>
-											<td class="product-thumbnail"><a href="#"><img src="img/cart/3.jpg" alt="" /></a></td>
-											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
-											<td class="product-price"><span class="amount">£90.00</span></td>
-											<td class="product-quantity"><input type="number" value="1" /></td>
-											<td class="product-subtotal">£90.00</td>
-											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-										</tr><a href="#" onmouseover="test_show_cart">购物车物品</a>
-										<a href="#" ng-click="storageGoodsIdToLocal(r.relateOne.goodsId)">
-                                                <img src="{{r.relateOne.imageUrl.img_1}}" alt="">
-                                            </a>
-										-->
-									   <li ng-repeat="r in results">
-									   		<tr>
-										   		<td class="product-thumbnail">
-											   		<a href="#" ng-click="findCartById(r.relateOne.caid)">
-														<img src="img/cart/1.jpg" alt="">
-											   		</a>
-										   		</td>
-												<td class="product-name">
-													<span class="notification">{{r.entity.cname}}</span>
-												</td>
-												<td class="product-price">
-													<a href="#" ng-click="findCartById(r.releteOne.caid)">{{r.entity.price}}</a>
-												</td>
-												<td class="product-quantity">
-													<a href="#" ng-click="findCartById(r.releteOne.caid)">2</a>
-												</td>
-												<td class="product-subtotal">
-													<a href="#" ng-click="findCartById(r.releteOne.caid)">{{r.entity.price*2}}</a>
-												</td>
-												<td class="product-remove">
-													<a href="#"><i class="fa fa-times"></i></a>
-												</td>
-											</tr>
-									   </li>>
 									</tbody>
 								</table>
 							</div>
 							<div class="row">
 								<div class="col-md-8 col-sm-7 col-xs-12">
 									<div class="buttons-cart">
-										<input type="submit" value="Update Cart" />
+<!--										<input type="submit" value="Update Cart" />-->
+										<a href="#" ng-click="findCartsByPhone()">Update Cart</a>
 										<a href="shop.html">Continue Shopping</a>
 									</div>
-									<!--
-									<div class="coupon">
-										<h3>Coupon</h3>
-										<p>Enter your coupon code if you have one.</p>
-										<input type="text" placeholder="Coupon code" />
-										<input type="submit" value="Apply Coupon" />
-									</div>
-									-->
+<!--									<div class="coupon">-->
+<!--										<h3>Coupon</h3>-->
+<!--										<p>Enter your coupon code if you have one.</p>-->
+<!--										<input type="text" placeholder="Coupon code" />-->
+<!--										<input type="submit" value="Apply Coupon" />-->
+<!--									</div>-->
 								</div>
 								<div class="col-md-4 col-sm-5 col-xs-12">
 									<div class="cart_totals">
@@ -625,5 +635,4 @@
 		<!-- main js -->
         <script src="js/main.js"></script>
     </body>
-	</body>
 </html>
