@@ -45,6 +45,10 @@
 
 		<script src="js/LoginStatusAdapt.js"></script>
 
+		<!--引入搜索相关控制器-->
+		<script src="js/controller/search-controller.js"></script>
+
+		<!--引入shop控制器-->
 		<script src="js/controller/shop-controller.js"></script>
 
 
@@ -248,8 +252,8 @@
 										  <div class="position-center-center">
 											<div class="search">
 											  <form>
-												<input type="search" placeholder="Search Shop">
-												<button type="submit"><i class="fa fa-search"></i></button>
+												<input id="searchString" placeholder="Search Shop" type="search">
+												<button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
 											  </form>
 											</div>
 										  </div>
@@ -376,9 +380,9 @@
 						<aside class="widget widget-categories">
 							<h3 class="sidebar-title">Categories</h3>
 							<ul class="sidebar-menu">
-								<li><a href="#">Clothes</a> <span class="count">(14)</span></li>
-								<li><a href="#">Men</a> <span class="count">(9)</span></li>
-								<li><a href="#">Shoes</a> <span class="count">(2)</span></li>
+								<li><a href="#">{{searchString}}</a> <span class="count">(14)</span></li>
+								<li><a href="#">{{minPrice}}</a> <span class="count">(9)</span></li>
+								<li><a href="#">{{maxPrice}}</a> <span class="count">(2)</span></li>
 								<li><a href="#">Sunglasses</a> <span class="count">(2)</span></li>
 								<li><a href="#">Women</a> <span class="count">(8)</span></li>
 							</ul>
@@ -392,7 +396,7 @@
 									<div id="slider-range"></div>
 									<div class="price_slider_amount">
 										<input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-										<input type="submit"  value="Filter"/>
+										<input type="submit"  value="Filter" ng-click="filterChange()"/>
 									</div>
 								</div>
 							</div>

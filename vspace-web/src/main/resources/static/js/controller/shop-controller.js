@@ -3,6 +3,9 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     //使用如下方式继承loginStatus_controller
     $controller("lgstCtrl",{$scope:$scope});
 
+    //继承search-controller控制器
+    $controller("search_controller",{$scope:$scope});
+
     $scope.paginationConf = {
         currentPage: 1, // 页码加载的时候显示的第几页的数据
         totalItems: 9, // 总页数的默认初始值(后续通过查询结果进行更新)
@@ -16,6 +19,20 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     $scope.findTop9FunIndicator=0;
     //初始化Shop页面使用的初始化方法
     $scope.initShop = function (){
+        //设置最大最小值
+        $scope.minPrice="0"
+        $scope.maxPrice="10000"
+
+        //判断searchString是否设置过
+        var searchString=window.sessionStorage.getItem("searchString");
+        //没有设置过则默认
+        if(searchString===null || searchString===""){
+            $scope.searchString="男士";
+        }
+        //设置过则设置
+        else{
+            $scope.searchString=searchString;
+        }
         $scope.reloadList();
     }
 
@@ -38,6 +55,13 @@ app.controller("shop-controller",function ($scope,$controller,$http){
                 $scope.findTop9FunIndicator = $scope.list.length;
             }
         );
+    }
+
+    $scope.filterChange = function (){
+        let numPair = document.getElementById('amount').value.match(/\d+/g);
+        $scope.minPrice = numPair[0];
+        $scope.maxPrice = numPair[1];
+        $scope.reloadList();
     }
 
 
