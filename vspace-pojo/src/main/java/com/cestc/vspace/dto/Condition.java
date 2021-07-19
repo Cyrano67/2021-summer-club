@@ -20,6 +20,8 @@ public class Condition implements Serializable {
     private Integer minPrice;
     //最高价格
     private Integer maxPrice;
+    //商品排序类型（新增）
+    private Integer sortType;
     //搜索关键词
     private String searchString;
 
@@ -86,6 +88,12 @@ public class Condition implements Serializable {
     public void setMaxPrice(Integer maxPrice) {
         this.maxPrice = maxPrice;
     }
+
+    public Integer getSortType() {
+        return sortType;
+    }
+
+    public void setSortType(Integer sortType) { this.sortType = sortType; }
 
     public String getSearchString() {
         return searchString;

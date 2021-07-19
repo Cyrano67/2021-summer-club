@@ -46,7 +46,6 @@ public class SearchServiceImp implements SearchService {
         SolrQuery query = new SolrQuery();
         query.set("q","discription:" + condition.getSearchString() + "");
 
-
 //        //设置fq多条件过滤查询: 多条件之间使用and | or 关键字连接
 //        if (condition.getCategoryIdList() != null) {
 //            String categoryIdCondition = "(";
@@ -72,9 +71,15 @@ public class SearchServiceImp implements SearchService {
         //设置回显的字段(也就是查询哪些字段进行前端展示)
         query.setFields("cloth_id","cloth_name","cloth_price","merchant","size","discription","address");
 
-        //排序设置: 本案例设置按照价格升序排列,再按照编号升序(相同价格的情况)
-        query.addSort("cloth_price", SolrQuery.ORDER.asc);
-        query.addSort("cloth_id", ORDER.asc);
+        //商品排序类型设置: 0代表升序  1代表降序
+        if(condition.getSortType()==1) {
+            query.addSort("cloth_price", SolrQuery.ORDER.asc);
+            query.addSort("cloth_id", ORDER.asc);
+        }
+        else{
+            query.addSort("cloth_price", SolrQuery.ORDER.desc);
+            query.addSort("cloth_id", ORDER.desc);
+        }
 
         //设置查询高亮结果显示
         // ①: 打开高亮
