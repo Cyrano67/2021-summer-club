@@ -34,11 +34,11 @@ public class CartController {
         boolean flag=cartService.deleteById(caid);
         return flag;
     }
-    @RequestMapping("incereseCart")
+    @RequestMapping("increaseCart")
     public boolean increase(Integer caid,Integer cid,Integer uid,Integer quantity){
         if(cartService.findByCD(cid,uid)!=null){
             Cart cc=cartService.findByCD(cid,uid);
-            cartService.updateOfQuality(cc,quantity);
+            cartService.updateOfQuatity(cc,quantity);
         }
         else {
             Cart cc=cartService.findById(caid);

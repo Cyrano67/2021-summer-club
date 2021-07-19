@@ -20,12 +20,14 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart findById(int cait) {
+	// Find by cart id
+	public Cart findById(int caid) {
 		// TODO Auto-generated method stub
-		return cartmapper.selectByPrimaryKey(cait);
+		return cartmapper.selectByPrimaryKey(caid);
 	}
 
 	@Override
+	// Add an cart
 	public boolean register(Cart cart) {
 		// TODO Auto-generated method stub
 		cartmapper.insert(cart);
@@ -33,16 +35,21 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
+	// Delete by cart id
 	public boolean deleteById(int caid){
 		cartmapper.deleteByPrimaryKey(caid);
 		return false;
 	}
+
 	@Override
+	// Find by clothes id and user id
     public Cart findByCD(int cid,int uid){
 		return cartmapper.selectByCD(cid,uid);
 	}
+
 	@Override
-	public int updateOfQuality(Cart cart_ori,int number){
+	// Update an cart record on quantity
+	public int updateOfQuatity(Cart cart_ori,int number){
 
 		Integer quantity=cart_ori.getQuantity();
 		cart_ori.setQuantity(number+quantity);
@@ -56,6 +63,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
+	//
 	public boolean delete(Integer caid){
 		cartmapper.deleteByPrimaryKey(caid);
 		return false;
