@@ -74,7 +74,7 @@ app.controller("base_controller",function($scope,$http){
         });
     }
 
-    //点击"商品图片"的时候将当前商品的编号存储到会话storage中(在详情页面打开使用)
+    //点击"商品图片"的时候将当前商品的编号存储到会话storage中
     $scope.storageGoodsIdToLocal=function(goodsId){
         window.sessionStorage.setItem("detailsGoodsId",goodsId);
         //跳转到详情页
@@ -85,11 +85,11 @@ app.controller("base_controller",function($scope,$http){
     //创建方法: 添加购物车
     $scope.insertCart=function(goodsId){
         //验证是否登录
-        if (!$scope.checkLogin()) {
-            //跳转到登录页面
-            window.location.href="login-register.html";
-            return;
-        }
+        // if (!$scope.checkLogin()) {
+        //     //跳转到登录页面
+        //     window.location.href="login-register.html";
+        //     return;
+        // }
         //创建一个json对象用于存放购物车数据
         var cart = {"phone":window.sessionStorage.getItem("phone"),"goodsId":goodsId,"ammount":"1"};
         $http.post("/cart/insertCart",cart).success(function(result){

@@ -422,11 +422,17 @@
 												<div class="cart-plus-minus"><input type="text" value="1" /></div>
 											</form>
 										</div>
+										<!--
 										<div class="button-top">
 											<a href="#" ><i class="fa fa-heart"></i></a>
 										</div>
+										-->
 										<div class="button-cart">
-											<button><i class="fa fa-shopping-cart"></i> add to cart</button>
+<!--											<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+											<button ng-click="insertCart(quickViewGoods.cid)">
+												<i class="fa fa-shopping-cart"></i> add to cart
+											</button>
+<!--											<a ng-click="insertCart(quickViewGoods.cid)" href="#" class="fa fa-shopping-cart">加入购物车</a>-->
 										</div>
 									</div>
 									<div class="product-share">
