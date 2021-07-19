@@ -40,9 +40,11 @@ public class ClothesController {
         return clo;
     }
     //查询全网价格最高的9种商品
-    @RequestMapping("FindTop9")
+    @RequestMapping("/FindTop9")
     List<Clothes> FindTop9Clothes(){
-        return clothesService.findTop9Clothes();
+        List<Clothes> temp = clothesService.findTop9Clothes();
+        System.out.println(temp);
+        return temp;
     }
     //更新商品信息
     @RequestMapping("/updateClothes")
