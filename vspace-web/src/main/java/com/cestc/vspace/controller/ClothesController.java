@@ -55,7 +55,7 @@ public class ClothesController {
     //多条件分页查询
     @RequestMapping("/demo")
     public PageResult findPageByCondition(@RequestBody Condition  condition){
-        System.out.println("test access: "+ condition.getSearchString() + condition.getPageNo());
+        System.out.println("test access: ");
         //根据一级级类型编号,查询出所有的二级级类型编号
         /* if (condition.getCategoryId() != 0) {
             condition.setCategoryIdList(categoryService.findSecondCategoryIdList(condition.getCategoryId()));
@@ -67,6 +67,7 @@ public class ClothesController {
         System.out.println("dataList: " + pageResult.getDataList());
         return pageResult;
     }
+
 
 }
 

@@ -1,5 +1,8 @@
 package com.cestc.vspace.service.impl;
 
+import com.cestc.vspace.dto.Condition;
+import com.cestc.vspace.dto.PageResult;
+import com.github.pagehelper.PageHelper;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.cestc.vspace.pojo.ClothesExample;

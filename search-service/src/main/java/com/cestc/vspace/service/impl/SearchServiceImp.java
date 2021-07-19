@@ -2,6 +2,7 @@ package com.cestc.vspace.service.impl;
 
 import com.cestc.vspace.dto.Condition;
 import com.cestc.vspace.dto.PageResult;
+import com.cestc.vspace.pojo.Clothes;
 import com.cestc.vspace.pojo.ClothesWithBLOBS;
 import com.cestc.vspace.service.SearchService;
 import org.apache.dubbo.config.annotation.Service;
@@ -37,32 +38,16 @@ public class SearchServiceImp implements SearchService {
     @Autowired
     private SolrClient solrClient;
 
-    @Override
-    public PageResult searchPageTest(Condition condition) {
-        SolrQuery query = new SolrQuery();
-        System.out.println("Solr establish");
-        query.set("q","cloth_keywords:" + condition.getSearchString() + "");
-        System.out.println("keywords set");
-        query.addFilterQuery("cloth_price:[" + condition.getMinPrice() + " TO " + condition.getMaxPrice() + "]");
-        System.out.println("price set");
-
-        PageResult pageResult = new PageResult();
-        pageResult.setPages(condition.getPageSize());
-        return pageResult;
-    }
     //在搜索服务中注入服装服务模块clothesService,通过调用服装服务模块的方法从数据库查询到商品信息,
     //然后通过search-service中的addSolrDoc(List list)将数据写入到solr索引库中,
     //此时search-service即是服务的提供者也是消费者
     @Override
-    public PageResult searchPage(Condition condition) {
-        //设置默认的集合: 集群环境下设置
-        //cloudSolrClient.setDefaultCollection("collection-vspace");
-        //创建一个查询对象
+    public PageResult searchPageTest(Condition condition) {
         SolrQuery query = new SolrQuery();
-        //通过查询对象设置查询条件
-        //备注: 此处getSeachString()获取到的搜索字符串会被ik分词器拆分之后再进行搜索
-        query.set("q","cloth_keywords:" + condition.getSearchString() + "");
-        //设置fq多条件过滤查询: 多条件之间使用and | or 关键字连接
+        query.set("q","discription:" + condition.getSearchString() + "");
+
+
+//        //设置fq多条件过滤查询: 多条件之间使用and | or 关键字连接
 //        if (condition.getCategoryIdList() != null) {
 //            String categoryIdCondition = "(";
 //            for (Integer integer : condition.getCategoryIdList()) {
@@ -71,11 +56,12 @@ public class SearchServiceImp implements SearchService {
 //            categoryIdCondition = categoryIdCondition.substring(0,categoryIdCondition.length() - 1);
 //            categoryIdCondition += ")";
 //            //设置根据类型查询的查询条件
-//            query.setFilterQueries("goods_category_id:" + categoryIdCondition);
+//            query.setFilterQueries("cloth_category_id:" + categoryIdCondition);
 //        }
 
         //添加商品价格过滤
-        query.addFilterQuery("cloth_price:[" + condition.getMinPrice() + " TO " + condition.getMaxPrice() + "]");
+        query.addFilterQuery("cloth_price:[" + String.valueOf (condition.getMinPrice()) + " TO " + String.valueOf (condition.getMaxPrice())+ "]");
+        System.out.println("price filter set");
 
         //设置分页相关参数
         //①: 设置偏移量
@@ -84,14 +70,14 @@ public class SearchServiceImp implements SearchService {
         query.setRows(condition.getPageSize());
 
         //设置回显的字段(也就是查询哪些字段进行前端展示)
-        query.setFields("cloth_id","cloth_name","cloth_price");
+        query.setFields("cloth_id","cloth_name","cloth_price","merchant","size","discription","address");
 
         //排序设置: 本案例设置按照价格升序排列,再按照编号升序(相同价格的情况)
         query.addSort("cloth_price", SolrQuery.ORDER.asc);
         query.addSort("cloth_id", ORDER.asc);
 
         //设置查询高亮结果显示
-        //①: 打开高亮
+        // ①: 打开高亮
         query.setHighlight(true);
         //②: 设置高亮显示的字段
         query.addHighlightField("cloth_name");
@@ -104,14 +90,15 @@ public class SearchServiceImp implements SearchService {
         System.out.println("solr查询语句是: " + query.getQuery());
         System.out.println("solr过滤查询语句是: " + Arrays.toString(query.getFilterQueries()));
 
+
         //执行查询命令得到查询结果
-        List<ClothesWithBLOBS> clothesList = null;
+        List<Clothes> clothesList = null;
         long totalItems = 0;
         int pages = 0;
         try {
             QueryResponse queryResponse = solrClient.query(query);
             //将查询结果映射成实体集合(注意该实体属性需要通过solr提供的@Field进行注解)
-            clothesList = queryResponse.getBeans(ClothesWithBLOBS.class);
+            clothesList = queryResponse.getBeans(Clothes.class);
             //获取数据总记录数
             SolrDocumentList results = queryResponse.getResults();
             totalItems = results.getNumFound();
@@ -122,7 +109,7 @@ public class SearchServiceImp implements SearchService {
                 Map<String, Map<String, List<String>>> highlighting = queryResponse.getHighlighting();
                 if (highlighting != null) {
                     //将高亮结果循环绑定给返回结果集合
-                    for (ClothesWithBLOBS goods : clothesList) {
+                    for (Clothes goods : clothesList) {
                         //根据商品编号获取高集合(该集合的长度由指定的高亮字段的数量决定)
                         //注意key是String类型,goodsId是Long类型,通过拼接转化成String(否则获取不了数据)
                         Map<String, List<String>> highMap = highlighting.get(goods.getCid() + "");
@@ -151,7 +138,9 @@ public class SearchServiceImp implements SearchService {
         pageResult.setTotalItems(totalItems);
         pageResult.setDataList(clothesList);
         return pageResult;
+
     }
+
 
     @Override
     public void addSolrDoc(List list) {
