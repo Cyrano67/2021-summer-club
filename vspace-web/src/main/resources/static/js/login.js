@@ -32,7 +32,7 @@ loginApp.controller('loginCtrl',function ($scope, $http, $location) {
             }
         });
     }
-
+ 
     /**
      * 创建一个方法用于注册
      */
