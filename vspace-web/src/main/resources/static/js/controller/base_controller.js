@@ -2,13 +2,13 @@
 app.controller("base_controller",function($scope,$http){
     $scope.myAccount = "我的账户";
     //创建一个方法在页面加载的时候调用
-    $scope.init=function(){
-        //调用验证登录的方法,设置myAccount变量的数据
-        if ($scope.checkLogin()) {
-            //在初始化的时候,如果登录成功者进行当前用户购物车的信息查询
-            $scope.findCartsByPhone();
-        }
-    }
+    // $scope.init=function(){
+    //     //调用验证登录的方法,设置myAccount变量的数据
+    //     //if ($scope.checkLogin()) {
+    //         //在初始化的时候,如果登录成功者进行当前用户购物车的信息查询
+    //         //$scope.findCartsByPhone(3);
+    //     //}
+    // }
 
     //单独创建方法用于验证是否登录
 
@@ -25,16 +25,14 @@ app.controller("base_controller",function($scope,$http){
 
     //创建方法: 在购物车页面加载的时候调用,用于查询当前用户的所用购物车信息
     $scope.findCartsByPhone=function (){
-        //验证是否登录
-        if (!$scope.checkLogin()) {
-            //跳转到登录页面
-            window.location.href="login-register.html";
-            return;
-        }
-        $http.get("/cart/findCartsByPhone?phone=" + window.sessionStorage.getItem("phone")).success(function(results){
+        //window.sessionStorage.setItem("uid",3);
+        $http.get("/cart/find_by_user?uid=" + window.sessionStorage.getItem("uid")).success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.imageUrl = JSON.parse(results[i].relateOne.imageUrl);
+                results[i].relateOne.picAddr= JSON.parse(results[i].relateOne.picAddr);
+                results[i].relateOne.price=JSON.parse(results[i].relateOne.price);
+                results[i].relateOne.cname=JSON.parse(results[i].relateOne.cname);
+                results[i].entity.quantity=JSON.parse(results[i].entity.quantity);
             }
             $scope.results = results;
             console.log(results);
@@ -46,25 +44,23 @@ app.controller("base_controller",function($scope,$http){
     $scope.calculateSumPrice=function(results){
         var totalPrice = 0;
         for (let i = 0; i < results.length; i++) {
-            totalPrice += results[i].entity.ammount * results[i].relateOne.price * results[i].relateOne.discount;
+            totalPrice += results[i].entity.quantity * results[i].relateOne.price;
         }
         $scope.goodsTotalPrice = parseFloat(totalPrice.toFixed(2));//保留两位小数
-        //随机生成一个运费
-        //$scope.freight = parseFloat(Math.round(Math.random() * (15 - 5 + 1) + 5).toFixed(2));
         $scope.freight = 0.00;//此案例默认包邮,邮费设置为0
         $scope.totalPrice = ($scope.goodsTotalPrice + $scope.freight).toFixed(2);
     }
     //由于多个页面中都会存在根据编号查询商品信息的情况,此处将
     //创建方法: 根据编号查询商品信息
     $scope.findGoodsById=function(goodsId){
-        $http.get("/index/findGoodsById?goodsId=" + goodsId).success(function(goods){
+        $http.get("/clothes/findByUid?goodsId=" + goodsId).success(function(goods){
             goods.imageUrl = JSON.parse(goods.imageUrl);
             console.log(goods);
             $scope.quickViewGoods = goods;
         });
     }
 
-    //点击"商品图片"的时候将当前商品的编号存储到会话storage中(在详情页面打开使用)
+    //点击"商品图片"的时候将当前商品的编号存储到会话storage中
     $scope.storageGoodsIdToLocal=function(goodsId){
         window.sessionStorage.setItem("detailsGoodsId",goodsId);
         //跳转到详情页
@@ -95,7 +91,6 @@ app.controller("base_controller",function($scope,$http){
             $scope.categories = result;
         });
     }
-
     //创建方法: 用于删除购物车信息
     $scope.deleteCart=function(cartId){
         $http.get("/cart/deleteCart?cartId=" + cartId).success(function(result){
