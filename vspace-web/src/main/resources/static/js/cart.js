@@ -5,6 +5,7 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
     $controller("base_controller",{$scope:$scope});
     //创建一个方法在页面加载的时候调用
     $scope.initialCart=function(){
+        console.log("11111111");
         $scope.findCartsByPhone();//加载购物车信息
     }
 

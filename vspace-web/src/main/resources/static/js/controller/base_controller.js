@@ -41,7 +41,8 @@ app.controller("base_controller",function($scope,$http){
 //            //计算总价
 ////            $scope.calculateSumPrice($scope.results);
 //        });
-        $http.get("/cart/find_of_user?uid=3").success(function(results){
+        console.log("进入查找");
+        $http.get("/cart/find_by_user?uid=3").success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
                 results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
