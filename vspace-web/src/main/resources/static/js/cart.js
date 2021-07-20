@@ -1,5 +1,10 @@
+var app = angular.module("cartApp", []);
+
 //通过模块对象创建一个控制器对象
-app.controller("vspace-cart-controller",function($scope,$controller,$http){
+app.controller("cartController",function($scope,$controller,$http){
+
+    $scope.basic.headImages = 'http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg';
+
     //使用如下方式继承base_controller
 
     $controller("base_controller",{$scope:$scope});
