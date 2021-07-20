@@ -1,6 +1,6 @@
 package com.cestc.vspace.pojo;
 
-public class Cart {
+public class Cart implements Serializable {
     private Integer caid;
 
     private Integer cid;
