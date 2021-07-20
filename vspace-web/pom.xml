@@ -134,6 +134,11 @@
           <scope>compile</scope>
       </dependency>
 
+      <dependency>
+      	<groupId>com.cestc</groupId>
+      	<artifactId>payment-api</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+      </dependency>
   </dependencies>
   <build>
     <finalName>vspace-web</finalName>
