@@ -6,16 +6,21 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     //继承search-controller控制器
     $controller("search_controller",{$scope:$scope});
 
+    //条件生成
     $scope.paginationConf = {
         currentPage: 1, // 页码加载的时候显示的第几页的数据
         totalItems: 9, // 总页数的默认初始值(后续通过查询结果进行更新)
-        itemsPerPage: 2, //默认状态下每页显示条数
-        perPageOptions: [2,3,4],//每页显示条数的可选值
+        itemsPerPage: 4, //默认状态下每页显示条数
+        perPageOptions: [4,5,6],//每页显示条数的可选值
         onChange: function(){
             //当触发onChange事件的时候重新加载一次页面数据
             $scope.reloadList();
         }
     }
+
+    //Condition封装
+    $scope.condition={"pageNo":"","pageSize":"","minPrice":"","maxPrice":"","sortType":"","searchString":""};
+
     $scope.findTop9FunIndicator=0;
     //初始化Shop页面使用的初始化方法
     $scope.initShop = function (){
@@ -40,24 +45,22 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     }
 
     $scope.reloadList = function (){
-        $scope.findTop9($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
-        $scope.paginationConf.totalItems=9;
-    }
+        $scope.condition.pageNo=$scope.paginationConf.currentPage;
+        $scope.condition.pageSize=$scope.paginationConf.itemsPerPage;
+        $scope.condition.minPrice=$scope.minPrice;
+        $scope.condition.maxPrice=$scope.maxPrice;
+        $scope.condition.sortType=$scope.sortSelect;
+        $scope.condition.searchString=$scope.searchString;
+        $http.post("/shop/searchPages",$scope.condition).success(function (pageResult){
+            $scope.list=pageResult.dataList;
+            $scope.paginationConf.totalItems=pageResult.totalItems;
 
-    $scope.findTop9 = function (pageNo,pageSize){
-        $http.post("/clothes/FindTop9").success(
-            function (clothesList){
+        });
 
-                let returnList=[];
-                let listLength = clothesList.length
 
-                for( let  i = (pageNo-1)* pageSize; i<pageNo*pageSize;i++){
-                    returnList.push(clothesList[i]);
-                }
-                $scope.list = returnList;
-                $scope.findTop9FunIndicator = $scope.list.length;
-            }
-        );
+
+        // $scope.findTop9($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
+        // $scope.paginationConf.totalItems=9;
     }
 
     $scope.filterChange = function (){
@@ -70,15 +73,13 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     $scope.sortSelectChange = function (){
         let sortSelectString = $("#sortSelect").find("option:selected").attr("value");
         if(sortSelectString==="low to high"){
-            $scope.sortSelect="0"
+            $scope.sortSelect="1"
         }
         else{
-            $scope.sortSelect="1"
+            $scope.sortSelect="0"
         }
         $scope.reloadList();
     }
-
-
 
 
 });

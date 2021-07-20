@@ -576,7 +576,7 @@
 													</div>
 													<h3><a href="product-details.html">{{goods.cname}}</a></h3>
 													<div class="price">
-														<span>$70.00</span>
+														<span>{{goods.price}}</span>
 														<span class="old">$80.11</span>
 													</div>
 												</div>
@@ -1097,7 +1097,8 @@
 								<div role="tabpanel" class="tab-pane" id="profile">
 									<div class="row shop-list">
 										<!-- single-product start -->
-										<div class="col-md-12">
+										<div ng-repeat="goods in list">
+											<div class="col-md-12" >
 											<div class="single-product">
 												<div class="product-img">
 													<a href="product-details.html">
@@ -1107,12 +1108,12 @@
 													<span class="tag-line">new</span>
 												</div>
 												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
+													<h3><a href="product-details.html">{{goods.cname}}</a></h3>
 													<div class="price">
-														<span>$80.00</span>
+														<span>{{goods.price}}</span>
 														<span class="old">$90.11</span>
 													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
+													<p>{{goods.discription}}</p>
 													<div class="product-action">
 														<div class="button-top">
 															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
@@ -1125,255 +1126,256 @@
 												</div>
 											</div>
 										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/3.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
 										</div>
 										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/4.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/5.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/6.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/7.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/8.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/9.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
-										<!-- single-product start -->
-										<div class="col-md-12">
-											<div class="single-product">
-												<div class="product-img">
-													<a href="product-details.html">
-														<img src="img/product/10.jpg" alt="" />
-														<img class="secondary-img" src="img/product/11.jpg" alt="" />
-													</a>
-													<span class="tag-line">new</span>
-												</div>
-												<div class="product-content">
-													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-													<div class="price">
-														<span>$80.00</span>
-														<span class="old">$90.11</span>
-													</div>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-													<div class="product-action">
-														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-															<a href="#" ><i class="fa fa-heart"></i></a>
-														</div>
-														<div class="button-cart">
-															<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<!-- single-product end -->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/3.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/4.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/5.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/6.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/7.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/8.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/9.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
+<!--										&lt;!&ndash; single-product start &ndash;&gt;-->
+<!--										<div class="col-md-12">-->
+<!--											<div class="single-product">-->
+<!--												<div class="product-img">-->
+<!--													<a href="product-details.html">-->
+<!--														<img src="img/product/10.jpg" alt="" />-->
+<!--														<img class="secondary-img" src="img/product/11.jpg" alt="" />-->
+<!--													</a>-->
+<!--													<span class="tag-line">new</span>-->
+<!--												</div>-->
+<!--												<div class="product-content">-->
+<!--													<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>-->
+<!--													<div class="price">-->
+<!--														<span>$80.00</span>-->
+<!--														<span class="old">$90.11</span>-->
+<!--													</div>-->
+<!--													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>-->
+<!--													<div class="product-action">-->
+<!--														<div class="button-top">-->
+<!--															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--															<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--														</div>-->
+<!--														<div class="button-cart">-->
+<!--															<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--														</div>-->
+<!--													</div>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										&lt;!&ndash; single-product end &ndash;&gt;-->
 									</div>
 								</div>
 							</div>
 						</div>
-						<div style="text-align: center;">
-							<div class="page">
-								<tm-pagination conf="paginationConf"></tm-pagination>
-							</div>
+					</div>
+					<div style="text-align: center;">
+						<div class="page">
+							<tm-pagination conf="paginationConf"></tm-pagination>
 						</div>
 					</div>
 				</div>
