@@ -117,7 +117,7 @@ app.controller("base_controller",function($scope,$http){
 
     //创建方法: 用于删除购物车信息
     $scope.deleteCart=function(caid){
-        $http.get("/cart/deleteCart?caid=" + caid).success(function(result){
+        $http.get("/cart/deleteById?caid=" + caid).success(function(){
             //删除成功之后,重新查询
             $scope.findCartsByPhone();
         });

@@ -40,7 +40,7 @@ public class CartController {
     }
 
     @RequestMapping("deleteById")
-    public boolean deleteById(int caid){
+    public boolean deleteById(Integer caid){
         boolean flag=cartService.deleteById(caid);
         return flag;
     }

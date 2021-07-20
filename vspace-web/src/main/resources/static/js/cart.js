@@ -16,11 +16,11 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
     //     });
     // }
     $scope.updateQuantity=function(caiddd,new_quantity) {
-        window.sessionStorage.setItem("flag_test",10);
-        $scope.results.temp=window.sessionStorage.getItem("flag_test");
+        // window.sessionStorage.setItem("flag_test",10);
+        // $scope.results.temp=window.sessionStorage.getItem("flag_test");
         var cart={"caid":caiddd,"cid":"","uid":"","quantity":new_quantity};
         $http.post("/cart/updateQuantity",cart).success(function(result) {
-            window.sessionStorage.setItem("flag_test",15);
+            // window.sessionStorage.setItem("flag_test",15);
             $scope.results.temp=window.sessionStorage.getItem("flag_test");
         });
     }
@@ -30,8 +30,7 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
         //计算总价
         $scope.calculateSumPrice($scope.results);
         //同步到数据库
-
-        $scope.updateQuantity(1,$scope.results[index].entity.quantity);
+        $scope.updateQuantity(caidd,$scope.results[index].entity.quantity);
     }
     //点击×
     $scope.minus=function(index,caid){
