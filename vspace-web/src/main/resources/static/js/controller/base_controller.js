@@ -1,5 +1,13 @@
 //创建一个基础控制器,用于存放各个控制器中共有的代码
 app.controller("base_controller",function($scope,$http){
+
+    // 打开详情页面
+    $scope.jumpDetail=function(product_id){
+        window.sessionStorage.setItem("product_id",product_id);
+        window.location.href="/detail";
+    }
+
+
     $scope.myAccount = "我的账户";
     //创建一个方法在页面加载的时候调用
     $scope.init=function(){
@@ -41,9 +49,9 @@ app.controller("base_controller",function($scope,$http){
 //            //计算总价
 ////            $scope.calculateSumPrice($scope.results);
 //        });
+        console.log("进入查找");
         $http.get("/cart/find_by_user?uid=3").success(function(results){
             //循环转换imageUrl为json
-            $scope.tempIndicator=results.length;
             for (let i = 0; i < results.length; i++) {
                 results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
             }
