@@ -8,6 +8,7 @@ import com.cestc.vspace.service.CartService;
 import com.cestc.vspace.service.ClothesService;
 import com.cestc.vspace.service.UserlistService;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @RestController
-@RequestMapping("cart")
+@RequestMapping("/cart")
 public class CartController {
 
     @Reference
@@ -33,7 +34,7 @@ public class CartController {
     }
 
     @RequestMapping("Register")
-    public boolean Register(Cart recordd){
+    public boolean Register(@RequestBody Cart recordd){
         boolean flag =cartService.register(recordd);
         return flag;
     }
@@ -47,8 +48,7 @@ public class CartController {
     @RequestMapping("incereseCart")
     public boolean incereseCart(Integer caid,Integer cid,Integer uid,Integer quantity){
         if(cartService.findByCD(cid,uid)!=null){
-            Cart cc=cartService.findByCD(cid,uid);
-            cartService.updateOfQuatity(cc,quantity);
+            cartService.updateOfQuatity(caid,quantity);
         }
         else {
             Cart cc=cartService.findById(caid);
@@ -56,7 +56,7 @@ public class CartController {
         }
         return true;
     }
-    @RequestMapping("find_by_user")
+    @RequestMapping("/find_by_user")
     public List<Result<Cart, Clothes>> find_by_user(Integer uid){
         List<Cart> carts=cartService.findOfUser(uid);
         Iterator<Cart> iter = carts.iterator();
@@ -71,7 +71,11 @@ public class CartController {
         }
         return results;
     }
-
+    @RequestMapping("/updateQuantity")
+    public int updateQuantity(@RequestBody Cart cart){
+        System.out.println("success");
+        return cartService.updateOfQuatity(cart.getCaid(),cart.getQuantity());
+    }
     @RequestMapping("getcart")
     public String getcart(){
         return "cart.html";

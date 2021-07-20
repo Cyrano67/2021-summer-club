@@ -49,10 +49,10 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	// Update an cart record on quantity
-	public int updateOfQuatity(Cart cart_ori,int number){
+	public int updateOfQuatity(int caid,int number){
 
-		Integer quantity=cart_ori.getQuantity();
-		cart_ori.setQuantity(number+quantity);
+		Cart cart_ori=findById(caid);
+		cart_ori.setQuantity(number);
 
 		CartExample example=new CartExample();
 		CartExample.Criteria criteria = example.createCriteria();

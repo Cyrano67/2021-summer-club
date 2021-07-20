@@ -9,15 +9,32 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
     }
 
     //创建方法: 用于更新购物车
-    $scope.updateCart=function(cartId,ammount){
-        var cart = {"cartId":cartId,"ammount":ammount};
-        $http.post("/cart/updateCart",cart).success(function(result){
-            console.log("update success!");
+    // $scope.updateCart=function(cartId,ammount){
+    //     var cart = {"cartId":cartId,"ammount":ammount};
+    //     $http.post("/cart/updateCart",cart).success(function(result){
+    //         console.log("update success!");
+    //     });
+    // }
+    $scope.updateQuantity=function(caiddd,new_quantity) {
+        window.sessionStorage.setItem("flag_test",10);
+        $scope.results.temp=window.sessionStorage.getItem("flag_test");
+        var cart={"caid":caiddd,"cid":"","uid":"","quantity":new_quantity};
+        $http.post("/cart/updateQuantity",cart).success(function(result) {
+            window.sessionStorage.setItem("flag_test",15);
+            $scope.results.temp=window.sessionStorage.getItem("flag_test");
         });
     }
+    //点击"+"
+    $scope.add=function(index,caidd){
+        $scope.results[index].entity.quantity ++;
+        //计算总价
+        $scope.calculateSumPrice($scope.results);
+        //同步到数据库
 
+        $scope.updateQuantity(1,$scope.results[index].entity.quantity);
+    }
     //点击×
-    $scope.minus=function(index,cartId){
+    $scope.minus=function(index,caid){
         $scope.results[index].entity.quantity --;
         if ($scope.results[index].entity.quantity < 1) {
             $scope.results[index].entity.quantityt = 1
@@ -25,7 +42,7 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
         //计算总价
         $scope.calculateSumPrice($scope.results);
         //同步到数据库
-        $scope.updateCart(cartId,$scope.results[index].entity.quantity);
+        $scope.updateQuantity(caid,$scope.results[index].entity.quantity);
     }
 
     //创建方法用于结算购物车生成订单

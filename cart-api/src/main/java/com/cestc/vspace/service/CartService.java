@@ -17,7 +17,7 @@ public interface CartService {
 	boolean deleteById(int caid);
 
 	// 更新购物车
-	int updateOfQuatity(Cart cart_ori,int number);
+	int updateOfQuatity(int caid,int number);
 
 	Cart findByCD(int cid,int uid);
 
