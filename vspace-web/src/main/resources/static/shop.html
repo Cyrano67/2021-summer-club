@@ -383,7 +383,7 @@
 								<li><a href="#">{{searchString}}</a> <span class="count">(14)</span></li>
 								<li><a href="#">{{minPrice}}</a> <span class="count">(9)</span></li>
 								<li><a href="#">{{maxPrice}}</a> <span class="count">(2)</span></li>
-								<li><a href="#">Sunglasses</a> <span class="count">(2)</span></li>
+								<li><a href="#">{{sortSelect}}</a> <span class="count">(2)</span></li>
 								<li><a href="#">Women</a> <span class="count">(8)</span></li>
 							</ul>
 						</aside>
@@ -512,13 +512,13 @@
 							</ul>
 							<div class="short-by">
 								<span class="sorting-show"> Sort by:</span>
-								<select>
-									<option value="volvo">popularity</option>
-									<option value="saab">Default</option>
-									<option value="mercedes">average rating</option>
-									<option value="audi">newness</option>
-									<option value="audi">low to high</option>
-									<option value="audi">high to low</option>
+								<select id="sortSelect" ng-click="sortSelectChange()">
+<!--									<option value="volvo">popularity</option>-->
+<!--									<option value="saab">Default</option>-->
+<!--									<option value="mercedes">average rating</option>-->
+<!--									<option value="audi">newness</option>-->
+									<option value="low to high">low to high</option>
+									<option value="high to low">high to low</option>
 								</select>
 							</div>
 							<div class="shop-show">

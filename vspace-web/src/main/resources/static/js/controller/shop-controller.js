@@ -23,6 +23,9 @@ app.controller("shop-controller",function ($scope,$controller,$http){
         $scope.minPrice="0"
         $scope.maxPrice="10000"
 
+        //设置排序方式
+        $scope.sortSelect="0"
+
         //判断searchString是否设置过
         var searchString=window.sessionStorage.getItem("searchString");
         //没有设置过则默认
@@ -63,6 +66,18 @@ app.controller("shop-controller",function ($scope,$controller,$http){
         $scope.maxPrice = numPair[1];
         $scope.reloadList();
     }
+
+    $scope.sortSelectChange = function (){
+        let sortSelectString = $("#sortSelect").find("option:selected").attr("value");
+        if(sortSelectString==="low to high"){
+            $scope.sortSelect="0"
+        }
+        else{
+            $scope.sortSelect="1"
+        }
+        $scope.reloadList();
+    }
+
 
 
 
