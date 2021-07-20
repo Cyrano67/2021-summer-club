@@ -6,6 +6,9 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     //继承search-controller控制器
     $controller("search_controller",{$scope:$scope});
 
+    //继承base_controller
+    $controller("base_controller",{$scope:$scope});
+
     //条件生成
     $scope.paginationConf = {
         currentPage: 1, // 页码加载的时候显示的第几页的数据

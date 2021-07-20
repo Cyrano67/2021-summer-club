@@ -48,6 +48,9 @@
 		<!--引入搜索相关控制器-->
 		<script src="js/controller/search-controller.js"></script>
 
+		<!--引入base控制器-->
+		<script src="js/controller/base_controller.js"></script>
+
 		<!--引入shop控制器-->
 		<script src="js/controller/shop-controller.js"></script>
 
@@ -551,7 +554,7 @@
 										<div class="col-md-4 col-sm-4">
 											<div class="single-product">
 												<div class="product-img">
-													<a href="product-details.html">
+													<a href="#" ng-click="jumpDetail(goods.cid)">
 														<img src="img/product/1.jpg" alt="" />
 														<img class="secondary-img" src="img/product/2.jpg" alt="" />
 													</a>
@@ -1101,7 +1104,7 @@
 											<div class="col-md-12" >
 											<div class="single-product">
 												<div class="product-img">
-													<a href="product-details.html">
+													<a href="#" ng-click="jumpDetail(goods.cid)">
 														<img src="img/product/2.jpg" alt="" />
 														<img class="secondary-img" src="img/product/11.jpg" alt="" />
 													</a>
