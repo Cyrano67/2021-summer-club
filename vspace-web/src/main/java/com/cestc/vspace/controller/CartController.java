@@ -27,7 +27,7 @@ public class CartController {
     private ClothesService clothesService;
 
     @RequestMapping("findBycid")
-    public Cart findBycid(int caid){
+    public Cart findBycid(@RequestBody int caid){
         Cart cart =cartService.findById(caid);
         System.out.println();
         return cart;
@@ -40,13 +40,13 @@ public class CartController {
     }
 
     @RequestMapping("deleteById")
-    public boolean deleteById(Integer caid){
+    public boolean deleteById(@RequestBody Integer caid){
         boolean flag=cartService.deleteById(caid);
         return flag;
     }
 
     @RequestMapping("incereseCart")
-    public boolean incereseCart(Integer caid,Integer cid,Integer uid,Integer quantity){
+    public boolean incereseCart(@RequestBody Integer caid,Integer cid,Integer uid,Integer quantity){
         if(cartService.findByCD(cid,uid)!=null){
             cartService.updateOfQuatity(caid,quantity);
         }
@@ -57,7 +57,7 @@ public class CartController {
         return true;
     }
     @RequestMapping("/find_by_user")
-    public List<Result<Cart, Clothes>> find_by_user(Integer uid){
+    public List<Result<Cart, Clothes>> find_by_user(@RequestBody Integer uid){
         List<Cart> carts=cartService.findOfUser(uid);
         Iterator<Cart> iter = carts.iterator();
         List<Result<Cart, Clothes>> results=new ArrayList<>();
