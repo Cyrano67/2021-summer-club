@@ -1,7 +1,7 @@
 //通过模块对象创建一个控制器对象
 app.controller("vspace-cart-controller",function($scope,$controller,$http){
     //使用如下方式继承base_controller
-    $scope.tempIndicator="1";
+
     $controller("base_controller",{$scope:$scope});
     //创建一个方法在页面加载的时候调用
     $scope.initialCart=function(){

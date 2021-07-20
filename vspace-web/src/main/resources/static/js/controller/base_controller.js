@@ -1,6 +1,5 @@
 //创建一个基础控制器,用于存放各个控制器中共有的代码
 app.controller("base_controller",function($scope,$http){
-    $scope.tempIndicator2="2";
     $scope.myAccount = "我的账户";
     //创建一个方法在页面加载的时候调用
     $scope.init=function(){

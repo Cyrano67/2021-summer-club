@@ -31,11 +31,12 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<!--导入angularjs插件-->
 		<script src="js/angularjs/angular.min.js"></script>
-		<script src="js/base/base-pagination.js"></script>
+		<script src="js/base/base.js"></script>
 		<script src="js/controller/base_controller.js"></script>
 		<script src="js/cart.js"></script>
+<!--		<script src="js/base/Test.js"></script>-->
     </head>
-    <body ng-app="vspace" ng-controller="base_controller">
+    <body ng-app="vspace" ng-controller="vspace-cart-controller" ng-init="initialCart()">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -171,7 +172,7 @@
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
-											<span>{{tempIndicator2}}</span>
+											<span>{{tempIndicator}}</span>
 										</a>
 									</div>
 									<ul>
