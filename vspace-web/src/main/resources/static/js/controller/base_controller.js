@@ -1,5 +1,13 @@
 //创建一个基础控制器,用于存放各个控制器中共有的代码
 app.controller("base_controller",function($scope,$http){
+
+    // 打开详情页面
+    $scope.jumpDetail=function(product_id){
+        window.sessionStorage.setItem("product_id",product_id);
+        window.location.href="/detail";
+    }
+
+
     $scope.myAccount = "我的账户";
     //创建一个方法在页面加载的时候调用
     $scope.init=function(){
@@ -26,15 +34,26 @@ app.controller("base_controller",function($scope,$http){
     //创建方法: 在购物车页面加载的时候调用,用于查询当前用户的所用购物车信息
     $scope.findCartsByPhone=function (){
         //验证是否登录
-        if (!$scope.checkLogin()) {
-            //跳转到登录页面
-            window.location.href="login-register.html";
-            return;
-        }
-        $http.get("/cart/findCartsByPhone?phone=" + window.sessionStorage.getItem("phone")).success(function(results){
+//        if (!$scope.checkLogin()) {
+//            //跳转到登录页面
+//            window.location.href="login.html";
+//            return;
+//        }
+//        $http.get("/cart/find_of_user?uid=" + window.sessionStorage.getItem("uid")).success(function(results){
+//            //循环转换imageUrl为json
+//            for (let i = 0; i < results.length; i++) {
+//                results[i].relateOne.picAddr = JSON.parse(results[i].relateOne.picAddr);
+//            }
+//            $scope.results = results;
+//            console.log(results);
+//            //计算总价
+////            $scope.calculateSumPrice($scope.results);
+//        });
+        console.log("进入查找");
+        $http.get("/cart/find_by_user?uid=3").success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.imageUrl = JSON.parse(results[i].relateOne.imageUrl);
+                results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
             }
             $scope.results = results;
             console.log(results);
@@ -46,7 +65,7 @@ app.controller("base_controller",function($scope,$http){
     $scope.calculateSumPrice=function(results){
         var totalPrice = 0;
         for (let i = 0; i < results.length; i++) {
-            totalPrice += results[i].entity.ammount * results[i].relateOne.price * results[i].relateOne.discount;
+            totalPrice += results[i].entity.quantity * results[i].relateOne.price;
         }
         $scope.goodsTotalPrice = parseFloat(totalPrice.toFixed(2));//保留两位小数
         //随机生成一个运费
@@ -57,14 +76,14 @@ app.controller("base_controller",function($scope,$http){
     //由于多个页面中都会存在根据编号查询商品信息的情况,此处将
     //创建方法: 根据编号查询商品信息
     $scope.findGoodsById=function(goodsId){
-        $http.get("/index/findGoodsById?goodsId=" + goodsId).success(function(goods){
+        $http.get("/clothes/findByUid?goodsId=" + goodsId).success(function(goods){
             goods.imageUrl = JSON.parse(goods.imageUrl);
             console.log(goods);
             $scope.quickViewGoods = goods;
         });
     }
 
-    //点击"商品图片"的时候将当前商品的编号存储到会话storage中(在详情页面打开使用)
+    //点击"商品图片"的时候将当前商品的编号存储到会话storage中
     $scope.storageGoodsIdToLocal=function(goodsId){
         window.sessionStorage.setItem("detailsGoodsId",goodsId);
         //跳转到详情页
@@ -75,11 +94,11 @@ app.controller("base_controller",function($scope,$http){
     //创建方法: 添加购物车
     $scope.insertCart=function(goodsId){
         //验证是否登录
-        if (!$scope.checkLogin()) {
-            //跳转到登录页面
-            window.location.href="login-register.html";
-            return;
-        }
+        // if (!$scope.checkLogin()) {
+        //     //跳转到登录页面
+        //     window.location.href="login-register.html";
+        //     return;
+        // }
         //创建一个json对象用于存放购物车数据
         var cart = {"phone":window.sessionStorage.getItem("phone"),"goodsId":goodsId,"ammount":"1"};
         $http.post("/cart/insertCart",cart).success(function(result){
@@ -97,8 +116,8 @@ app.controller("base_controller",function($scope,$http){
     }
 
     //创建方法: 用于删除购物车信息
-    $scope.deleteCart=function(cartId){
-        $http.get("/cart/deleteCart?cartId=" + cartId).success(function(result){
+    $scope.deleteCart=function(caid){
+        $http.get("/cart/deleteCart?caid=" + caid).success(function(result){
             //删除成功之后,重新查询
             $scope.findCartsByPhone();
         });
