@@ -1,10 +1,10 @@
 app.controller("shop-controller",function ($scope,$controller,$http){
 
     //使用如下方式继承loginStatus_controller
-    $controller("lgstCtrl",{$scope:$scope});
+    // $controller("lgstCtrl",{$scope:$scope});
 
     //继承search-controller控制器
-    $controller("search_controller",{$scope:$scope});
+    // $controller("search_controller",{$scope:$scope});
 
     //继承base_controller
     $controller("base_controller",{$scope:$scope});

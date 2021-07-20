@@ -1,5 +1,11 @@
 //创建一个基础控制器,用于存放各个控制器中共有的代码
-app.controller("base_controller",function($scope,$http){
+app.controller("base_controller",function($scope,$controller,$http){
+
+    //使用如下方式继承loginStatus_controller
+    $controller("lgstCtrl",{$scope:$scope});
+
+    //继承search-controller控制器
+    $controller("search_controller",{$scope:$scope});
 
     // 打开详情页面
     $scope.jumpDetail=function(product_id){

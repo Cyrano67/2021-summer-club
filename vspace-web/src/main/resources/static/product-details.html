@@ -33,6 +33,12 @@
 		<!-- 定义初始化动作-->
 		<script src="js/angularjs/angular.min.js"></script>
 		<script src="js/base/base_detail.js"></script>
+
+		<!--引入搜索相关控制器-->
+		<script src="js/controller/search-controller.js"></script>
+		<!--引入登录信息显示控制器-->
+		<script src="js/LoginStatusAdapt.js"></script>
+
 		<script src="js/controller/base_controller.js"></script>
 		<script src="js/showDetail.js"></script>
     </head>
@@ -80,9 +86,10 @@
 									</ul>
 								</div>
 								<div class="account">
-									<a class="login" href="login.html">Sign in</a>
-									<span>Or</span>
-									<a class="register" href="login.html">Register</a>
+									<span>{{Hello()}}</span>
+									<span>{{User()}}</span>
+									<a class="login" href="login">{{Login()}}</a>
+									<a class="logout" href="logout">{{Logout()}}</a>
 								</div>
 							</div>
 						</div>
@@ -232,12 +239,12 @@
 										<div class="search-inside animated bounceInUp"> <i class="icon-close search-close fa fa-times"></i>
 										  <div class="search-overlay"></div>
 										  <div class="position-center-center">
-											<div class="search">
-											  <form>
-												<input type="search" placeholder="Search Shop">
-												<button type="submit"><i class="fa fa-search"></i></button>
-											  </form>
-											</div>
+											  <div class="search">
+												  <form>
+													  <input id="searchString" placeholder="Search Shop" type="search">
+													  <button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
+												  </form>
+											  </div>
 										  </div>
 										</div>
 									  </div>
