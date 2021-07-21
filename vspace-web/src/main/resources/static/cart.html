@@ -175,7 +175,21 @@
 								</div>
 							</div>
 							<div class="col-md-2 col-sm-8 col-xs-6 header-right">
-								<div class="my-cart">
+								<div class="my-cart" ng-if="!checkLogin2()">
+									<div class="total-cart">
+										<a href="cart.html">
+											<img src="img/cart/cart.png" alt="" />
+											<span>{{results.length}}</span>
+										</a>
+									</div>
+									<ul>
+										<li class="cart-border">
+											<label>"You haven't been signed in!"</label>
+											<label>"Please sign in before checking for your shopping cart!"</label>
+										</li>
+									</ul>
+								</div>
+								<div class="my-cart" ng-if="checkLogin2()">
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />

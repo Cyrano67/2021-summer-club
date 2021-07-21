@@ -27,6 +27,8 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     $scope.findTop9FunIndicator=0;
     //初始化Shop页面使用的初始化方法
     $scope.initShop = function (){
+
+        $scope.findCartsByPhone();
         //设置最大最小值
         $scope.minPrice="0"
         $scope.maxPrice="10000"

@@ -11,6 +11,9 @@ app.controller("richman-details-show-ctrl",function($scope,$controller,$http){
     // 从session中得到需要打开的商品ID
     $scope.cid=sessionStorage.getItem("product_id");
 
+    $scope.initDetails = function (){
+        $scope.init();
+    }
     // 直接发送post请求，初始化自己
     $http.post('/details/info',$scope.cid).success(function(response){
 //        $scope.acess="oks";

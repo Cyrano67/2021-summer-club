@@ -33,18 +33,16 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <!--导入angularjs插件-->
 	    <!--导入app模块js插件-->
-	    <script src="js/base/base.js"></script>
-
+		<script src="js/base/base.js"></script>
 		<!--引入搜索相关控制器-->
 		<script src="js/controller/search-controller.js"></script>
 		<!--引入登录信息显示控制器-->
 		<script src="js/LoginStatusAdapt.js"></script>
-
-	    <!--导入base_controller.js-->
-	    <script src="js/controller/base_controller.js"></script>
+		<!--引入base控制器-->
+		<script src="js/controller/base_controller.js"></script>
 		<script src="js/login.js"></script>
     </head>
-    <body>
+    <body ng-app="vspace" ng-controller="loginCtrl" ng-init="loginInit()">
     
     
         <!--[if lt IE 8]>
@@ -179,7 +177,21 @@
 								</div>
 							</div>
 							<div class="col-md-2 col-sm-8 col-xs-6 header-right">
-								<div class="my-cart">
+								<div class="my-cart" ng-if="!checkLogin2()">
+									<div class="total-cart">
+										<a href="cart.html">
+											<img src="img/cart/cart.png" alt="" />
+											<span>{{results.length}}</span>
+										</a>
+									</div>
+									<ul>
+										<li class="cart-border">
+											<label>"You haven't been signed in!"</label>
+											<label>"Please sign in before checking for your shopping cart!"</label>
+										</li>
+									</ul>
+								</div>
+								<div class="my-cart" ng-if="checkLogin2()">
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
@@ -247,23 +259,23 @@
 								</div>
 
 								<div class="header-search">
-									  <!-- SEARCH BAR -->
-									  <div class="dropdown">
+									<!-- SEARCH BAR -->
+									<div class="dropdown">
 										<a href="javascript:void(0);" class="search-open">
 											<img src="img/search.png" alt="" />
 										</a>
 										<div class="search-inside animated bounceInUp"> <i class="icon-close search-close fa fa-times"></i>
-										  <div class="search-overlay"></div>
-										  <div class="position-center-center">
-											  <div class="search">
-												  <form>
-													  <input id="searchString" placeholder="Search Shop" type="search">
-													  <button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
-												  </form>
-											  </div>
-										  </div>
+											<div class="search-overlay"></div>
+											<div class="position-center-center">
+												<div class="search">
+													<form>
+														<input id="searchString" placeholder="Search Shop" type="search">
+														<button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
+													</form>
+												</div>
+											</div>
 										</div>
-									  </div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -376,7 +388,7 @@
 		</div>
 		<!-- breadcrumb-area end -->
 		<!-- login-area start -->
-		<div class="login-area" ng-app="loginApp" ng-controller="loginCtrl">
+		<div class="login-area" >
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6">

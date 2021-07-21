@@ -1,6 +1,6 @@
 //通过模块对象创建一个控制器对象
-var loginApp = angular.module('loginApp',[]);
-loginApp.controller('loginCtrl',function ($scope, $http, $location) {
+
+app.controller('loginCtrl',function ($scope, $controller,$http, $location) {
     //定义一个对象用于封装登录用户信息
     $scope.user = {"uid":0,"uname":"","password":"","email":"","phone":"","role":0};
     //定义一个对象用于封装注册用于信息
@@ -8,6 +8,12 @@ loginApp.controller('loginCtrl',function ($scope, $http, $location) {
     /**
      * 创建一个方法用于登录
      */
+    $controller("base_controller",{$scope:$scope});
+
+    $scope.loginInit = function (){
+        $scope.init();
+    }
+
     $scope.login_req=function(){
     	var host = location.host;
 //    	$scope.user.phone
