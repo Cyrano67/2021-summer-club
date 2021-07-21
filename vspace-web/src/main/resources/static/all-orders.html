@@ -420,21 +420,21 @@
 												<td class="product-name">
 <!--													{{inactive_orders[index]}}-->
 													<div ng-repeat="i in inactive_orders">
-														<a href="#" ng-click="jumpDetail(i[2])">{{i[1]}}</a>
+														<a href="#" ng-if="i[0]==o" ng-click="jumpDetail(i[2])">{{i[1]}}</a>
 <!--														<span ng-click="jumpDetail(i[2])">{{i[1]}}</span>-->
 <!--														<a ng-if="i[0]==o" href="#" ng-click="jumpDetail(i[2])">{{i[1]}}</a>-->
 													</div>
 												</td>
 												<td class="product-price"><span class="amount">{{total_prices[$index]}}</span></td>
 											</tr>
-<!--											<tr ng-repeat="i in inactive_orders">-->
-<!--												<td class="product-thumbnail">{{i.OrderNum}}</td>-->
+<!--											<tr ng-repeat="i in inactive_orderinfos">-->
+<!--												<td class="product-thumbnail">{{i[0][0]}}</td>-->
 <!--												<td class="product-name">-->
-<!--													<div ng-repeat="no in i.ProductsNum">-->
-<!--														<a href="{{i.Links[no]}}">{{i.Products[no]}}</a>-->
+<!--													<div ng-repeat="c in i[1]">-->
+<!--														<a href="#" ng-click="jumpDetail(i[2][$index])">{{c}}</a>-->
 <!--													</div>-->
 <!--												</td>-->
-<!--												<td class="product-price"><span class="amount">{{i.TotalPrice}}</span></td>-->
+<!--												<td class="product-price"><span class="amount">{{i[3][0]}}</span></td>-->
 <!--											</tr>-->
 										</tbody>
 									</table>

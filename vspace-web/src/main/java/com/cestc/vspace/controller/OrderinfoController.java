@@ -48,6 +48,40 @@ public class OrderinfoController {
         return ordersinfoservice.findByUid(uid);
     }
 
+    @RequestMapping("find_inactive_ordersinfos")
+    public List<List<List<String>>> find_inactive_ordersinfos(int uid) {
+        List<OrdersInfo> ordersInfos=ordersinfoservice.findByUid(uid);
+        List<List<List<String>>> inactive_orderinfos=new ArrayList<>();
+        for(int i=0;i<ordersInfos.size();i++){
+            List<List<String>> inactive_orderinfo=new ArrayList<>();
+            List<String> order_num=new ArrayList<>();
+            Integer order_num_int=ordersInfos.get(i).getOrderNo();
+            order_num.add(Integer.toString(order_num_int));
+            List<String> total_price=new ArrayList<>();
+            Integer total_price_int=ordersInfos.get(i).getPayment();
+            total_price.add(Integer.toString(total_price_int));
+
+            List<String> cinfos=new ArrayList<>();
+            String[] cinfos_al=ordersInfos.get(i).getCinfo().split(";");
+            for(int j=0;j< cinfos_al.length;j++){
+                cinfos.add(cinfos_al[j]);
+            }
+
+            List<String> clinks=new ArrayList<>();
+            String[] clinks_al=ordersInfos.get(i).getClink().split(";");
+            for(int j=0;j<clinks_al.length;j++){
+                clinks.add(clinks_al[j]);
+            }
+
+            inactive_orderinfo.add(order_num);
+            inactive_orderinfo.add(cinfos);
+            inactive_orderinfo.add(clinks);
+            inactive_orderinfo.add(total_price);
+            inactive_orderinfos.add(inactive_orderinfo);
+        }
+        return inactive_orderinfos;
+    }
+
     @RequestMapping("find_cinfos")
     public String[] find_cinfos(int oid) {
         String cinfos=ordersinfoservice.findByOid(oid).getCinfo();
