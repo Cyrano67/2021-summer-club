@@ -49,15 +49,20 @@ app.controller("base_controller",function($scope,$http){
 //            //计算总价
 ////            $scope.calculateSumPrice($scope.results);
 //        });
-        console.log("进入查找");
-        $http.get("/cart/find_by_user?uid=3").success(function(results){
+
+        console.log(window.sessionStorage.getItem("uid"));
+        console.log(window.sessionStorage.getItem("uname"));
+        console.log("进入查找");//,window.sessionStorage.getItem("uid")
+        let uidd=window.sessionStorage.getItem("uid");
+        var userr={"uid":uidd,"uname":"12","password":"1","email":"1","phone":"1","role":0};
+        $http.get("/cart/find_by_user?uid="+window.sessionStorage.getItem("uid")).success(function(results){
             //循环转换imageUrl为json
             for (let i = 0; i < results.length; i++) {
                 results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
             }
             $scope.results = results;
             console.log(results);
-            //计算总价
+            $scope.results.temp=window.sessionStorage.getItem("uid");
             $scope.calculateSumPrice($scope.results);
         });
     }
@@ -92,7 +97,7 @@ app.controller("base_controller",function($scope,$http){
 
     //点击"加入购物车"时候调用的方法
     //创建方法: 添加购物车
-    $scope.insertCart=function(goodsId){
+    $scope.insertCart=function(cid){
         //验证是否登录
         // if (!$scope.checkLogin()) {
         //     //跳转到登录页面
@@ -100,10 +105,24 @@ app.controller("base_controller",function($scope,$http){
         //     return;
         // }
         //创建一个json对象用于存放购物车数据
-        var cart = {"phone":window.sessionStorage.getItem("phone"),"goodsId":goodsId,"ammount":"1"};
-        $http.post("/cart/insertCart",cart).success(function(result){
+        //var cart = {"uid":window.sessionStorage.getItem("uid"),"goodsId":goodsId,"ammount":"1"};
+
+        var caidd="";
+        window.sessionStorage.setItem("flag_test",10);
+        $scope.results.temp=window.sessionStorage.getItem("flag_test");
+        $http.post("/cart/getCaid").success(function(caidd){
             //跳转到购物车页面
-            window.location.href="cart.html";
+            //window.location.href="cart.html";
+        });
+
+        var uid=window.sessionStorage.getItem("uid");
+        if (uid == null) {
+            window.location.href="login.html";
+        }
+        $http.post("/cart/insertCart",caidd,cid,uid,1).success(function(result){
+            //跳转到购物车页面
+            console.log("插入成功");
+            //window.location.href="cart.html";
         });
     }
 
