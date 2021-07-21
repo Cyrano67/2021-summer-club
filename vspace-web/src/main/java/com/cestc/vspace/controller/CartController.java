@@ -58,7 +58,6 @@ public class CartController {
         return true;
     }
     @RequestMapping("/find_by_user")
-    public List<Result<Cart, Clothes>> find_by_user(@RequestBody Integer uid){
     public List<Result<Cart, Clothes>> find_by_user(Integer uid){//@RequestBody UserList user){
 
 //        Integer uid=user.getUid();
