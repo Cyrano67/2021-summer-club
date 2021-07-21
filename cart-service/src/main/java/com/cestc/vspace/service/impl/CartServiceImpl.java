@@ -76,5 +76,13 @@ public class CartServiceImpl implements CartService {
 		List<Cart> carts = cartmapper.selectByExample(cartExample);
 	  	return carts;
 	}
+
+	@Override
+	public boolean deletebyUid(Integer uid){
+		CartExample cartExample = new CartExample();
+		cartExample.createCriteria().andUidEqualTo(uid);
+		cartmapper.deleteByExample(cartExample);
+		return true;
+	}
 }
 

@@ -28,4 +28,6 @@ public interface CartService {
 	boolean delete(Integer caid);
 
 	List<Cart> findOfUser(Integer uid);
+
+	boolean deletebyUid(Integer uid);
 }
