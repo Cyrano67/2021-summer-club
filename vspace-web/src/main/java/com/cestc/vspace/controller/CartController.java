@@ -1,9 +1,7 @@
 package com.cestc.vspace.controller;
 
 import com.cestc.vspace.dto.Result;
-import com.cestc.vspace.pojo.Cart;
-import com.cestc.vspace.pojo.Clothes;
-import com.cestc.vspace.pojo.UserList;
+import com.cestc.vspace.pojo.*;
 import com.cestc.vspace.service.CartService;
 import com.cestc.vspace.service.ClothesService;
 import com.cestc.vspace.service.UserlistService;
@@ -12,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/cart")
@@ -46,14 +41,23 @@ public class CartController {
         return flag;
     }
 
-    @RequestMapping("incereseCart")
-    public boolean incereseCart(Integer caid,Integer cid,Integer uid,Integer quantity){
-        if(cartService.findByCD(cid,uid)!=null){
-            cartService.updateOfQuatity(caid,quantity);
+    @RequestMapping("insertCart")
+    public boolean insertCart(@RequestBody Cart cart){
+
+       Integer caid=cart.getCaid();
+       Integer cid=cart.getCid();
+       Integer uid=cart.getUid();
+       Integer quantity=cart.getQuantity();
+
+       System.out.println(caid);
+       System.out.println(cid);
+       Cart cc=cartService.findByCD(cid,uid);
+        if(cc!=null){
+            cartService.updateOfQuatity(cc.getCaid(),quantity+cc.getQuantity());
         }
         else {
-            Cart cc=cartService.findById(caid);
-            cartService.register(cc);
+            //Cart cc=cartService.findById(caid);
+            cartService.register(cart);
         }
         return true;
     }
@@ -86,9 +90,12 @@ public class CartController {
         return "cart.html";
     }
     @RequestMapping("getCaid")
-        public static String getCaid(){
-            return UUID.randomUUID().toString().replace("-", "").toLowerCase();
-        }
+    public Integer getCaid(){
+        UUID uuid=UUID.randomUUID();
+        String str = uuid.toString();
+        String uuidStr=str.replace("-", "").substring(28).toUpperCase();
+        return Integer.valueOf(uuidStr,16);
+    }
     public CartController() {
         // TODO Auto-generated constructor stub
     }

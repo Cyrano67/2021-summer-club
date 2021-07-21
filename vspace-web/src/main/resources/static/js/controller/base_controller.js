@@ -103,7 +103,7 @@ app.controller("base_controller",function($scope,$controller,$http){
 
     //点击"加入购物车"时候调用的方法
     //创建方法: 添加购物车
-    $scope.insertCart=function(cid){
+    $scope.insertCart=function(){
         //验证是否登录
         // if (!$scope.checkLogin()) {
         //     //跳转到登录页面
@@ -112,20 +112,19 @@ app.controller("base_controller",function($scope,$controller,$http){
         // }
         //创建一个json对象用于存放购物车数据
         //var cart = {"uid":window.sessionStorage.getItem("uid"),"goodsId":goodsId,"ammount":"1"};
-
-        var caidd="";
-        window.sessionStorage.setItem("flag_test",10);
-        $scope.results.temp=window.sessionStorage.getItem("flag_test");
-        $http.post("/cart/getCaid").success(function(caidd){
+        var cid=window.sessionStorage.getItem("product_id");
+        console.log(cid);
+        // window.sessionStorage.setItem("flag_test",10);
+        // $scope.results.temp=window.sessionStorage.getItem("flag_test");
+        var caidd=0;
+        $http.get("/cart/getCaid").success(function(caidd){
             //跳转到购物车页面
             //window.location.href="cart.html";
         });
-
+        console.log(caidd);
         var uid=window.sessionStorage.getItem("uid");
-        if (uid == null) {
-            window.location.href="login.html";
-        }
-        $http.post("/cart/insertCart",caidd,cid,uid,1).success(function(result){
+        var cartt={"caid":caidd,"cid":cid,"uid":uid,"quantity":$scope.product_num};
+        $http.post("/cart/insertCart",cartt).success(function(){
             //跳转到购物车页面
             console.log("插入成功");
             //window.location.href="cart.html";
