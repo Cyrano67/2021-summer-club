@@ -3,12 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Shopping Cart || Richman</title>
+        <title>Orders || Richman</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
         <!-- Place favicon.ico in the root directory -->
+
 
 		<!-- all css here -->
 		<!-- bootstrap v3.3.6 css -->
@@ -29,20 +30,21 @@
         <link rel="stylesheet" href="css/responsive.css">
 		<!-- modernizr js -->
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-		<!--导入angularjs插件-->
-		<script src="js/angularjs/angular.min.js"></script>
-		<script src="js/base/base.js"></script>
 
+		<!-- angularjs 插件-->
+		<script src="js/angularjs/angular.min.js"></script>
+		<!-- 基础 -->
+		<script src="js/base/base.js"></script>
 		<!--引入搜索相关控制器-->
 		<script src="js/controller/search-controller.js"></script>
 		<!--引入登录信息显示控制器-->
 		<script src="js/LoginStatusAdapt.js"></script>
-
+		<!--引入base控制器-->
 		<script src="js/controller/base_controller.js"></script>
-		<script src="js/cart.js"></script>
-<!--		<script src="js/base/Test.js"></script>-->
+		<!--引入all-orders控制器-->
+		<script src="js/controller/all-orders-controller.js"></script>
     </head>
-    <body ng-app="vspace" ng-controller="vspace-cart-controller" ng-init="initialCart()">
+    <body ng-app="vspace" ng-controller="all-orders_controller">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -111,20 +113,20 @@
 									<nav>
 										<ul>
 											<li><a href="index.html">home</a>
-<!--												<ul>-->
-<!--													<li><a href="index.html">home version 1</a></li>-->
-<!--													<li><a href="index-2.html">home version 2</a></li>-->
-<!--													<li><a href="index-3.html">home version 3</a></li>-->
-<!--													<li><a href="index-4.html">home version box</a></li>-->
-<!--												</ul>-->
+												<!--												<ul>-->
+												<!--													<li><a href="index.html">home version 1</a></li>-->
+												<!--													<li><a href="index-2.html">home version 2</a></li>-->
+												<!--													<li><a href="index-3.html">home version 3</a></li>-->
+												<!--													<li><a href="index-4.html">home version box</a></li>-->
+												<!--												</ul>-->
 											</li>
 											<li><a href="about.html">about</a></li>
-<!--											<li><a href="blog.html">blog</a>-->
-<!--												<ul>-->
-<!--													<li><a href="blog.html">blog</a></li>-->
-<!--													<li><a href="single-blog.html">Blog Details</a></li>-->
-<!--												</ul>-->
-<!--											</li>-->
+											<!--											<li><a href="blog.html">blog</a>-->
+											<!--												<ul>-->
+											<!--													<li><a href="blog.html">blog</a></li>-->
+											<!--													<li><a href="single-blog.html">Blog Details</a></li>-->
+											<!--												</ul>-->
+											<!--											</li>-->
 											<li><a href="shop.html">shop</a>
 												<div class="mega-menu mega-menu-2">
 													<span>
@@ -154,42 +156,28 @@
 												</div>
 											</li>
 											<li><a href="shop.html">cloth</a></li>
-<!--											<li><a href="#">pages</a>-->
-<!--												<ul>-->
-<!--													<li><a href="about.html">about</a></li>-->
-<!--													<li><a href="contact.html">contact</a></li>-->
-<!--													<li><a href="cart.html">shopping cart</a></li>-->
-<!--													<li><a href="checkout.html">checkout</a></li>-->
-<!--													<li><a href="wishlist.html">wishlist</a></li>-->
-<!--													<li><a href="login.html">login</a></li>-->
-<!--													<li><a href="shop.html">shop left sidebar</a></li>-->
-<!--													<li><a href="shop-right-sidebar.html">shop right sidebar</a></li>-->
-<!--													<li><a href="shop-4-column.html">shop 4 column</a></li>-->
-<!--													<li><a href="product-details.html">product details</a></li>-->
-<!--													<li><a href="404.html">404 error</a></li>-->
-<!--												</ul>-->
-<!--											</li>-->
+											<!--											<li><a href="#">pages</a>-->
+											<!--												<ul>-->
+											<!--													<li><a href="about.html">about</a></li>-->
+											<!--													<li><a href="contact.html">contact</a></li>-->
+											<!--													<li><a href="cart.html">shopping cart</a></li>-->
+											<!--													<li><a href="checkout.html">checkout</a></li>-->
+											<!--													<li><a href="wishlist.html">wishlist</a></li>-->
+											<!--													<li><a href="login.html">login</a></li>-->
+											<!--													<li><a href="shop.html">shop left sidebar</a></li>-->
+											<!--													<li><a href="shop-right-sidebar.html">shop right sidebar</a></li>-->
+											<!--													<li><a href="shop-4-column.html">shop 4 column</a></li>-->
+											<!--													<li><a href="product-details.html">product details</a></li>-->
+											<!--													<li><a href="404.html">404 error</a></li>-->
+											<!--												</ul>-->
+											<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
 										</ul>
 									</nav>
 								</div>
 							</div>
 							<div class="col-md-2 col-sm-8 col-xs-6 header-right">
-								<div class="my-cart" ng-if="!checkLogin2()">
-									<div class="total-cart">
-										<a href="cart.html">
-											<img src="img/cart/cart.png" alt="" />
-											<span>{{results.length}}</span>
-										</a>
-									</div>
-									<ul>
-										<li class="cart-border">
-											<label>"You haven't been signed in!"</label>
-											<label>"Please sign in before checking for your shopping cart!"</label>
-										</li>
-									</ul>
-								</div>
-								<div class="my-cart" ng-if="checkLogin2()">
+								<div class="my-cart">
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
@@ -209,42 +197,42 @@
 												<i class="fa fa-times-circle" ng-click="deleteCart(r.entity.caid)"></i>
 											</div>
 										</li>
-<!--										<li>-->
-<!--											<div class="cart-img">-->
-<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
-<!--											</div>-->
-<!--											<div class="cart-info">-->
-<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
-<!--												<span>£165.00 <span>x 1</span></span>-->
-<!--											</div>-->
-<!--											<div class="del-icon">-->
-<!--												<i class="fa fa-times-circle"></i>-->
-<!--											</div>-->
-<!--										</li>-->
-<!--										<li>-->
-<!--											<div class="cart-img">-->
-<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
-<!--											</div>-->
-<!--											<div class="cart-info">-->
-<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
-<!--												<span>£165.00 <span>x 1</span></span>-->
-<!--											</div>-->
-<!--											<div class="del-icon">-->
-<!--												<i class="fa fa-times-circle"></i>-->
-<!--											</div>-->
-<!--										</li>-->
-<!--										<li>-->
-<!--											<div class="cart-img">-->
-<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
-<!--											</div>-->
-<!--											<div class="cart-info">-->
-<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
-<!--												<span>£165.00 <span>x 1</span></span>-->
-<!--											</div>-->
-<!--											<div class="del-icon">-->
-<!--												<i class="fa fa-times-circle"></i>-->
-<!--											</div>-->
-<!--										</li>-->
+										<!--										<li>-->
+										<!--											<div class="cart-img">-->
+										<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+										<!--											</div>-->
+										<!--											<div class="cart-info">-->
+										<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+										<!--												<span>£165.00 <span>x 1</span></span>-->
+										<!--											</div>-->
+										<!--											<div class="del-icon">-->
+										<!--												<i class="fa fa-times-circle"></i>-->
+										<!--											</div>-->
+										<!--										</li>-->
+										<!--										<li>-->
+										<!--											<div class="cart-img">-->
+										<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+										<!--											</div>-->
+										<!--											<div class="cart-info">-->
+										<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+										<!--												<span>£165.00 <span>x 1</span></span>-->
+										<!--											</div>-->
+										<!--											<div class="del-icon">-->
+										<!--												<i class="fa fa-times-circle"></i>-->
+										<!--											</div>-->
+										<!--										</li>-->
+										<!--										<li>-->
+										<!--											<div class="cart-img">-->
+										<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+										<!--											</div>-->
+										<!--											<div class="cart-info">-->
+										<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+										<!--												<span>£165.00 <span>x 1</span></span>-->
+										<!--											</div>-->
+										<!--											<div class="del-icon">-->
+										<!--												<i class="fa fa-times-circle"></i>-->
+										<!--											</div>-->
+										<!--										</li>-->
 										<li class="cart-border">
 											<div class="subtotal-text">Subtotal: </div>
 											<div class="subtotal-price">{{goodsTotalPrice}}</div>
@@ -298,6 +286,7 @@
 											</ul>
 										</li>
 										<li><a href="about.html">About</a></li>
+										<li><a href="all-orders.html">AllOrders</a></li>
 										<li><a href="blog.html">blog</a></li>
 										<li><a href="shop.html">Shop</a>
 											<ul>
@@ -331,6 +320,7 @@
 										<li><a href="#">Pages</a>
 											<ul>
 												<li><a href="about.html">about</a></li>
+												<li><a href="all-orders.html">all-orders</a></li>
 												<li><a href="contact.html">contact</a></li>
 												<li><a href="cart.html">shopping cart</a></li>
 												<li><a href="checkout.html">checkout</a></li>
@@ -360,8 +350,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="title-heading text-center">
-							<h1>our SHOPPING CART</h1>
-							<p>We are a featured brand that calls itself fashion</p>
+							<h1>ABOUT MY ORDERS</h1>
+							<p>All orders are following</p>
 						</div>
 					</div>
 				</div>
@@ -377,7 +367,7 @@
 							<ul>
 								<li><a href="index.html">HOME</a></li>
 								<li><a href="shop.html">Shop</a></li>
-								<li><span>Shopping Cart</span></li>
+								<li><span>AllOrders</span></li>
 							</ul>
 						</div>
 					</div>
@@ -385,141 +375,55 @@
 			</div>
 		</div>
 		<!-- breadcrumb-area end -->
-		<!-- cart-main-area start -->
-		<div class="cart-main-area">
+
+		<!-- all-orders-area start -->
+		<div class="wishlist-area">
 			<div class="container">
 				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title marg-50  text-center">
+							<h2>All MY ORDERS </h2>
+							--<img src="img/section-title.png" alt="" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-12 col-sm-12 col-xs-12">
-						<form action="#">
-							<div class="table-content table-responsive">
-								<table>
-									<thead>
+						<div class="wishlist-content">
+							<form action="#">
+								<div class="wishlist-table table-responsive">
+									<table>
+										<thead>
 										<tr>
-											<th class="product-thumbnail">Image</th>
-											<th class="product-name">Product</th>
-											<th class="product-price">Price</th>
-											<th class="product-quantity">Quantity</th>
-											<th class="product-subtotal">Total</th>
-											<th class="product-remove">Remove</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr ng-repeat="r in results">
-<!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{r.relateOne.picAddr}}" alt=""></a></td>-->
-											<td class="product-thumbnail">
-												<a href="#">
-													<img src="http://116.63.130.162:49163/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg" alt="">
-												</a>
-											</td>
-											<td class="product-name">
-												<a href="#">{{r.relateOne.cname}}</a>
-											</td>
-											<td class="product-price">
-												<span class="amount">${{r.relateOne.price | number:2}}</span>
-											</td>
-											<td class="product-quantity">
-												<div class="pro-qty">
-													<span class="dec qtybtn" ng-click="minus($index,r.entity.caid)">-</span>
-													<input type="text" ng-model="r.entity.quantity"/>
-													<span class="inc qtybtn" ng-click="add($index,r.entity.caid)">+</span>
-												</div>
-											</td>
-											<td class="product-subtotal">
-												<span>${{r.relateOne.price * r.entity.quantity | number:2}}</span>
-											</td>
-											<td class="product-remove">
-<!--												<a href="#"><i class="fa fa-times"></i></a>-->
-												<a href="#" ng-click="deleteCart(r.entity.caid)">
-													<i class="fa fa-trash-o"></i>
-												</a>
-											</td>
-<!--											<td class="product-thumbnail"><a href="#"><img src="img/cart/2.jpg" alt="" /></a></td>-->
-<!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{basic.headImages}}" alt="" /></a></td>-->
-<!--											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>-->
-<!--											<td class="product-price"><span class="amount">£125.00</span></td>-->
-<!--											<td class="product-quantity"><input type="number" value="1" /></td>-->
-<!--											<td class="product-subtotal">£125.00</td>-->
-<!--											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
-<!--										</tr>-->
-<!--										<tr>-->
-<!--											<td class="product-thumbnail"><a href="#"><img src="img/cart/3.jpg" alt="" /></a></td>-->
-<!--											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>-->
-<!--											<td class="product-price"><span class="amount">£90.00</span></td>-->
-<!--											<td class="product-quantity"><input type="number" value="1" /></td>-->
-<!--											<td class="product-subtotal">£90.00</td>-->
-<!--											<td class="product-remove"><a href="#"><i class="fa fa-times"></i></a></td>-->
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<div class="row">
-								<div class="col-md-8 col-sm-7 col-xs-12">
-									<div class="buttons-cart">
-<!--										<input type="submit" value="Update Cart" />-->
-										<a href="#" ng-click="findCartsByPhone()">Update Cart</a>
-										<a href="shop.html">Continue Shopping</a>
-									</div>
-<!--									<div class="coupon">-->
-<!--										<h3>Coupon</h3>-->
-<!--										<p>Enter your coupon code if you have one.</p>-->
-<!--										<input type="text" placeholder="Coupon code" />-->
-<!--										<input type="submit" value="Apply Coupon" />-->
-<!--									</div>-->
-								</div>
-								<div class="col-md-4 col-sm-5 col-xs-12">
-									<div class="cart_totals">
-										<h2>Cart Totals</h2>
-										<table>
-											<tbody>
-												<tr class="cart-subtotal">
-													<th>Subtotal</th>
-													<td><span class="amount">{{goodsTotalPrice}}</span></td>
-												</tr>
-												<tr class="shipping">
-													<th>Shipping</th>
-													<td>
-														<ul id="shipping_method">
-															<!--
-															<li>
-																<input type="radio" />
 
-																<label>
-																	Flat Rate: <span class="amount">£7.00</span>
-																</label>
+											<th class="product-thumbnail">Order Number</th>
+											<th class="product-name"><span class="nobr">Product Name</span></th>
+											<th class="product-price"><span class="nobr"> Total Price </span></th>
+										</tr>
+										</thead>
+										<tbody>
+										<tr>
 
-															</li>
-															-->
-															<li>
-<!--																<input type="radio" />-->
-																<label>
-																	Free Shipping
-																</label>
-															</li>
-															<li></li>
-														</ul>
-														<p><a class="shipping-calculator-button" href="#">Calculate Shipping</a></p>
-													</td>
-												</tr>
-												<tr class="order-total">
-													<th>Total</th>
-													<td>
-														<strong><span class="amount">{{totalPrice}}</span></strong>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-										<div class="wc-proceed-to-checkout">
-											<a href="checkout.html">Proceed to Checkout</a>
-										</div>
-									</div>
+											<td class="product-thumbnail"><a href="#">a0000000001</a></td>
+											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
+											<td class="product-price"><span class="amount">£125.00</span></td>
+
+										</tr>
+										<tr>
+											<td class="product-thumbnail"><a href="#">a0000000002</a></td>
+											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
+											<td class="product-price"><span class="amount">£90.00</span></td>
+										</tr>
+										</tbody>
+									</table>
 								</div>
-							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- cart-main-area end -->
+		<!-- all-orders-area end -->
 
 		<!-- footer start -->
 		<footer>
@@ -639,7 +543,6 @@
 			<!-- footer-bottom-area end -->
 		</footer>
 		<!-- footer end -->
-
 
 		<!-- all js here -->
 		<!-- jquery latest version -->
