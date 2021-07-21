@@ -125,6 +125,7 @@ app.controller("base_controller",function($scope,$controller,$http){
         console.log(caid_test);
         var uid=window.sessionStorage.getItem("uid");
         var flag="";
+        var t_num=0;
         var cartt={"caid":caid_test,"cid":cid,"uid":uid,"quantity":$scope.product_num};
         $http.post("/cart/insertCart",cartt).success(function(flag){
             //跳转到购物车页面
