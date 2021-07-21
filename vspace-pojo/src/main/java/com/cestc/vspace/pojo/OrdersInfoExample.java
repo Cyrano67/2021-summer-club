@@ -1,10 +1,11 @@
 package com.cestc.vspace.pojo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrdersInfoExample {
+public class OrdersInfoExample  implements Serializable{
     protected String orderByClause;
 
     protected boolean distinct;
@@ -885,63 +886,203 @@ public class OrdersInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andCaidIsNull() {
-            addCriterion("CAID is null");
+        public Criteria andCinfoIsNull() {
+            addCriterion("CINFO is null");
             return (Criteria) this;
         }
 
-        public Criteria andCaidIsNotNull() {
-            addCriterion("CAID is not null");
+        public Criteria andCinfoIsNotNull() {
+            addCriterion("CINFO is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCaidEqualTo(Integer value) {
-            addCriterion("CAID =", value, "caid");
+        public Criteria andCinfoEqualTo(String value) {
+            addCriterion("CINFO =", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidNotEqualTo(Integer value) {
-            addCriterion("CAID <>", value, "caid");
+        public Criteria andCinfoNotEqualTo(String value) {
+            addCriterion("CINFO <>", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidGreaterThan(Integer value) {
-            addCriterion("CAID >", value, "caid");
+        public Criteria andCinfoGreaterThan(String value) {
+            addCriterion("CINFO >", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("CAID >=", value, "caid");
+        public Criteria andCinfoGreaterThanOrEqualTo(String value) {
+            addCriterion("CINFO >=", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidLessThan(Integer value) {
-            addCriterion("CAID <", value, "caid");
+        public Criteria andCinfoLessThan(String value) {
+            addCriterion("CINFO <", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidLessThanOrEqualTo(Integer value) {
-            addCriterion("CAID <=", value, "caid");
+        public Criteria andCinfoLessThanOrEqualTo(String value) {
+            addCriterion("CINFO <=", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidIn(List<Integer> values) {
-            addCriterion("CAID in", values, "caid");
+        public Criteria andCinfoLike(String value) {
+            addCriterion("CINFO like", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidNotIn(List<Integer> values) {
-            addCriterion("CAID not in", values, "caid");
+        public Criteria andCinfoNotLike(String value) {
+            addCriterion("CINFO not like", value, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidBetween(Integer value1, Integer value2) {
-            addCriterion("CAID between", value1, value2, "caid");
+        public Criteria andCinfoIn(List<String> values) {
+            addCriterion("CINFO in", values, "cinfo");
             return (Criteria) this;
         }
 
-        public Criteria andCaidNotBetween(Integer value1, Integer value2) {
-            addCriterion("CAID not between", value1, value2, "caid");
+        public Criteria andCinfoNotIn(List<String> values) {
+            addCriterion("CINFO not in", values, "cinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCinfoBetween(String value1, String value2) {
+            addCriterion("CINFO between", value1, value2, "cinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andCinfoNotBetween(String value1, String value2) {
+            addCriterion("CINFO not between", value1, value2, "cinfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkIsNull() {
+            addCriterion("CLINK is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkIsNotNull() {
+            addCriterion("CLINK is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkEqualTo(String value) {
+            addCriterion("CLINK =", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkNotEqualTo(String value) {
+            addCriterion("CLINK <>", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkGreaterThan(String value) {
+            addCriterion("CLINK >", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkGreaterThanOrEqualTo(String value) {
+            addCriterion("CLINK >=", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkLessThan(String value) {
+            addCriterion("CLINK <", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkLessThanOrEqualTo(String value) {
+            addCriterion("CLINK <=", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkLike(String value) {
+            addCriterion("CLINK like", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkNotLike(String value) {
+            addCriterion("CLINK not like", value, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkIn(List<String> values) {
+            addCriterion("CLINK in", values, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkNotIn(List<String> values) {
+            addCriterion("CLINK not in", values, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkBetween(String value1, String value2) {
+            addCriterion("CLINK between", value1, value2, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andClinkNotBetween(String value1, String value2) {
+            addCriterion("CLINK not between", value1, value2, "clink");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIsNull() {
+            addCriterion("UID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIsNotNull() {
+            addCriterion("UID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidEqualTo(Integer value) {
+            addCriterion("UID =", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotEqualTo(Integer value) {
+            addCriterion("UID <>", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidGreaterThan(Integer value) {
+            addCriterion("UID >", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("UID >=", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidLessThan(Integer value) {
+            addCriterion("UID <", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidLessThanOrEqualTo(Integer value) {
+            addCriterion("UID <=", value, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidIn(List<Integer> values) {
+            addCriterion("UID in", values, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotIn(List<Integer> values) {
+            addCriterion("UID not in", values, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidBetween(Integer value1, Integer value2) {
+            addCriterion("UID between", value1, value2, "uid");
+            return (Criteria) this;
+        }
+
+        public Criteria andUidNotBetween(Integer value1, Integer value2) {
+            addCriterion("UID not between", value1, value2, "uid");
             return (Criteria) this;
         }
     }
