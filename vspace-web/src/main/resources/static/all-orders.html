@@ -42,9 +42,9 @@
 		<!--引入base控制器-->
 		<script src="js/controller/base_controller.js"></script>
 		<!--引入all-orders控制器-->
-		<script src="js/controller/all-orders-controller.js"></script>
+		<script src="js/all-orders-controller.js"></script>
     </head>
-    <body ng-app="vspace" ng-controller="all-orders_controller">
+    <body ng-app="vspace" ng-controller="all-orders_controller" ng-init="initialIaorders()">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -394,26 +394,48 @@
 								<div class="wishlist-table table-responsive">
 									<table>
 										<thead>
-										<tr>
-
-											<th class="product-thumbnail">Order Number</th>
-											<th class="product-name"><span class="nobr">Product Name</span></th>
-											<th class="product-price"><span class="nobr"> Total Price </span></th>
-										</tr>
+											<tr>
+<!--												<th class="product-thumbnail">{{tempTest1}}</th>-->
+<!--												<th class="product-name"><span class="nobr">{{tempTest3}}</span></th>-->
+<!--												<th class="product-price"><span class="nobr">{{tempTest2}}</span></th>-->
+												<th class="product-thumbnail">Order Number</th>
+												<th class="product-name"><span class="nobr">Products in Order</span></th>
+												<th class="product-price"><span class="nobr"> Total Price</span></th>
+											</tr>
 										</thead>
 										<tbody>
-										<tr>
-
-											<td class="product-thumbnail"><a href="#">a0000000001</a></td>
-											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
-											<td class="product-price"><span class="amount">£125.00</span></td>
-
-										</tr>
-										<tr>
-											<td class="product-thumbnail"><a href="#">a0000000002</a></td>
-											<td class="product-name"><a href="#">Lorem ipsum dolor</a></td>
-											<td class="product-price"><span class="amount">£90.00</span></td>
-										</tr>
+<!--											<tr>-->
+<!--												<td>{{order_nums}}</td>-->
+<!--												<td>{{total_prices}}</td>-->
+<!--												<td>{{inactive_orders}}</td>-->
+<!--											</tr>-->
+<!--											<tr ng-repeat="o in order_nums">-->
+<!--												<td class="product-thumbnail"></td>-->
+<!--												<td class="product-name">here2</td>-->
+<!--												<td class="product-price">here3</td>-->
+<!--											</tr>-->
+											<tr ng-repeat="o in order_nums">
+<!--												<td class="product-thumbnail">here</td>-->
+												<td class="product-thumbnail">{{o}}</td>
+												<td class="product-name">
+<!--													{{inactive_orders[index]}}-->
+													<div ng-repeat="i in inactive_orders">
+														<a href="#" ng-click="jumpDetail(i[2])">{{i[1]}}</a>
+<!--														<span ng-click="jumpDetail(i[2])">{{i[1]}}</span>-->
+<!--														<a ng-if="i[0]==o" href="#" ng-click="jumpDetail(i[2])">{{i[1]}}</a>-->
+													</div>
+												</td>
+												<td class="product-price"><span class="amount">{{total_prices[$index]}}</span></td>
+											</tr>
+<!--											<tr ng-repeat="i in inactive_orders">-->
+<!--												<td class="product-thumbnail">{{i.OrderNum}}</td>-->
+<!--												<td class="product-name">-->
+<!--													<div ng-repeat="no in i.ProductsNum">-->
+<!--														<a href="{{i.Links[no]}}">{{i.Products[no]}}</a>-->
+<!--													</div>-->
+<!--												</td>-->
+<!--												<td class="product-price"><span class="amount">{{i.TotalPrice}}</span></td>-->
+<!--											</tr>-->
 										</tbody>
 									</table>
 								</div>

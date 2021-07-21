@@ -196,7 +196,13 @@
 											<span>{{results.length}}</span>
 										</a>
 									</div>
-									<ul>
+									<ul ng-if="!checkLogin()">
+										<li class="cart-border">
+											<div class="subtotal-text">"You haven't been signed in!"</div>
+											<div class="subtotal-text">"Please sign in before checking for your shopping cart!"</div>
+										</li>
+									</ul>
+									<ul ng-if="checkLogin()">
 										<li ng-repeat="r in results">
 											<div class="cart-img">
 												<a href="#"><img alt="" src="img/cart/1.jpg"></a>

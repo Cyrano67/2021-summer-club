@@ -1,5 +1,7 @@
 package com.cestc.vspace.service.impl;
 
+import com.cestc.vspace.pojo.Cart;
+import com.cestc.vspace.pojo.CartExample;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,10 +22,14 @@ public class OrdersinfoServiceImpl implements OrdersinfoService {
 
 
 	@Override
-	public OrdersInfo findById(int id) {
+	public OrdersInfo findByOid(int oid) {
 		// TODO Auto-generated method stub
-		return ordersinfomapper.selectByPrimaryKey(id);
+		return ordersinfomapper.selectByPrimaryKey(oid);
 	}
+//	public OrdersInfo findById(int id) {
+//		// TODO Auto-generated method stub
+//		return ordersinfomapper.selectByPrimaryKey(id);
+//	}
 
 	@Override
 	public boolean insertOrders(List<OrdersInfo> orders){
@@ -35,12 +41,18 @@ public class OrdersinfoServiceImpl implements OrdersinfoService {
 		return true;
 	}
 	@Override
-	public OrdersInfo findOrderByNum(int num){
+	public OrdersInfo findByOrderNO(int ono){
 		OrdersInfoExample orderExample = new OrdersInfoExample();
-		orderExample.createCriteria().andOrderNoEqualTo(num);
+		orderExample.createCriteria().andOrderNoEqualTo(ono);
 		List<OrdersInfo> Orders = ordersinfomapper.selectByExample(orderExample);
 		return Orders.get(0);
 	}
+//	public OrdersInfo findOrderByNum(int num){
+//		OrdersInfoExample orderExample = new OrdersInfoExample();
+//		orderExample.createCriteria().andOrderNoEqualTo(num);
+//		List<OrdersInfo> Orders = ordersinfomapper.selectByExample(orderExample);
+//		return Orders.get(0);
+//	}
 
 	@Override
 	public boolean deleteOrderById(OrdersInfo order){
@@ -67,6 +79,14 @@ public class OrdersinfoServiceImpl implements OrdersinfoService {
 		example.createCriteria().andOidEqualTo(order.getOid());
 		int i = ordersinfomapper.updateByExampleSelective(order, example);
 		return i > 0;
+	}
+
+	@Override
+	public List<OrdersInfo> findByUid(int uid){
+		OrdersInfoExample ordersInfoExample=new OrdersInfoExample();
+		ordersInfoExample.createCriteria().andUidEqualTo(uid);
+		List<OrdersInfo> ordersInfos=ordersinfomapper.selectByExample(ordersInfoExample);
+		return ordersInfos;
 	}
 
 
