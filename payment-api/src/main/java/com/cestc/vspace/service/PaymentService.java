@@ -5,7 +5,7 @@ import com.cestc.vspace.pojo.PayInfo;
 
 public interface PaymentService {
 	//支付方法
-	String pay(OrdersInfo trade);
+	String pay(int trade);
 	//退款方法
 	String refund(OrdersInfo trade);
 
