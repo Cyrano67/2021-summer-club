@@ -68,6 +68,15 @@ app.controller("shop-controller",function ($scope,$controller,$http){
         // $scope.paginationConf.totalItems=9;
     }
 
+    $scope.showGoodsName = function (cname){
+        if(cname.length>=20){
+            return cname.slice(0,19)+"...";
+        }
+        else{
+            return cname;
+        }
+    }
+
     $scope.shopInsertCart = function (cid){
         window.sessionStorage.setItem("product_id",cid);
         $scope.product_num=1;
