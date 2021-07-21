@@ -120,23 +120,16 @@ app.controller("base_controller",function($scope,$controller,$http){
         // window.sessionStorage.setItem("flag_test",10);
         // $scope.results.temp=window.sessionStorage.getItem("flag_test");
         var cart1={"cid":cid,"uid":uid,"caid":0,"quantity":0};
-        $scope.caid_test={"test":0,"cc":12};
-        $http.post("/cart/getCaid",cart1).success(function(tt){
-            //跳转到购物车页面
-            console.log("result=");
-            console.log(tt);
-            $scope.caid_test.cc=tt;
-            //window.location.href="cart.html";
-        });
+        var caid_test=cid*1000+uid;
         console.log("此时的caid");
-        console.log($scope.caid_test.cc);
+        console.log(caid_test);
         var uid=window.sessionStorage.getItem("uid");
         var flag="";
-        var cartt={"caid":$scope.caid_test,"cid":cid,"uid":uid,"quantity":$scope.product_num};
+        var cartt={"caid":caid_test,"cid":cid,"uid":uid,"quantity":$scope.product_num};
         $http.post("/cart/insertCart",cartt).success(function(flag){
             //跳转到购物车页面
             console.log("插入成功");
-            //window.location.href="cart.html";
+            window.location.href="cart.html";
         });
     }
 
