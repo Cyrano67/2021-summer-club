@@ -1,8 +1,9 @@
 package com.cestc.vspace.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class OrdersInfo {
+public class OrdersInfo implements Serializable{
     private Integer oid;
 
     private Integer orderNo;
@@ -29,7 +30,11 @@ public class OrdersInfo {
 
     private Date updateTime;
 
-    private Integer caid;
+    private String cinfo;
+
+    private String clink;
+
+    private Integer uid;
 
     public Integer getOid() {
         return oid;
@@ -135,21 +140,27 @@ public class OrdersInfo {
         this.updateTime = updateTime;
     }
 
-    public Integer getCaid() {
-        return caid;
+    public String getCinfo() {
+        return cinfo;
     }
 
-    public void setCaid(Integer caid) {
-        this.caid = caid;
+    public void setCinfo(String cinfo) {
+        this.cinfo = cinfo == null ? null : cinfo.trim();
     }
 
-    public OrdersInfo(Integer oid,Integer orderNo,Integer payment,Integer paymentType,Integer postage,Integer status,Integer shippingId,Date paymentTime,Date sendTime,Date endTime,Date closeTime,Date createTime,Date updateTime,Integer caid){
-        //oid,orderNo,payment,paymentType,postage,status,shippingId,paymentTime,sendTime,endTime,closeTime,createTime,updateTime,caid
-        this.oid=oid;this.orderNo=orderNo;this.payment=payment;this.paymentType=paymentType;
-        this.postage=postage;this.status=status;this.shippingId=shippingId;
-        this.paymentTime=paymentTime;this.sendTime=sendTime;
-        this.endTime=endTime;this.closeTime=closeTime;
-        this.createTime=createTime;this.updateTime=updateTime;
-        this.caid=caid;
+    public String getClink() {
+        return clink;
+    }
+
+    public void setClink(String clink) {
+        this.clink = clink == null ? null : clink.trim();
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }

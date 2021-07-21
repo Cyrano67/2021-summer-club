@@ -15,7 +15,9 @@
     <result column="CLOSE_TIME" property="closeTime" jdbcType="TIMESTAMP" />
     <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
     <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
-    <result column="CAID" property="caid" jdbcType="INTEGER" />
+    <result column="CINFO" property="cinfo" jdbcType="VARCHAR" />
+    <result column="CLINK" property="clink" jdbcType="VARCHAR" />
+    <result column="UID" property="uid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,7 +79,7 @@
   </sql>
   <sql id="Base_Column_List" >
     OID, ORDER_NO, PAYMENT, PAYMENT_TYPE, POSTAGE, STATUS, SHIPPING_ID, PAYMENT_TIME, 
-    SEND_TIME, END_TIME, CLOSE_TIME, CREATE_TIME, UPDATE_TIME, CAID
+    SEND_TIME, END_TIME, CLOSE_TIME, CREATE_TIME, UPDATE_TIME, CINFO, CLINK, UID
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.cestc.vspace.pojo.OrdersInfoExample" >
     select
@@ -114,12 +116,14 @@
       PAYMENT_TYPE, POSTAGE, STATUS, 
       SHIPPING_ID, PAYMENT_TIME, SEND_TIME, 
       END_TIME, CLOSE_TIME, CREATE_TIME, 
-      UPDATE_TIME, CAID)
+      UPDATE_TIME, CINFO, CLINK, 
+      UID)
     values (#{oid,jdbcType=INTEGER}, #{orderNo,jdbcType=INTEGER}, #{payment,jdbcType=INTEGER}, 
       #{paymentType,jdbcType=INTEGER}, #{postage,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
       #{shippingId,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP}, #{sendTime,jdbcType=TIMESTAMP}, 
       #{endTime,jdbcType=TIMESTAMP}, #{closeTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{caid,jdbcType=INTEGER})
+      #{updateTime,jdbcType=TIMESTAMP}, #{cinfo,jdbcType=VARCHAR}, #{clink,jdbcType=VARCHAR}, 
+      #{uid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cestc.vspace.pojo.OrdersInfo" >
     insert into ORDERS_INFO
@@ -163,8 +167,14 @@
       <if test="updateTime != null" >
         UPDATE_TIME,
       </if>
-      <if test="caid != null" >
-        CAID,
+      <if test="cinfo != null" >
+        CINFO,
+      </if>
+      <if test="clink != null" >
+        CLINK,
+      </if>
+      <if test="uid != null" >
+        UID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -207,8 +217,14 @@
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="caid != null" >
-        #{caid,jdbcType=INTEGER},
+      <if test="cinfo != null" >
+        #{cinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="clink != null" >
+        #{clink,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -260,8 +276,14 @@
       <if test="record.updateTime != null" >
         UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.caid != null" >
-        CAID = #{record.caid,jdbcType=INTEGER},
+      <if test="record.cinfo != null" >
+        CINFO = #{record.cinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clink != null" >
+        CLINK = #{record.clink,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uid != null" >
+        UID = #{record.uid,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -283,7 +305,9 @@
       CLOSE_TIME = #{record.closeTime,jdbcType=TIMESTAMP},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
-      CAID = #{record.caid,jdbcType=INTEGER}
+      CINFO = #{record.cinfo,jdbcType=VARCHAR},
+      CLINK = #{record.clink,jdbcType=VARCHAR},
+      UID = #{record.uid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -327,8 +351,14 @@
       <if test="updateTime != null" >
         UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="caid != null" >
-        CAID = #{caid,jdbcType=INTEGER},
+      <if test="cinfo != null" >
+        CINFO = #{cinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="clink != null" >
+        CLINK = #{clink,jdbcType=VARCHAR},
+      </if>
+      <if test="uid != null" >
+        UID = #{uid,jdbcType=INTEGER},
       </if>
     </set>
     where OID = #{oid,jdbcType=INTEGER}
@@ -347,7 +377,9 @@
       CLOSE_TIME = #{closeTime,jdbcType=TIMESTAMP},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
-      CAID = #{caid,jdbcType=INTEGER}
+      CINFO = #{cinfo,jdbcType=VARCHAR},
+      CLINK = #{clink,jdbcType=VARCHAR},
+      UID = #{uid,jdbcType=INTEGER}
     where OID = #{oid,jdbcType=INTEGER}
   </update>
 </mapper>
