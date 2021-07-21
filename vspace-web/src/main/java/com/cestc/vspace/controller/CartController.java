@@ -8,7 +8,6 @@ import com.cestc.vspace.service.CartService;
 import com.cestc.vspace.service.ClothesService;
 import com.cestc.vspace.service.UserlistService;
 import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,6 +58,7 @@ public class CartController {
         return true;
     }
     @RequestMapping("/find_by_user")
+    public List<Result<Cart, Clothes>> find_by_user(@RequestBody Integer uid){
     public List<Result<Cart, Clothes>> find_by_user(Integer uid){//@RequestBody UserList user){
 
 //        Integer uid=user.getUid();
@@ -86,12 +86,10 @@ public class CartController {
     public String getcart(){
         return "cart.html";
     }
-
     @RequestMapping("getCaid")
-    public static String getCaid(){
-        return UUID.randomUUID().toString().replace("-", "").toLowerCase();
-    }
-
+        public static String getCaid(){
+            return UUID.randomUUID().toString().replace("-", "").toLowerCase();
+        }
     public CartController() {
         // TODO Auto-generated constructor stub
     }

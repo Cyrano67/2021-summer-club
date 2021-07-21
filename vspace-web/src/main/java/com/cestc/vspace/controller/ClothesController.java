@@ -34,7 +34,7 @@ public class ClothesController {
     private SearchService searchService;
 
     @RequestMapping("/findByUid")
-    public Clothes findUserById(int cid){
+    public Clothes findUserById(@RequestBody int cid){
         Clothes clo = clothesService.findById(cid);
         System.out.println();
         return clo;
@@ -48,7 +48,7 @@ public class ClothesController {
     }
     //更新商品信息
     @RequestMapping("/updateClothes")
-    public int UpdateRecord(Integer cid,String cname,Integer price,String discription,String picAddr,String merchant,String size){
+    public int UpdateRecord(@RequestBody Integer cid,String cname,Integer price,String discription,String picAddr,String merchant,String size){
         Clothes cc=new Clothes(cid,cname,price,discription,picAddr,merchant,size);
         return clothesService.updateRecord(cc);
     }

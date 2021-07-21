@@ -6,32 +6,32 @@ app.controller('lgstCtrl', function($scope) {
         console.log(uname);
     }
     $scope.Login = function() {
-        if ($scope.checkLogin())
+        if ($scope.checkLogin2())
             return "";
         else
             return "SIGN IN OR REGISTER"
     }
     $scope.Hello = function() {
-        if ($scope.checkLogin())
+        if ($scope.checkLogin2())
             return "Hello";
         else
             return ""
     }
     $scope.User = function() {
-        if ($scope.checkLogin())
+        if ($scope.checkLogin2())
             return window.sessionStorage.getItem("uname");
         else
             return ""
     }
     $scope.Logout = function() {
-        if ($scope.checkLogin())
+        if ($scope.checkLogin2())
             return "LOG OUT";
         else
             return ""
     }
-    $scope.checkLogin=function(){
+    $scope.checkLogin2=function(){
         var isLogin = window.sessionStorage.getItem("autologin");
-        if (isLogin == "true") {
+        if (isLogin === "true") {
             $scope.myAccount = window.sessionStorage.getItem("uname");
             return true;
         }
