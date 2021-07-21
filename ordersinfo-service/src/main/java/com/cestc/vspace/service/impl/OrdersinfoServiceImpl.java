@@ -1,12 +1,16 @@
 package com.cestc.vspace.service.impl;
 
+import com.cestc.vspace.pojo.ShippingInfo;
+import com.cestc.vspace.pojo.ShippingInfoExample;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cestc.vspace.mapper.OrdersInfoMapper;
 import com.cestc.vspace.pojo.OrdersInfo;
 import com.cestc.vspace.pojo.OrdersInfoExample;
-import java.util.List;
+
+import java.util.*;
+
 import com.cestc.vspace.service.OrdersinfoService;
 @Service
 public class OrdersinfoServiceImpl implements OrdersinfoService {
@@ -34,6 +38,34 @@ public class OrdersinfoServiceImpl implements OrdersinfoService {
 		}
 		return true;
 	}
+
+	public static Integer getUUID(){
+		UUID uuid=UUID.randomUUID();
+		String str = uuid.toString();
+		String uuidStr=str.replace("-", "").substring(28).toUpperCase();
+		return Integer.valueOf(uuidStr,16);
+	}
+
+	@Override
+	public int insertOrder(OrdersInfo order){
+		// 设置插入数据的id
+//		OrdersInfoExample ordersInfoExample = new OrdersInfoExample();
+//		ordersInfoExample.createCriteria().andCaidGreaterThanOrEqualTo(0);
+//		List<OrdersInfo> ordersInfolist = ordersinfomapper.selectByExample(ordersInfoExample);
+//		if(!ordersInfolist.isEmpty()){
+//			Optional<OrdersInfo > infoOp = ordersInfolist.stream().max(Comparator.comparingInt(OrdersInfo ::getOid));
+//			OrdersInfo maxOrder = infoOp.get();
+//			order.setOid(maxOrder.getOid()+1);
+//		}
+		Integer orderInfoId = getUUID();
+		order.setOid(orderInfoId);
+//		// 获取当前时间
+//		Date date = new Date();
+//		order.setPaymentTime(date);
+
+		ordersinfomapper.insert(order);
+		return orderInfoId;
+	}
 	@Override
 	public OrdersInfo findOrderByNum(int num){
 		OrdersInfoExample orderExample = new OrdersInfoExample();
@@ -50,7 +82,6 @@ public class OrdersinfoServiceImpl implements OrdersinfoService {
 			return true;
 		}
 		return false;
-
 	}
 
 	@Override
