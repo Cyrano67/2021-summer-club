@@ -45,6 +45,9 @@ public class CartController {
     public boolean insertCart(@RequestBody Cart cart){
 
        Integer caid=cart.getCaid();
+       System.out.println("insert_caid=");
+       System.out.println(caid);
+
        Integer cid=cart.getCid();
        Integer uid=cart.getUid();
        Integer quantity=cart.getQuantity();
@@ -52,10 +55,14 @@ public class CartController {
        System.out.println(caid);
        System.out.println(cid);
        Cart cc=cartService.findByCD(cid,uid);
+
+       if(quantity==null)
+           quantity=1;
         if(cc!=null){
             cartService.updateOfQuatity(cc.getCaid(),quantity+cc.getQuantity());
         }
         else {
+            //cart.setQuantity(1);
             //Cart cc=cartService.findById(caid);
             cartService.register(cart);
         }
@@ -89,12 +96,17 @@ public class CartController {
     public String getcart(){
         return "cart.html";
     }
-    @RequestMapping("getCaid")
-    public Integer getCaid(){
-        UUID uuid=UUID.randomUUID();
-        String str = uuid.toString();
-        String uuidStr=str.replace("-", "").substring(28).toUpperCase();
-        return Integer.valueOf(uuidStr,16);
+    @RequestMapping("/getCaid")
+    public Integer getCaid(@RequestBody Cart cart){
+//        UUID uuid=UUID.randomUUID();
+//        String str = uuid.toString();
+//        String uuidStr=str.replace("-", "").substring(28).toUpperCase();
+//        System.out.println(Integer.valueOf(uuidStr,16));
+        Integer uid=cart.getUid();
+        Integer cid=cart.getCid();
+        System.out.println("caid=");
+        System.out.println(uid*1000+cid);
+        return uid*1000+cid;
     }
     public CartController() {
         // TODO Auto-generated constructor stub
