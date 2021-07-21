@@ -30,7 +30,9 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
     }
 
     $scope.order.payment =  $scope.totalcost;
+    $scope.order.uid = $scope.userId;
     window.sessionStorage.removeItem("cart");
+
     $scope.order_address = {"entity":$scope.address,"relateOne":$scope.order};
 
     $scope.placeOrder=function(){

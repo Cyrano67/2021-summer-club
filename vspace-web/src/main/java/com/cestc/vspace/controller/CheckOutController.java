@@ -72,6 +72,8 @@ public class CheckOutController {
 
     @RequestMapping(value = "/AddOrderInfoShippingInfo",method = RequestMethod.POST)
     public Result<String, String> AddOrderInfoShippingInfo(@RequestBody Result<ShippingInfo,OrdersInfo> dataShippingInfoOrderInfo,HttpServletResponse response){
+        // 删除购物车
+        cartService.deletebyUid(dataShippingInfoOrderInfo.getRelateOne().getUid());
         Result<String,String> result = new Result<String, String>();
         // 插入地址
         System.out.println("----------"+dataShippingInfoOrderInfo.getEntity().getReceiverName()+"----------------");
