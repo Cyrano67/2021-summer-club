@@ -11,6 +11,7 @@ import com.cestc.vspace.service.CartService;
 import com.cestc.vspace.service.ClothesService;
 import com.cestc.vspace.service.OrdersinfoService;
 import com.cestc.vspace.service.ShippinginfoService;
+import com.cestc.vspace.service.PaymentService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +36,9 @@ public class CheckOutController {
     private CartService cartService;
     @Reference
     private ClothesService clothesService;
+	@Reference
+	private PaymentService paymentService;
+	
     @RequestMapping(value = "/AddShippingInfo",method = RequestMethod.POST)
     public boolean AddShippingInfo(@RequestBody ShippingInfo addressDetail, HttpServletResponse response){
         System.out.println("----------"+addressDetail.getReceiverName()+"----------------");
@@ -67,18 +71,25 @@ public class CheckOutController {
 
 
     @RequestMapping(value = "/AddOrderInfoShippingInfo",method = RequestMethod.POST)
-    public Result<Integer,Integer> AddOrderInfoShippingInfo(@RequestBody Result<ShippingInfo,OrdersInfo> dataShippingInfoOrderInfo,HttpServletResponse response){
-        Result<Integer,Integer> result = new Result<Integer, Integer>();
+    public Result<String, String> AddOrderInfoShippingInfo(@RequestBody Result<ShippingInfo,OrdersInfo> dataShippingInfoOrderInfo,HttpServletResponse response){
+        Result<String,String> result = new Result<String, String>();
         // 插入地址
         System.out.println("----------"+dataShippingInfoOrderInfo.getEntity().getReceiverName()+"----------------");
         int sid = shippinginfoService.register(dataShippingInfoOrderInfo.getEntity());
-        result.setEntity(sid);
+//        result.setEntity(sid);
         //System.out.println("Address is fine!");
         // 插入订单
-        dataShippingInfoOrderInfo.getRelateOne().setShippingId(sid);
+        OrdersInfo orders = dataShippingInfoOrderInfo.getRelateOne();
+        orders.setShippingId(sid);
         int oid = ordersinfoService.insertOrder(dataShippingInfoOrderInfo.getRelateOne());
-        result.setRelateOne(oid);
-        return result;
+        String payResult = paymentService.pay(oid);
+    	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    	System.out.println(payResult);
+    	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    	result.setEntity("true");
+    	result.setRelateOne(payResult);
+    	return result;
+//        result.setRelateOne(oid);
     }
 //    @RequestMapping(value = "/AddOrderInfo",method = RequestMethod.POST)
 //    public ResponseData AddOrderInfo(@RequestBody OrdersInfo orderdetail, HttpServletResponse response){
