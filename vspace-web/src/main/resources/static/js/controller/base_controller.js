@@ -15,6 +15,7 @@ app.controller("base_controller",function($scope,$controller,$http){
 
 
     $scope.myAccount = "我的账户";
+
     //创建一个方法在页面加载的时候调用
     $scope.init=function(){
         //调用验证登录的方法,设置myAccount变量的数据
@@ -113,18 +114,26 @@ app.controller("base_controller",function($scope,$controller,$http){
         //创建一个json对象用于存放购物车数据
         //var cart = {"uid":window.sessionStorage.getItem("uid"),"goodsId":goodsId,"ammount":"1"};
         var cid=window.sessionStorage.getItem("product_id");
+        var uid=window.sessionStorage.getItem("uid");
         console.log(cid);
+        console.log(uid);
         // window.sessionStorage.setItem("flag_test",10);
         // $scope.results.temp=window.sessionStorage.getItem("flag_test");
-        var caidd=0;
-        $http.get("/cart/getCaid").success(function(caidd){
+        var cart1={"cid":cid,"uid":uid,"caid":0,"quantity":0};
+        $scope.caid_test={"test":0,"cc":12};
+        $http.post("/cart/getCaid",cart1).success(function(tt){
             //跳转到购物车页面
+            console.log("result=");
+            console.log(tt);
+            $scope.caid_test.cc=tt;
             //window.location.href="cart.html";
         });
-        console.log(caidd);
+        console.log("此时的caid");
+        console.log($scope.caid_test.cc);
         var uid=window.sessionStorage.getItem("uid");
-        var cartt={"caid":caidd,"cid":cid,"uid":uid,"quantity":$scope.product_num};
-        $http.post("/cart/insertCart",cartt).success(function(){
+        var flag="";
+        var cartt={"caid":$scope.caid_test,"cid":cid,"uid":uid,"quantity":$scope.product_num};
+        $http.post("/cart/insertCart",cartt).success(function(flag){
             //跳转到购物车页面
             console.log("插入成功");
             //window.location.href="cart.html";
@@ -141,7 +150,8 @@ app.controller("base_controller",function($scope,$controller,$http){
 
     //创建方法: 用于删除购物车信息
     $scope.deleteCart=function(caid){
-        $http.get("/cart/deleteById?caid=" + caid).success(function(){
+        console.log(caid);
+        $http.post("/cart/deleteById?caid=" + caid).success(function(result){
             //删除成功之后,重新查询
             $scope.findCartsByPhone();
         });
