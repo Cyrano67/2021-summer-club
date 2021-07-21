@@ -1,8 +1,8 @@
 #配置服务项目的ip地址 端口号
 server:
    #address: 192.168.2.11
-   port: 9016
    address: 127.0.0.1
+   port: 9009
 #配置dubbo信息
 dubbo:
    application:
