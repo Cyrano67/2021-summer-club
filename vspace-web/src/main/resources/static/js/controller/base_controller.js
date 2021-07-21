@@ -15,6 +15,7 @@ app.controller("base_controller",function($scope,$controller,$http){
 
 
     $scope.myAccount = "我的账户";
+
     //创建一个方法在页面加载的时候调用
     $scope.init=function(){
         //调用验证登录的方法,设置myAccount变量的数据
@@ -103,7 +104,7 @@ app.controller("base_controller",function($scope,$controller,$http){
 
     //点击"加入购物车"时候调用的方法
     //创建方法: 添加购物车
-    $scope.insertCart=function(cid){
+    $scope.insertCart=function(){
         //验证是否登录
         // if (!$scope.checkLogin()) {
         //     //跳转到登录页面
@@ -112,23 +113,24 @@ app.controller("base_controller",function($scope,$controller,$http){
         // }
         //创建一个json对象用于存放购物车数据
         //var cart = {"uid":window.sessionStorage.getItem("uid"),"goodsId":goodsId,"ammount":"1"};
-
-        var caidd="";
-        window.sessionStorage.setItem("flag_test",10);
-        $scope.results.temp=window.sessionStorage.getItem("flag_test");
-        $http.post("/cart/getCaid").success(function(caidd){
-            //跳转到购物车页面
-            //window.location.href="cart.html";
-        });
-
+        var cid=window.sessionStorage.getItem("product_id");
         var uid=window.sessionStorage.getItem("uid");
-        if (uid == null) {
-            window.location.href="login.html";
-        }
-        $http.post("/cart/insertCart",caidd,cid,uid,1).success(function(result){
+        console.log(cid);
+        console.log(uid);
+        // window.sessionStorage.setItem("flag_test",10);
+        // $scope.results.temp=window.sessionStorage.getItem("flag_test");
+        var cart1={"cid":cid,"uid":uid,"caid":0,"quantity":0};
+        var caid_test=cid*1000+uid;
+        console.log("此时的caid");
+        console.log(caid_test);
+        var uid=window.sessionStorage.getItem("uid");
+        var flag="";
+        var t_num=0;
+        var cartt={"caid":caid_test,"cid":cid,"uid":uid,"quantity":$scope.product_num};
+        $http.post("/cart/insertCart",cartt).success(function(flag){
             //跳转到购物车页面
             console.log("插入成功");
-            //window.location.href="cart.html";
+            window.location.href="cart.html";
         });
     }
 
@@ -142,7 +144,8 @@ app.controller("base_controller",function($scope,$controller,$http){
 
     //创建方法: 用于删除购物车信息
     $scope.deleteCart=function(caid){
-        $http.get("/cart/deleteById?caid=" + caid).success(function(){
+        console.log(caid);
+        $http.post("/cart/deleteById?caid=" + caid).success(function(result){
             //删除成功之后,重新查询
             $scope.findCartsByPhone();
         });

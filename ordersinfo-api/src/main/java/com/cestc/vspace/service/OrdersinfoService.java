@@ -23,6 +23,9 @@ public interface OrdersinfoService {
 	//批量增加订单
 	boolean insertOrders(List<OrdersInfo> orders);
 
+	// 单独插入订单
+	int insertOrder(OrdersInfo order);
+
 	//更新订单: 根据商户订单编号修改子订单的状态
 	boolean updateOrderByNum(OrdersInfo order);
 

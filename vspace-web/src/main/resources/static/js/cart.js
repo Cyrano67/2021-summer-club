@@ -32,7 +32,7 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
         //同步到数据库
         $scope.updateQuantity(caidd,$scope.results[index].entity.quantity);
     }
-    //点击×
+    //点击-
     $scope.minus=function(index,caid){
         $scope.results[index].entity.quantity --;
         if ($scope.results[index].entity.quantity < 1) {
@@ -96,10 +96,13 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
     $scope.deleteBatchCart=function (cartIdList){
         $http.post("/cart/deleteBatch",cartIdList).success(function(tag){
             console.log(cartIdList);
+
             //在会话中保存一个变量表示: 从此处跳转到我的账户页面时候默认显示订单模块
             window.sessionStorage.setItem("show-order","yes");
             //跳转到我的账户页面
             window.location.href = "shop.html";
+
+
         });
     }
 });

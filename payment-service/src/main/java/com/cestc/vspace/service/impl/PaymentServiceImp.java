@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.alipay.api.AlipayClient;
@@ -14,7 +14,7 @@ import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.cestc.vspace.pojo.OrdersInfo;
 import com.cestc.vspace.service.OrdersinfoService;
 import com.cestc.vspace.service.PaymentService;
-import com.cestc.vspace.service.conf.PaymentConfig;
+import com.cestc.vspace.conf.PaymentConfig;
 
 
 @Service
@@ -46,12 +46,18 @@ public class PaymentServiceImp implements PaymentService {
 		//创建一个Map集合对象用于存放订单交易业务数据
 		Map<String,Object> bizParams = new HashMap<>();
 		//封装必须的业务参数即可
-		bizParams.put("out_trade_no",trade.getOrderNo()); // 商户订单号
-		bizParams.put("total_amount",String.format("%.2f",trade.getPayment()));// 交易金额,支付宝支持小数点后两位小数
+		bizParams.put("out_trade_no",trade.getOid().toString()); // 商户订单号
+		System.out.println("out_trade_no:"+trade.getOid().toString());
+		bizParams.put("total_amount",trade.getPayment().toString());// 交易金额,支付宝支持小数点后两位小数
+//		bizParams.put("total_amount",trade.getPayment().toString());// 交易金额,支付宝支持小数点后两位小数
+		System.out.println("total_amount:"+trade.getPayment().toString());
 		bizParams.put("subject", "Vspace Order"); //订单标题
 		bizParams.put("body","Vspace goods list");// 对交易或商品的描述
 		bizParams.put("product_code","FAST_INSTANT_TRADE_PAY");//销售产品码
-		bizParams.put("timeout_express","30m"); // 设置支付有效时间
+//		bizParams.put("timeout_express","30m"); // 设置支付有效时间
+//		alipayRequest.setBizContent("{\"out_trade_no\":\"" + out_trade_no + "\"," + "\"total_amount\":\"" + total_amount
+//                + "\"," + "\"subject\":\"" + subject + "\"," + "\"body\":\"" + body + "\","
+//                + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
 		//设置支付请求需要的业务内容参数alipayTradePagePayRequest.setBizContent(JSON.toJSONString(bizParams));
 		//请求支付并获取支付结果
 		alipayTradePagePayRequest.setBizContent(JSON.toJSONString(bizParams));

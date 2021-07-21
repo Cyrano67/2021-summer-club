@@ -68,6 +68,12 @@ app.controller("shop-controller",function ($scope,$controller,$http){
         // $scope.paginationConf.totalItems=9;
     }
 
+    $scope.shopInsertCart = function (cid){
+        window.sessionStorage.setItem("product_id",cid);
+        $scope.product_num=1;
+        $scope.insertCart();
+    }
+
     $scope.filterChange = function (){
         let numPair = document.getElementById('amount').value.match(/\d+/g);
         $scope.minPrice = numPair[0];

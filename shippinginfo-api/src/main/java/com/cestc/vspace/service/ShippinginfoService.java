@@ -6,7 +6,7 @@ public interface ShippinginfoService {
 	
 	ShippingInfo findById(int id);
 	
-	boolean register(ShippingInfo user);
+	int register(ShippingInfo user);
 
 	boolean delete(Integer sid);
 }
