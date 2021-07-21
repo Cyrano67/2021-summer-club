@@ -78,7 +78,7 @@ public class AlipayAsyncNotifyController {
 				//创建一个日期时间格式化对象
 				SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 				//②: 调用订单服务方法更新订单子项中的状态数据
-				OrdersInfo order = orderService.findById(Integer.parseInt(params.get("out_trade_no")) );
+				OrdersInfo order = orderService.findByOid(Integer.parseInt(params.get("out_trade_no")) );
 				order.setStatus(1);
 				order.setEndTime(new Date());
 				order.setUpdateTime(new Date());

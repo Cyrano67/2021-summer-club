@@ -48,8 +48,9 @@ public class CheckOutController {
     }
 
     @RequestMapping(value = "/GetCartData")
-    public List<Result<Cart, Clothes>> GetCart(Integer userId, HttpServletResponse response){
+    public List<Result<Cart, Clothes>> GetCart(String uid){
         //System.out.println("uid: "+userId);
+    	Integer userId = Integer.parseInt(uid);
         List<Result<Cart, Clothes>> list1=new ArrayList<>();
         List<Cart> cart_data = cartService.findOfUser(userId);
         Iterator<Cart> iter = cart_data.iterator();
@@ -83,6 +84,8 @@ public class CheckOutController {
         // 插入订单
         OrdersInfo orders = dataShippingInfoOrderInfo.getRelateOne();
         orders.setShippingId(sid);
+        System.out.println("~~~~~~~~~~~~~~~~~RelateOne Payment~~~~~~~~~~~~~~~~~~~");
+    	System.out.println(orders.getPayment());
         int oid = ordersinfoService.insertOrder(dataShippingInfoOrderInfo.getRelateOne());
         String payResult = paymentService.pay(oid);
     	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

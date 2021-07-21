@@ -20,7 +20,7 @@ import java.util.Map;
 public class AliSyncNotifyController {
 	@Autowired
 	private PaymentConfig paymentConfig;
-	
+	 
 	@RequestMapping("/notify")
 	public String notice(HttpServletRequest request){
 		//1.获取同步通知请求参数//2.拼接转换请求参数

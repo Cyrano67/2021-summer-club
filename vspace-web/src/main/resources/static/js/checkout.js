@@ -8,16 +8,18 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
         "sendTime":parse,"endTime":parse,"closeTime":parse,	"createTime":parse,"updateTime":parse,"cinfo":"","clink":"","uid":0
     };
 
-    //$scope.uid = window.sessionStorage.getItem("uid");
-    $scope.userId = 3;
+    $scope.uid = window.sessionStorage.getItem("uid");
+    
     $scope.initialCheckOut=function(){
         $scope.get_Cart();
+        $scope.userId = $scope.uid;
+        console.log($scope.uid);
     }
 
-    $scope.totalcost = 0;
     $scope.get_Cart = function(){
+        $scope.totalcost = 0;
         //$http.get("/GetCartData?userId=" + $scope.userId).success(function(response){
-        $http.post("/checkout/GetCartData?userId=" + $scope.userId).success(function(response){
+        $http.get("/checkout/GetCartData?uid=" + $scope.uid).success(function(response){
             // alert("uid1");
             $scope.order_list = response;
             for (let i = 0; i < response.length; i++) {
@@ -25,13 +27,15 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
                 $scope.order.clink = $scope.order.clink + response[i].relateOne.cid + ";";
                 $scope.totalcost += response[i].entity.quantity * response[i].relateOne.price;
             }
+            $scope.order.payment =  $scope.totalcost;
+            $scope.order.uid = $scope.uid;
         });
        // alert("successful load");
     }
 
-    $scope.order.payment =  $scope.totalcost;
-    $scope.order.uid = $scope.userId;
+
     window.sessionStorage.removeItem("cart");
+    console.log($scope.order);
 
     $scope.order_address = {"entity":$scope.address,"relateOne":$scope.order};
 
