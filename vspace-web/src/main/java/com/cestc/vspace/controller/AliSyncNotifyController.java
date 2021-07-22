@@ -62,7 +62,7 @@ public class AliSyncNotifyController {
 			if (verified) {
 				//重定向到我的账户模块查看订单信息
 				System.out.println("验签成功,即将跳转到我的订单页面!");
-				returnUrl = "redirect:/all-orders.html";}
+				returnUrl = "redirect:/index.html";}
 			else{
 				System.out.println("验签失败");
 				returnUrl = "redirect:/index.html";}
