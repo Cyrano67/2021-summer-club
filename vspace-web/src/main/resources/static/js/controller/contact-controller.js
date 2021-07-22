@@ -6,4 +6,8 @@ app.controller("contact_controller",function($scope,$controller,$http){
     $scope.contactInit = function (){
         $scope.init();
     }
+    $scope.getSubmit=function(){
+        window.alert("Submit successfully!")
+
+    }
 })
