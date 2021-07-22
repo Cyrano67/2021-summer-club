@@ -407,12 +407,12 @@
 										<tr ng-repeat="r in results">
 <!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{r.relateOne.picAddr}}" alt=""></a></td>-->
 											<td class="product-thumbnail">
-												<a href="#">
+												<a href="#" ng-click="jumpDetail(r.entity.cid)">
 													<img src={{r.relateOne.picAddr}} alt="">
 												</a>
 											</td>
 											<td class="product-name">
-												<a href="#">{{r.relateOne.cname}}</a>
+												<a href="#" ng-click="jumpDetail(r.entity.cid)">{{r.relateOne.cname}}</a>
 											</td>
 											<td class="product-price">
 												<span class="amount">${{r.relateOne.price | number:2}}</span>
