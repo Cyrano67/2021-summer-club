@@ -28,7 +28,7 @@ public class PaymentServiceImp implements PaymentService {
 	
 	@Override
 	public synchronized String pay(int oid) {
-		OrdersInfo trade = orderinfoService.findById(oid);
+		OrdersInfo trade = orderinfoService.findByOid(oid);
 		// TODO Auto-generated method stub
 		//创建一个支付客户端对象
 		AlipayClient alipayClient = new DefaultAlipayClient(

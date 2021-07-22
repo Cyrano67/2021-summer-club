@@ -13,8 +13,8 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     $scope.paginationConf = {
         currentPage: 1, // 页码加载的时候显示的第几页的数据
         totalItems: 9, // 总页数的默认初始值(后续通过查询结果进行更新)
-        itemsPerPage: 4, //默认状态下每页显示条数
-        perPageOptions: [4,5,6],//每页显示条数的可选值
+        itemsPerPage: 20, //默认状态下每页显示条数
+        perPageOptions: [15,20,25],//每页显示条数的可选值
         onChange: function(){
             //当触发onChange事件的时候重新加载一次页面数据
             $scope.reloadList();
