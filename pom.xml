@@ -37,6 +37,8 @@
 		<module>userlist-service</module>
 		<module>search-api</module>
 		<module>search-service</module>
+		<module>payment-api</module>
+		<module>payment-service</module>
 	</modules>
 	<!--统一进行版本管理-->
 	<properties>

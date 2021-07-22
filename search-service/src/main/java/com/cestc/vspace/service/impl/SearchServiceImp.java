@@ -109,23 +109,23 @@ public class SearchServiceImp implements SearchService {
             totalItems = results.getNumFound();
             /*特别注意: 查询数据结果和高亮结果是分开的*/
             //判断如果查询关键字不是*号,则查询高亮显示
-            if (!condition.getSearchString().equals("*")) {
-                //获取高亮结果(该结果为所有高亮信息的集合)
-                Map<String, Map<String, List<String>>> highlighting = queryResponse.getHighlighting();
-                if (highlighting != null) {
-                    //将高亮结果循环绑定给返回结果集合
-                    for (Clothes goods : clothesList) {
-                        //根据商品编号获取高集合(该集合的长度由指定的高亮字段的数量决定)
-                        //注意key是String类型,goodsId是Long类型,通过拼接转化成String(否则获取不了数据)
-                        Map<String, List<String>> highMap = highlighting.get(goods.getCid() + "");
-                        if (highMap != null) {
-                            if (highMap.get("cloth_name") != null) {
-                                goods.setCname(highMap.get("cloth_name").get(0));
-                            }
-                        }
-                    }
-                }
-            }
+//            if (!condition.getSearchString().equals("*")) {
+//                //获取高亮结果(该结果为所有高亮信息的集合)
+//                Map<String, Map<String, List<String>>> highlighting = queryResponse.getHighlighting();
+//                if (highlighting != null) {
+//                    //将高亮结果循环绑定给返回结果集合
+//                    for (Clothes goods : clothesList) {
+//                        //根据商品编号获取高集合(该集合的长度由指定的高亮字段的数量决定)
+//                        //注意key是String类型,goodsId是Long类型,通过拼接转化成String(否则获取不了数据)
+//                        Map<String, List<String>> highMap = highlighting.get(goods.getCid() + "");
+//                        if (highMap != null) {
+//                            if (highMap.get("cloth_name") != null) {
+//                                goods.setCname(highMap.get("cloth_name").get(0));
+//                            }
+//                        }
+//                    }
+//                }
+//            }
         } catch (SolrServerException e) {
             e.printStackTrace();
         } catch (IOException e) {
