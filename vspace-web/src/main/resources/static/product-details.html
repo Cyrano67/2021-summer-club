@@ -584,12 +584,12 @@
 							</div>
 							<div class="related-curosel">
 								<!-- single-product start -->
-								<div class="col-md-12">
+								<div ng-repeat="goods in relateList" class="col-md-12">
 									<div class="single-product">
 										<div class="product-img">
 											<a href="product-details.html">
-												<img src="img/product/2.jpg" alt="" />
-												<img class="secondary-img" src="img/product/1.jpg" alt="" />
+												<img src="{{goods.picAddr}}" alt="" />
+												<img class="secondary-img" src="{{goods.picAddr}}" alt="" />
 											</a>
 											<span class="tag-line">new</span>
 											<div class="product-action">
@@ -646,10 +646,10 @@
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star-o"></i>
 											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
+											<h3><a href="product-details.html">{{goods.cname}}</a></h3>
 											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
+												<span>${{goods.price}}</span>
+												<span class="old">${{goods.price+20}}</span>
 											</div>
 										</div>
 									</div>

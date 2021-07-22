@@ -18,6 +18,8 @@ app.controller("richman-details-show-ctrl",function($scope,$controller,$http){
 
     $scope.initDetails = function (){
         $scope.init();
+        //在页面加载的时候查询相关产品
+        $scope.loadRelateList();
     }
     // 直接发送post请求，初始化自己
     $http.post('/details/info',$scope.cid).success(function(response){
@@ -29,4 +31,18 @@ app.controller("richman-details-show-ctrl",function($scope,$controller,$http){
         $scope.size= response.size;
     });
 
+    //Condition封装
+    $scope.conditionRelate={"pageNo":"","pageSize":"","minPrice":"","maxPrice":"","sortType":"","searchString":""};
+
+    $scope.loadRelateList = function () {
+        $scope.conditionRelate.pageNo = "1";
+        $scope.conditionRelate.pageSize = "6";
+        $scope.conditionRelate.minPrice = "0";
+        $scope.conditionRelate.maxPrice = "10000";
+        $scope.conditionRelate.sortType = "0";
+        $scope.conditionRelate.searchString = $scope.searchString;
+        $http.post("/shop/searchPages", $scope.conditionRelate).success(function (pageResult) {
+            $scope.relateList = pageResult.dataList;
+        });
+    }
 });
