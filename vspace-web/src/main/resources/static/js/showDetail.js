@@ -35,14 +35,19 @@ app.controller("richman-details-show-ctrl",function($scope,$controller,$http){
     $scope.conditionRelate={"pageNo":"","pageSize":"","minPrice":"","maxPrice":"","sortType":"","searchString":""};
 
     $scope.loadRelateList = function () {
-        $scope.conditionRelate.pageNo = "1";
-        $scope.conditionRelate.pageSize = "6";
-        $scope.conditionRelate.minPrice = "0";
-        $scope.conditionRelate.maxPrice = "10000";
+        $scope.conditionRelate.pageNo = 1;
+        $scope.conditionRelate.pageSize = 4;
+        $scope.conditionRelate.minPrice = 0;
+        $scope.conditionRelate.maxPrice = 10000;
         $scope.conditionRelate.sortType = "0";
-        $scope.conditionRelate.searchString = $scope.searchString;
+        $scope.conditionRelate.searchString = window.sessionStorage.getItem("searchString");
         $http.post("/shop/searchPages", $scope.conditionRelate).success(function (pageResult) {
             $scope.relateList = pageResult.dataList;
+        });
+    }
+    $scope.findPic =function (uid){
+        $http.post("/clothes/findByUid",uid).success(function (result){
+            return result.picAddr;
         });
     }
 });

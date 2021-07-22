@@ -18,6 +18,7 @@ app.controller("base_controller",function($scope,$controller,$http){
 
     //创建一个方法在页面加载的时候调用
     $scope.init=function(){
+        $scope.initSearch();
         //调用验证登录的方法,设置myAccount变量的数据
         if ($scope.checkLogin2()) {
             //在初始化的时候,如果登录成功者进行当前用户购物车的信息查询
