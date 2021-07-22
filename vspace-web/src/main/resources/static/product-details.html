@@ -587,14 +587,14 @@
 								<div ng-repeat="goods in relateList" class="col-md-12">
 									<div class="single-product">
 										<div class="product-img">
-											<a href="product-details.html">
+											<a ng-click="jumpDetail(goods.cid)">
 												<img src="{{goods.picAddr}}" alt="" />
 												<img class="secondary-img" src="{{goods.picAddr}}" alt="" />
 											</a>
 											<span class="tag-line">new</span>
 											<div class="product-action">
 												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
+													<a href="#" data-toggle="modal" ng-click="jumpDetail(goods.cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 													<a href="#" ><i class="fa fa-heart"></i></a>
 												</div>
 												<div class="button-cart">
