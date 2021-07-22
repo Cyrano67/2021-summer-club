@@ -57,6 +57,8 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
 			//punchout_form该名称通过后台支付响应得到的payresult进行观察获取
 			document.forms.punchout_form.setAttribute('target','_blank');//新开浏览器窗口
 			document.forms.punchout_form.submit();
+			window.opener = null;
+			window.open("about:blank","_self");   
 			window.close();
            if(response.entrelateOneity != null){
         	   alert("Successful PlaceOrder");

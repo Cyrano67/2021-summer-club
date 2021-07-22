@@ -127,4 +127,49 @@ public class LoginController {
 		return result;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "login/autologin.do", method = RequestMethod.POST)
+	public Result autologin(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		System.out.println("---------------收到自动登陆请求--------------------------------");	
+		
+		String loginstatus = (String) request.getSession().getAttribute("autologin");
+		
+		Result result = new Result();
+		if(loginstatus=="true") {
+			System.out.println("---------------登陆成功--------------------------------");
+			// 自动登录
+			String phone = (String) request.getSession().getAttribute("phone");
+			String password = (String) request.getSession().getAttribute("password");
+			String uname = (String) request.getSession().getAttribute("uname");
+			Integer uid = (Integer) request.getSession().getAttribute("uid");
+			
+			// 将手机号与密码存储到cookie中.
+			Cookie cookie = new Cookie("autologin",uid.toString());
+			cookie.setMaxAge(7 * 24 * 60 * 60);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+			
+			// 登录成功后，将用户存储到session中.
+//			request.getSession().invalidate();
+//			HttpSession
+//			//将UID返回到前端
+//			request.getSession().setAttribute("uid", uid);
+//			response.sendRedirect(request.getContextPath() + "/index");
+//			Session.
+			System.out.println("auto login user:");
+			System.out.println(uname.intern());
+			result.setResultTag(true);
+			result.setMsg(uname);
+			result.setalterMsg(uid.toString());
+		}else {
+			System.out.println("---------------没有session--------------------------------");
+//			request.setAttribute("login_msg", "用户名或密码错误");
+//			request.getRequestDispatcher("/login").forward(request,
+//					response);
+			result.setResultTag(false);
+		}		
+		
+		return result;
+	}
+	
 }

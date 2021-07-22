@@ -52,13 +52,13 @@
         <!-- Add your site or application content here -->
 
 		<!-- header start -->
-        <header>
+		<header>
 			<div class="header-top-area">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="top-info">
-								<p>Call us free 24/7 : (+86) 6 888 888</p>
+								<p>{{checkLogin()}}</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -130,25 +130,24 @@
 											<li><a href="shop.html">shop</a>
 												<div class="mega-menu mega-menu-2">
 													<span>
-														<a href="shop.html" class="mega-title">WOMEN CLOTH </a>
-														<a href="shop.html">casual shirt</a>
-														<a href="shop.html">rikke t-shirt</a>
-														<a href="shop.html">mia top </a>
-														<a href="shop.html">muscle tee </a>
+														<a class="mega-title">CLOTHES </a>
+														<a href="#" ng-click="setSpecialSearchString('shirt')">shirt</a>
+														<a href="#" ng-click="setSpecialSearchString('jacket')">jacket</a>
+														<a href="#" ng-click="setSpecialSearchString('sweater')">sweater</a>
+														<a href="#" ng-click="setSpecialSearchString('pant')">pant</a>
 													</span>
 													<span>
-														<a href="shop.html" class="mega-title">MEN CLOTH </a>
-														<a href="shop.html">casual shirt</a>
-														<a href="shop.html">rikke t-shirt</a>
-														<a href="shop.html">mia top </a>
-														<a href="shop.html">muscle tee </a>
+														<a class="mega-title">ORNAMENT </a>
+														<a href="#" ng-click="setSpecialSearchString('hat')">hat</a>
+														<a href="#" ng-click="setSpecialSearchString('cap')">cap</a>
+														<a href="#" ng-click="setSpecialSearchString('beanie')">beanie</a>
+														<a href="#" ng-click="setSpecialSearchString('sunglasses')">sunglasses</a>
 													</span>
 													<span class="no-padd-r">
-														<a href="shop.html" class="mega-title">WOMEN JEWELRY </a>
-														<a href="shop.html">necklace </a>
-														<a href="shop.html">chunky short striped </a>
-														<a href="shop.html">samhar cuff</a>
-														<a href="shop.html">nail set </a>
+														<a class="mega-title">OTHERS </a>
+														<a href="#" ng-click="setSpecialSearchString('skateboard')">skateboard</a>
+														<a href="#" ng-click="setSpecialSearchString('keychain')">keychain</a>
+														<a href="#" ng-click="setSpecialSearchString('towel')">towel</a>
 													</span>
 													<span class="mega-menu-img">
 														<a href="shop.html"><img alt="" src="img/customblock-1.jpg"></a>
@@ -177,7 +176,7 @@
 								</div>
 							</div>
 							<div class="col-md-2 col-sm-8 col-xs-6 header-right">
-								<div class="my-cart">
+								<div class="my-cart" ng-if="!checkLogin2()">
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
@@ -185,7 +184,21 @@
 										</a>
 									</div>
 									<ul>
-										<li ng-repeat="r in results">
+										<li class="cart-border">
+											<label>"You haven't been signed in!"</label>
+											<label>"Please sign in before checking for your shopping cart!"</label>
+										</li>
+									</ul>
+								</div>
+								<div class="my-cart" ng-if="checkLogin2()">
+									<div class="total-cart">
+										<a href="cart.html">
+											<img src="img/cart/cart.png" alt="" />
+											<span>{{results.length}}</span>
+										</a>
+									</div>
+									<ul>
+										<li ng-repeat="r in results track by $index">
 											<div class="cart-img">
 												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
 											</div>
@@ -245,23 +258,23 @@
 								</div>
 
 								<div class="header-search">
-									  <!-- SEARCH BAR -->
-									  <div class="dropdown">
+									<!-- SEARCH BAR -->
+									<div class="dropdown">
 										<a href="javascript:void(0);" class="search-open">
 											<img src="img/search.png" alt="" />
 										</a>
 										<div class="search-inside animated bounceInUp"> <i class="icon-close search-close fa fa-times"></i>
-										  <div class="search-overlay"></div>
-										  <div class="position-center-center">
-											  <div class="search">
-												  <form>
-													  <input id="searchString" placeholder="Search Shop" type="search">
-													  <button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
-												  </form>
-											  </div>
-										  </div>
+											<div class="search-overlay"></div>
+											<div class="position-center-center">
+												<div class="search">
+													<form>
+														<input id="searchString" placeholder="Search Shop" type="search">
+														<button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
+													</form>
+												</div>
+											</div>
 										</div>
-									  </div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -286,7 +299,6 @@
 											</ul>
 										</li>
 										<li><a href="about.html">About</a></li>
-										<li><a href="all-orders.html">AllOrders</a></li>
 										<li><a href="blog.html">blog</a></li>
 										<li><a href="shop.html">Shop</a>
 											<ul>
@@ -320,7 +332,6 @@
 										<li><a href="#">Pages</a>
 											<ul>
 												<li><a href="about.html">about</a></li>
-												<li><a href="all-orders.html">all-orders</a></li>
 												<li><a href="contact.html">contact</a></li>
 												<li><a href="cart.html">shopping cart</a></li>
 												<li><a href="checkout.html">checkout</a></li>
@@ -414,12 +425,12 @@
 <!--												<td class="product-name">here2</td>-->
 <!--												<td class="product-price">here3</td>-->
 <!--											</tr>-->
-											<tr ng-repeat="o in order_nums">
+											<tr ng-repeat="o in order_nums track by $index">
 <!--												<td class="product-thumbnail">here</td>-->
 												<td class="product-thumbnail">{{o}}</td>
 												<td class="product-name">
 <!--													{{inactive_orders[index]}}-->
-													<div ng-repeat="i in inactive_orders">
+													<div ng-repeat="i in inactive_orders track by $index">
 														<a href="#" ng-if="i[0]==o" ng-click="jumpDetail(i[2])">{{i[1]}}</a>
 <!--														<span ng-click="jumpDetail(i[2])">{{i[1]}}</span>-->
 <!--														<a ng-if="i[0]==o" href="#" ng-click="jumpDetail(i[2])">{{i[1]}}</a>-->

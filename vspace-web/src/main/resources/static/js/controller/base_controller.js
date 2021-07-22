@@ -13,7 +13,29 @@ app.controller("base_controller",function($scope,$controller,$http){
         window.location.href="/detail";
     }
 
-
+    $scope.autoLogin=function(){
+        //将"我的账户"更新为登录成功的用户
+        $http.post(('/login/autologin.do')).success(function(response){
+            //查看返回结果信息
+        	console.log(response);
+            console.log(response);
+//            如果登录成功则跳转到首页
+            if(response.resultTag == false){
+               
+            }else{
+//            	console.log(response);
+                //登录成功之后将用户手机号码保存到本地
+                window.sessionStorage.setItem("autologin","true");
+                window.sessionStorage.setItem("uname",response.msg);
+                window.sessionStorage.setItem("uid",parseInt(response.alterMsg));
+                //登录成功之后重新加载页面
+//                $scope.findCartsByPhone();
+                window.location = $location.url();
+            }
+        });
+        return true;
+    }
+    
     $scope.myAccount = "我的账户";
 
     //创建一个方法在页面加载的时候调用
@@ -22,6 +44,9 @@ app.controller("base_controller",function($scope,$controller,$http){
         if ($scope.checkLogin2()) {
             //在初始化的时候,如果登录成功者进行当前用户购物车的信息查询
             $scope.findCartsByPhone();
+        }
+        else{
+        	$scope.autoLogin();
         }
     }
 
@@ -62,14 +87,12 @@ app.controller("base_controller",function($scope,$controller,$http){
         console.log("进入查找");//,window.sessionStorage.getItem("uid")
         let uidd=window.sessionStorage.getItem("uid");
         var userr={"uid":uidd,"uname":"12","password":"1","email":"1","phone":"1","role":0};
-        $http.get("/cart/find_by_user?uid="+window.sessionStorage.getItem("uid")).success(function(results){
+        $http.post("/cart/find_by_user?uid="+window.sessionStorage.getItem("uid")).success(function(results){
             //循环转换imageUrl为json
-            for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
-            }
+            // for (let i = 0; i < results.length; i++) {
+            //     results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
+            // }
             $scope.results = results;
-            console.log(results);
-            $scope.results.temp=window.sessionStorage.getItem("uid");
             $scope.calculateSumPrice($scope.results);
         });
     }
@@ -77,6 +100,9 @@ app.controller("base_controller",function($scope,$controller,$http){
     $scope.calculateSumPrice=function(results){
         var totalPrice = 0;
         for (let i = 0; i < results.length; i++) {
+            console.log(results[i].relateOne.cid);
+            console.log(results[i].relateOne.price);
+            console.log(results[i].relateOne.cname);
             totalPrice += results[i].entity.quantity * results[i].relateOne.price;
         }
         $scope.goodsTotalPrice = parseFloat(totalPrice.toFixed(2));//保留两位小数
