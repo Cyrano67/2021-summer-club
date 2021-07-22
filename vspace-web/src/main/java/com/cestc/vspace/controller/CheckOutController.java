@@ -11,7 +11,7 @@ import com.cestc.vspace.service.CartService;
 import com.cestc.vspace.service.ClothesService;
 import com.cestc.vspace.service.OrdersinfoService;
 import com.cestc.vspace.service.ShippinginfoService;
-import com.cestc.vspace.service.PaymentService;
+//import com.cestc.vspace.service.PaymentService;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,8 +36,8 @@ public class CheckOutController {
     private CartService cartService;
     @Reference
     private ClothesService clothesService;
-	@Reference
-	private PaymentService paymentService;
+//	@Reference
+//	private PaymentService paymentService;
 	
     @RequestMapping(value = "/AddShippingInfo",method = RequestMethod.POST)
     public boolean AddShippingInfo(@RequestBody ShippingInfo addressDetail, HttpServletResponse response){
@@ -87,12 +87,12 @@ public class CheckOutController {
         System.out.println("~~~~~~~~~~~~~~~~~RelateOne Payment~~~~~~~~~~~~~~~~~~~");
     	System.out.println(orders.getPayment());
         int oid = ordersinfoService.insertOrder(dataShippingInfoOrderInfo.getRelateOne());
-        String payResult = paymentService.pay(oid);
+//        String payResult = paymentService.pay(oid);
     	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    	System.out.println(payResult);
+//    	System.out.println(payResult);
     	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     	result.setEntity("true");
-    	result.setRelateOne(payResult);
+//    	result.setRelateOne(payResult);
     	return result;
 //        result.setRelateOne(oid);
     }

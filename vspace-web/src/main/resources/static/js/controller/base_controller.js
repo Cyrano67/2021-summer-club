@@ -130,7 +130,9 @@ app.controller("base_controller",function($scope,$controller,$http){
         $http.post("/cart/insertCart",cartt).success(function(flag){
             //跳转到购物车页面
             console.log("插入成功");
-            window.location.href="cart.html";
+            window.alert("Add to cart sucessfully!");
+            $scope.findCartsByPhone();
+            // window.location.href="cart.html";
         });
     }
 
