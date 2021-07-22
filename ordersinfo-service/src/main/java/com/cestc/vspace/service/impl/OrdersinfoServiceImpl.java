@@ -65,10 +65,11 @@ public class OrdersinfoServiceImpl implements OrdersinfoService {
 //		}
 		Integer orderInfoId = getUUID();
 		order.setOid(orderInfoId);
+		order.setOrderNo(orderInfoId);
 //		// 获取当前时间
 //		Date date = new Date();
 //		order.setPaymentTime(date);
-
+		System.out.println("成功插入订单: "+order.getPayment());
 		ordersinfomapper.insert(order);
 		return orderInfoId;
 	}
