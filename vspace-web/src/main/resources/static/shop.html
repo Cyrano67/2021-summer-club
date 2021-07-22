@@ -183,6 +183,7 @@
 											<!--												</ul>-->
 											<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
+											<li><a href="all-orders.html">orders</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -212,11 +213,11 @@
 									<ul>
 										<li ng-repeat="r in results">
 											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
+												<a href="#"><img alt="" src={{r.relateOne.picAddr}}></a>
 											</div>
 											<div class="cart-info">
 												<h4><a href="#">{{r.relateOne.cname}}</a></h4>
-												<span>{{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
+												<span>$ {{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
 											</div>
 											<div class="del-icon">
 												<i class="fa fa-times-circle" ng-click="deleteCart(r.entity.caid)"></i>
@@ -463,45 +464,45 @@
 								<div class="single-product">
 									<div class="product-img">
 										<a href="product-details.html">
-											<img src="img/product/12.jpg" alt="" />
-											<img class="secondary-img" src="img/product/18.jpg" alt="" />
+											<img src="http://116.63.130.162:49163/group1/M00/00/00/rBIBBWD4DRGAGFsuAADjdLf-cNc292.jpg" alt="" />
+<!--											<img class="secondary-img" src="img/product/18.jpg" alt="" />-->
 										</a>
 									</div>
 									<div class="product-content">
-										<h3><a href="product-details.html">Lorem ipsum dolor</a></h3>
+										<h3><a href="#" ng-click="jumpDetail(250)">Logo Repeat Sweater</a></h3>
 										<div class="price">
-											<span>$80.00</span>
+											<span>$76.00</span>
 											<span class="old">$90.11</span>
 										</div>
 									</div>
 								</div>
 								<div class="single-product">
 									<div class="product-img">
-										<a href="product-details.html">
-											<img src="img/product/22.jpg" alt="" />
-											<img class="secondary-img" src="img/product/18.jpg" alt="" />
+										<a href="#" ng-click="jumpDetail(251)">
+											<img src="http://116.63.130.162:49155/group2/M00/00/00/rBIBB2D4DROARyKwAAE8SMjXJkY279.jpg" alt="" />
+<!--											<img class="secondary-img" src="img/product/18.jpg" alt="" />-->
 										</a>
 									</div>
 									<div class="product-content">
-										<h3><a href="product-details.html">Lorem ipsum dolor</a></h3>
+										<h3><a href="#" ng-click="jumpDetail(251)">Printed Stripe L/S Top</a></h3>
 										<div class="price">
-											<span>$80.00</span>
-											<span class="old">$90.11</span>
+											<span>$253.00</span>
+											<span class="old">$267.00</span>
 										</div>
 									</div>
 								</div>
 								<div class="single-product">
 									<div class="product-img">
-										<a href="product-details.html">
-											<img src="img/product/14.jpg" alt="" />
-											<img class="secondary-img" src="img/product/18.jpg" alt="" />
+										<a href="#" ng-click="jumpDetail(252)">
+											<img src="http://116.63.130.162:49163/group1/M00/00/00/rBIBBWD4DRaAEx6LAAHcl6sWL1k722.jpg" alt="" />
+<!--											<img class="secondary-img" src="img/product/18.jpg" alt="" />-->
 										</a>
 									</div>
 									<div class="product-content">
-										<h3><a href="product-details.html">Lorem ipsum dolor</a></h3>
+										<h3><a href="#" ng-click="jumpDetail(252)">Casino Down Jacket</a></h3>
 										<div class="price">
-											<span>$80.00</span>
-											<span class="old">$90.11</span>
+											<span>$272.00</span>
+											<span class="old">$289.11</span>
 										</div>
 									</div>
 								</div>
@@ -512,19 +513,13 @@
 						<aside class="widget product-tag">
 							<h3 class="sidebar-title">Popular Tags</h3>
 							<ul>
-								<li><a href="#">Top</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Collection</a></li>
-								<li><a href="#">Women</a></li>
-								<li><a href="#">men</a></li>
-								<li><a href="#">gallery</a></li>
-								<li><a href="#">new</a></li>
-								<li><a href="#">Collection men</a></li>
-								<li><a href="#">Top</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Collection</a></li>
-								<li><a href="#">best</a></li>
-								<li><a href="shop.html">cloth</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('gallery')">gallery</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('new')">new</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('top')">Top</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('best')">best</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('cloth')">cloth</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('crown')">crown</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('tee')">tee</a></li>
 							</ul>
 						</aside>
 						<!-- widget-tags end -->

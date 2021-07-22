@@ -56,7 +56,7 @@
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="top-info">
-								<p>Call us free 24/7 : (+86) 6 888 888</p>
+								<p>{{checkLogin()}}</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -199,11 +199,11 @@
 									<ul>
 										<li ng-repeat="r in results">
 											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
+												<a href="#"><img alt="" src={{r.relateOne.picAddr}}></a>
 											</div>
 											<div class="cart-info">
 												<h4><a href="#">{{r.relateOne.cname}}</a></h4>
-												<span>{{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
+												<span>$ {{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
 											</div>
 											<div class="del-icon">
 												<i class="fa fa-times-circle" ng-click="deleteCart(r.entity.caid)"></i>

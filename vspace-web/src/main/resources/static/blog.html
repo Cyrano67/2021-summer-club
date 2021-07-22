@@ -38,13 +38,13 @@
         <!-- Add your site or application content here -->
 
 		<!-- header start -->
-        <header>
+		<header>
 			<div class="header-top-area">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="top-info">
-								<p>Call us free 24/7 : (+86) 6 888 888</p>
+								<p>{{checkLogin()}}</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -74,9 +74,10 @@
 									</ul>
 								</div>
 								<div class="account">
-									<a class="login" href="login.html">Sign in</a>
-									<span>Or</span>
-									<a class="register" href="login.html">Register</a>
+									<span>{{Hello()}}</span>
+									<span>{{User()}}</span>
+									<a class="login" href="login">{{Login()}}</a>
+									<a class="logout" href="logout">{{Logout()}}</a>
 								</div>
 							</div>
 						</div>
@@ -98,143 +99,169 @@
 									<nav>
 										<ul>
 											<li><a href="index.html">home</a>
-												<ul>
-													<li><a href="index.html">home version 1</a></li>
-													<li><a href="index-2.html">home version 2</a></li>
-													<li><a href="index-3.html">home version 3</a></li>
-													<li><a href="index-4.html">home version box</a></li>
-												</ul>
+												<!--												<ul>-->
+												<!--													<li><a href="index.html">home version 1</a></li>-->
+												<!--													<li><a href="index-2.html">home version 2</a></li>-->
+												<!--													<li><a href="index-3.html">home version 3</a></li>-->
+												<!--													<li><a href="index-4.html">home version box</a></li>-->
+												<!--												</ul>-->
 											</li>
 											<li><a href="about.html">about</a></li>
-											<li><a href="blog.html">blog</a>
-												<ul>
-													<li><a href="blog.html">blog</a></li>
-													<li><a href="single-blog.html">Blog Details</a></li>
-												</ul>
-											</li>
+											<!--											<li><a href="blog.html">blog</a>-->
+											<!--												<ul>-->
+											<!--													<li><a href="blog.html">blog</a></li>-->
+											<!--													<li><a href="single-blog.html">Blog Details</a></li>-->
+											<!--												</ul>-->
+											<!--											</li>-->
 											<li><a href="shop.html">shop</a>
 												<div class="mega-menu mega-menu-2">
 													<span>
-														<a href="shop.html" class="mega-title">WOMEN CLOTH </a>
-														<a href="shop.html">casual shirt</a>
-														<a href="shop.html">rikke t-shirt</a>
-														<a href="shop.html">mia top </a>
-														<a href="shop.html">muscle tee </a>
+														<a class="mega-title">CLOTHES </a>
+														<a href="#" ng-click="setSpecialSearchString('shirt')">shirt</a>
+														<a href="#" ng-click="setSpecialSearchString('jacket')">jacket</a>
+														<a href="#" ng-click="setSpecialSearchString('sweater')">sweater</a>
+														<a href="#" ng-click="setSpecialSearchString('pant')">pant</a>
 													</span>
 													<span>
-														<a href="shop.html" class="mega-title">MEN CLOTH </a>
-														<a href="shop.html">casual shirt</a>
-														<a href="shop.html">rikke t-shirt</a>
-														<a href="shop.html">mia top </a>
-														<a href="shop.html">muscle tee </a>
+														<a class="mega-title">ORNAMENT </a>
+														<a href="#" ng-click="setSpecialSearchString('hat')">hat</a>
+														<a href="#" ng-click="setSpecialSearchString('cap')">cap</a>
+														<a href="#" ng-click="setSpecialSearchString('beanie')">beanie</a>
+														<a href="#" ng-click="setSpecialSearchString('sunglasses')">sunglasses</a>
 													</span>
 													<span class="no-padd-r">
-														<a href="shop.html" class="mega-title">WOMEN JEWELRY </a>
-														<a href="shop.html">necklace </a>
-														<a href="shop.html">chunky short striped </a>
-														<a href="shop.html">samhar cuff</a>
-														<a href="shop.html">nail set </a>
+														<a class="mega-title">OTHERS </a>
+														<a href="#" ng-click="setSpecialSearchString('skateboard')">skateboard</a>
+														<a href="#" ng-click="setSpecialSearchString('keychain')">keychain</a>
+														<a href="#" ng-click="setSpecialSearchString('towel')">towel</a>
 													</span>
 													<span class="mega-menu-img">
 														<a href="shop.html"><img alt="" src="img/customblock-1.jpg"></a>
 													</span>
 												</div>
 											</li>
-											<li><a href="shop.html">cloth</a>										</li>
-											<li><a href="#">pages</a>
-												<ul>
-													<li><a href="about.html">about</a></li>
-													<li><a href="contact.html">contact</a></li>
-													<li><a href="cart.html">shopping cart</a></li>
-													<li><a href="checkout.html">checkout</a></li>
-													<li><a href="wishlist.html">wishlist</a></li>
-													<li><a href="login.html">login</a></li>
-													<li><a href="shop.html">shop left sidebar</a></li>
-													<li><a href="shop-right-sidebar.html">shop right sidebar</a></li>
-													<li><a href="shop-4-column.html">shop 4 column</a></li>
-													<li><a href="product-details.html">product details</a></li>
-													<li><a href="404.html">404 error</a></li>
-												</ul>
-											</li>
+											<li><a href="shop.html">cloth</a></li>
+											<!--											<li><a href="#">pages</a>-->
+											<!--												<ul>-->
+											<!--													<li><a href="about.html">about</a></li>-->
+											<!--													<li><a href="contact.html">contact</a></li>-->
+											<!--													<li><a href="cart.html">shopping cart</a></li>-->
+											<!--													<li><a href="checkout.html">checkout</a></li>-->
+											<!--													<li><a href="wishlist.html">wishlist</a></li>-->
+											<!--													<li><a href="login.html">login</a></li>-->
+											<!--													<li><a href="shop.html">shop left sidebar</a></li>-->
+											<!--													<li><a href="shop-right-sidebar.html">shop right sidebar</a></li>-->
+											<!--													<li><a href="shop-4-column.html">shop 4 column</a></li>-->
+											<!--													<li><a href="product-details.html">product details</a></li>-->
+											<!--													<li><a href="404.html">404 error</a></li>-->
+											<!--												</ul>-->
+											<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
+											<li><a href="all-orders.html">orders</a></li>
 										</ul>
 									</nav>
 								</div>
 							</div>
 							<div class="col-md-2 col-sm-8 col-xs-6 header-right">
-								<div class="my-cart">
+								<div class="my-cart" ng-if="!checkLogin2()">
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
-											<span>3</span>
+											<span>{{results.length}}</span>
 										</a>
 									</div>
 									<ul>
-										<li>
+										<li class="cart-border">
+											<label>"You haven't been signed in!"</label>
+											<label>"Please sign in before checking for your shopping cart!"</label>
+										</li>
+									</ul>
+								</div>
+								<div class="my-cart" ng-if="checkLogin2()">
+									<div class="total-cart">
+										<a href="cart.html">
+											<img src="img/cart/cart.png" alt="" />
+											<span>{{results.length}}</span>
+										</a>
+									</div>
+									<ul>
+										<li ng-repeat="r in results">
 											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
+												<a href="#"><img alt="" src={{r.relateOne.picAddr}}></a>
 											</div>
 											<div class="cart-info">
-												<h4><a href="#">Vestibulum suscipit</a></h4>
-												<span>£165.00 <span>x 1</span></span>
+												<h4><a href="#">{{r.relateOne.cname}}</a></h4>
+												<span>$ {{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
 											</div>
 											<div class="del-icon">
-												<i class="fa fa-times-circle"></i>
+												<i class="fa fa-times-circle" ng-click="deleteCart(r.entity.caid)"></i>
 											</div>
 										</li>
-										<li>
-											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
-											</div>
-											<div class="cart-info">
-												<h4><a href="#">Vestibulum suscipit</a></h4>
-												<span>£165.00 <span>x 1</span></span>
-											</div>
-											<div class="del-icon">
-												<i class="fa fa-times-circle"></i>
-											</div>
-										</li>
-										<li>
-											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
-											</div>
-											<div class="cart-info">
-												<h4><a href="#">Vestibulum suscipit</a></h4>
-												<span>£165.00 <span>x 1</span></span>
-											</div>
-											<div class="del-icon">
-												<i class="fa fa-times-circle"></i>
-											</div>
-										</li>
+										<!--										<li>-->
+										<!--											<div class="cart-img">-->
+										<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+										<!--											</div>-->
+										<!--											<div class="cart-info">-->
+										<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+										<!--												<span>£165.00 <span>x 1</span></span>-->
+										<!--											</div>-->
+										<!--											<div class="del-icon">-->
+										<!--												<i class="fa fa-times-circle"></i>-->
+										<!--											</div>-->
+										<!--										</li>-->
+										<!--										<li>-->
+										<!--											<div class="cart-img">-->
+										<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+										<!--											</div>-->
+										<!--											<div class="cart-info">-->
+										<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+										<!--												<span>£165.00 <span>x 1</span></span>-->
+										<!--											</div>-->
+										<!--											<div class="del-icon">-->
+										<!--												<i class="fa fa-times-circle"></i>-->
+										<!--											</div>-->
+										<!--										</li>-->
+										<!--										<li>-->
+										<!--											<div class="cart-img">-->
+										<!--												<a href="#"><img alt="" src="img/cart/1.jpg"></a>-->
+										<!--											</div>-->
+										<!--											<div class="cart-info">-->
+										<!--												<h4><a href="#">Vestibulum suscipit</a></h4>-->
+										<!--												<span>£165.00 <span>x 1</span></span>-->
+										<!--											</div>-->
+										<!--											<div class="del-icon">-->
+										<!--												<i class="fa fa-times-circle"></i>-->
+										<!--											</div>-->
+										<!--										</li>-->
 										<li class="cart-border">
 											<div class="subtotal-text">Subtotal: </div>
-											<div class="subtotal-price">£300.00</div>
+											<div class="subtotal-price">{{goodsTotalPrice}}</div>
 										</li>
 										<li>
-											<a class="cart-button" href="checkout.html">view cart</a>
+											<a class="cart-button" href="cart.html">view cart</a>
 											<a class="checkout" href="checkout.html">checkout</a>
 										</li>
 									</ul>
 								</div>
 
 								<div class="header-search">
-									  <!-- SEARCH BAR -->
-									  <div class="dropdown">
+									<!-- SEARCH BAR -->
+									<div class="dropdown">
 										<a href="javascript:void(0);" class="search-open">
 											<img src="img/search.png" alt="" />
 										</a>
 										<div class="search-inside animated bounceInUp"> <i class="icon-close search-close fa fa-times"></i>
-										  <div class="search-overlay"></div>
-										  <div class="position-center-center">
-											<div class="search">
-											  <form>
-												<input type="search" placeholder="Search Shop">
-												<button type="submit"><i class="fa fa-search"></i></button>
-											  </form>
+											<div class="search-overlay"></div>
+											<div class="position-center-center">
+												<div class="search">
+													<form>
+														<input id="searchString" placeholder="Search Shop" type="search">
+														<button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
+													</form>
+												</div>
 											</div>
-										  </div>
 										</div>
-									  </div>
+									</div>
 								</div>
 							</div>
 						</div>
