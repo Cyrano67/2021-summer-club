@@ -200,11 +200,11 @@
 									<ul>
 										<li ng-repeat="r in results">
 											<div class="cart-img">
-												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
+												<a href="#"><img alt="" src={{r.relateOne.picAddr}}></a>
 											</div>
 											<div class="cart-info">
 												<h4><a href="#">{{r.relateOne.cname}}</a></h4>
-												<span>{{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
+												<span>￥{{r.relateOne.price}} <span>x {{r.entity.quantity}}</span></span>
 											</div>
 											<div class="del-icon">
 												<i class="fa fa-times-circle" ng-click="deleteCart(r.entity.caid)"></i>
@@ -248,7 +248,7 @@
 										<!--										</li>-->
 										<li class="cart-border">
 											<div class="subtotal-text">Subtotal: </div>
-											<div class="subtotal-price">{{goodsTotalPrice}}</div>
+											<div class="subtotal-price">￥{{goodsTotalPrice}}</div>
 										</li>
 										<li>
 											<a class="cart-button" href="cart.html">view cart</a>
@@ -409,7 +409,7 @@
 <!--											<td class="product-thumbnail"><a href="#"><img ng-src="{{r.relateOne.picAddr}}" alt=""></a></td>-->
 											<td class="product-thumbnail">
 												<a href="#">
-													<img src="http://116.63.130.162:49163/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg" alt="">
+													<img src={{r.relateOne.picAddr}} alt="">
 												</a>
 											</td>
 											<td class="product-name">
