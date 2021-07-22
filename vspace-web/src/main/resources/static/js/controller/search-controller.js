@@ -6,4 +6,9 @@ app.controller("search_controller",function($scope,$http){
         $scope.searchString=searchString;
         window.location.href="shop.html";
     }
+    $scope.setSpecialSearchString = function (spString){
+        window.sessionStorage.setItem("searchString",spString);
+        $scope.searchString=spString;
+        window.location.href="shop.html";
+    }
 })
