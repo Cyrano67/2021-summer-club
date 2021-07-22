@@ -395,15 +395,15 @@
 								<div class="single-pro-tab-content">
 									<!-- Tab panes -->
 									<div class="tab-content">
-										<div role="tabpanel" class="tab-pane active" id="home"><a href="#"><img class="zoom" src="{{picAddr}}" data-zoom-image="img/product/15.jpg" alt="" /></a></div>
-										<div role="tabpanel" class="tab-pane" id="profile"><a href="#"><img class="zoom" src="img/product/9.jpg" data-zoom-image="img/product/9.jpg" alt="" /></a></div>
-										<div role="tabpanel" class="tab-pane" id="messages"><a href="#"><img class="zoom" src="img/product/3.jpg" data-zoom-image="img/product/3.jpg" alt="" /></a></div>
-										<div role="tabpanel" class="tab-pane" id="settings"><a href="#"><img class="zoom" src="img/product/4.jpg" data-zoom-image="img/product/4.jpg" alt="" /></a></div>
-										<div role="tabpanel" class="tab-pane" id="settingss"><a href="#"><img class="zoom" src="img/product/4.jpg" data-zoom-image="img/product/4.jpg" alt="" /></a></div>
+										<div role="tabpanel" class="tab-pane active" id="home"><a href="#"><img class="zoom" src="{{picAddr}}" data-image="{{picAddr}}" data-zoom-image="{{picAddr}}" alt="" /></a></div>
+										<div role="tabpanel" class="tab-pane" id="profile"><a href="#"><img class="zoom" src="{{picAddr}}" data-zoom-image="{{picAddr}}" alt="" /></a></div>
+										<div role="tabpanel" class="tab-pane" id="messages"><a href="#"><img class="zoom" src="{{picAddr}}" data-zoom-image="{{picAddr}}" alt="" /></a></div>
+										<div role="tabpanel" class="tab-pane" id="settings"><a href="#"><img class="zoom" src="{{picAddr}}" data-zoom-image="{{picAddr}}" alt="" /></a></div>
+										<div role="tabpanel" class="tab-pane" id="settingss"><a href="#"><img class="zoom" src="{{picAddr}}" data-zoom-image="{{picAddr}}" alt="" /></a></div>
 									</div>
 									<!-- Nav tabs -->
 <!--									<ul class="single-product-tab" role="tablist">-->
-<!--										<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><img src="img/product/15.jpg" alt="" /></a></li>-->
+<!--										<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><img src="{{picAddr}}" alt="" /></a></li>-->
 <!--										<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><img src="img/product/9.jpg" alt="" /></a></li>-->
 <!--										<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><img src="img/product/3.jpg" alt="" /></a></li>-->
 <!--										<li role="presentation"><a href="#settingss" aria-controls="settings" role="tab" data-toggle="tab"><img src="img/product/4.jpg" alt="" /></a></li>-->
@@ -583,17 +583,17 @@
 							</div>
 							<div class="related-curosel">
 								<!-- single-product start -->
-								<div ng-repeat="goods in relateList" class="col-md-12">
+								<div class="col-md-12">
 									<div class="single-product">
 										<div class="product-img">
-											<a ng-click="jumpDetail(goods.cid)">
-												<img src="{{goods.picAddr}}" alt="" />
-												<img class="secondary-img" src="{{goods.picAddr}}" alt="" />
+											<a ng-click="jumpDetail(relateList[0].cid)">
+												<img src="{{relateList[0].picAddr}}" alt="" />
+												<img class="secondary-img" src="{{relateList[0].picAddr}}" alt="" />
 											</a>
 											<span class="tag-line">new</span>
 											<div class="product-action">
 												<div class="button-top">
-													<a href="#" data-toggle="modal" ng-click="jumpDetail(goods.cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
+													<a href="#" data-toggle="modal" ng-click="jumpDetail(relateList[0].cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 													<a href="#" ><i class="fa fa-heart"></i></a>
 												</div>
 												<div class="button-cart">
@@ -609,10 +609,10 @@
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star-o"></i>
 											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
+											<h3><a ng-click="jumpDetail(relateList[0].cid)">{{relateList[0].cname}}</a></h3>
 											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
+												<span>${{relateList[0].price}}</span>
+												<span class="old">${{relateList[0].price+20}}</span>
 											</div>
 										</div>
 									</div>
@@ -622,14 +622,14 @@
 								<div class="col-md-12">
 									<div class="single-product">
 										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/13.jpg" alt="" />
-												<img class="secondary-img" src="img/product/12.jpg" alt="" />
+											<a ng-click="jumpDetail(relateList[1].cid)">
+												<img src="{{relateList[1].picAddr}}" alt="" />
+												<img class="secondary-img" src="{{relateList[1].picAddr}}" alt="" />
 											</a>
 											<span class="tag-line">new</span>
 											<div class="product-action">
 												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
+													<a href="#" data-toggle="modal" ng-click="jumpDetail(relateList[1].cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 													<a href="#" ><i class="fa fa-heart"></i></a>
 												</div>
 												<div class="button-cart">
@@ -645,10 +645,10 @@
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star-o"></i>
 											</div>
-											<h3><a href="product-details.html">{{goods.cname}}</a></h3>
+											<h3><a ng-click="jumpDetail(relateList[1].cid)">{{relateList[1].cname}}</a></h3>
 											<div class="price">
-												<span>${{goods.price}}</span>
-												<span class="old">${{goods.price+20}}</span>
+												<span>${{relateList[1].price}}</span>
+												<span class="old">${{relateList[1].price+20}}</span>
 											</div>
 										</div>
 									</div>
@@ -658,14 +658,14 @@
 								<div class="col-md-12">
 									<div class="single-product">
 										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/9.jpg" alt="" />
-												<img class="secondary-img" src="img/product/8.jpg" alt="" />
+											<a ng-click="jumpDetail(relateList[2].cid)">
+												<img src="{{relateList[2].picAddr}}" alt="" />
+												<img class="secondary-img" src="{{relateList[2].picAddr}}" alt="" />
 											</a>
 											<span class="tag-line">new</span>
 											<div class="product-action">
 												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
+													<a href="#" data-toggle="modal" ng-click="jumpDetail(relateList[2].cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 													<a href="#" ><i class="fa fa-heart"></i></a>
 												</div>
 												<div class="button-cart">
@@ -681,10 +681,10 @@
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star-o"></i>
 											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
+											<h3><a ng-click="jumpDetail(relateList[2].cid)">{{relateList[2].cname}}</a></h3>
 											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
+												<span>${{relateList[2].price}}</span>
+												<span class="old">${{relateList[2].price+20}}</span>
 											</div>
 										</div>
 									</div>
@@ -694,14 +694,14 @@
 								<div class="col-md-12">
 									<div class="single-product">
 										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/7.jpg" alt="" />
-												<img class="secondary-img" src="img/product/8.jpg" alt="" />
+											<a ng-click="jumpDetail(relateList[3].cid)">
+												<img src="{{relateList[3].picAddr}}" alt="" />
+												<img class="secondary-img" src="{{relateList[3].picAddr}}" alt="" />
 											</a>
 											<span class="tag-line">new</span>
 											<div class="product-action">
 												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
+													<a href="#" data-toggle="modal" ng-click="jumpDetail(relateList[3].cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 													<a href="#" ><i class="fa fa-heart"></i></a>
 												</div>
 												<div class="button-cart">
@@ -717,159 +717,52 @@
 												<i class="fa fa-star"></i>
 												<i class="fa fa-star-o"></i>
 											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
+											<h3><a ng-click="jumpDetail(relateList[3].cid)">{{relateList[3].cname}}</a></h3>
 											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
+												<span>${{relateList[3].price}}</span>
+												<span class="old">${{relateList[3].price+20}}</span>
 											</div>
 										</div>
 									</div>
 								</div>
 								<!-- single-product end -->
 								<!-- single-product start -->
-								<div class="col-md-12">
-									<div class="single-product">
-										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/1.jpg" alt="" />
-												<img class="secondary-img" src="img/product/2.jpg" alt="" />
-											</a>
-											<span class="tag-line">new</span>
-											<div class="product-action">
-												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-													<a href="#" ><i class="fa fa-heart"></i></a>
-												</div>
-												<div class="button-cart">
-													<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-												</div>
-											</div>
-										</div>
-										<div class="product-content">
-											<div class="pro-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
-											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
-											</div>
-										</div>
-									</div>
-								</div>
+<!--								<div class="col-md-12">-->
+<!--									<div class="single-product">-->
+<!--										<div class="product-img">-->
+<!--											<a href="product-details.html">-->
+<!--												<img src="img/product/9.jpg" alt="" />-->
+<!--												<img class="secondary-img" src="img/product/8.jpg" alt="" />-->
+<!--											</a>-->
+<!--											<span class="tag-line">new</span>-->
+<!--											<div class="product-action">-->
+<!--												<div class="button-top">-->
+<!--													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>-->
+<!--													<a href="#" ><i class="fa fa-heart"></i></a>-->
+<!--												</div>-->
+<!--												<div class="button-cart">-->
+<!--													<button><i class="fa fa-shopping-cart"></i> add to cart</button>-->
+<!--												</div>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--										<div class="product-content">-->
+<!--											<div class="pro-rating">-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star"></i>-->
+<!--												<i class="fa fa-star-o"></i>-->
+<!--											</div>-->
+<!--											<h3><a href="product-details.html">{{searchString}}</a></h3>-->
+<!--											<div class="price">-->
+<!--												<span>$70.00</span>-->
+<!--												<span class="old">$80.11</span>-->
+<!--											</div>-->
+<!--										</div>-->
+<!--									</div>-->
+<!--								</div>-->
 								<!-- single-product end -->
-								<!-- single-product start -->
-								<div class="col-md-12">
-									<div class="single-product">
-										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/12.jpg" alt="" />
-												<img class="secondary-img" src="img/product/18.jpg" alt="" />
-											</a>
-											<span class="tag-line">new</span>
-											<div class="product-action">
-												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-													<a href="#" ><i class="fa fa-heart"></i></a>
-												</div>
-												<div class="button-cart">
-													<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-												</div>
-											</div>
-										</div>
-										<div class="product-content">
-											<div class="pro-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
-											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- single-product end -->
-								<!-- single-product start -->
-								<div class="col-md-12">
-									<div class="single-product">
-										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/16.jpg" alt="" />
-												<img class="secondary-img" src="img/product/17.jpg" alt="" />
-											</a>
-											<span class="tag-line">new</span>
-											<div class="product-action">
-												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-													<a href="#" ><i class="fa fa-heart"></i></a>
-												</div>
-												<div class="button-cart">
-													<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-												</div>
-											</div>
-										</div>
-										<div class="product-content">
-											<div class="pro-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
-											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- single-product end -->
-								<!-- single-product start -->
-								<div class="col-md-12">
-									<div class="single-product">
-										<div class="product-img">
-											<a href="product-details.html">
-												<img src="img/product/12.jpg" alt="" />
-												<img class="secondary-img" src="img/product/9.jpg" alt="" />
-											</a>
-											<span class="tag-line">new</span>
-											<div class="product-action">
-												<div class="button-top">
-													<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
-													<a href="#" ><i class="fa fa-heart"></i></a>
-												</div>
-												<div class="button-cart">
-													<button><i class="fa fa-shopping-cart"></i> add to cart</button>
-												</div>
-											</div>
-										</div>
-										<div class="product-content">
-											<div class="pro-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
-											</div>
-											<h3><a href="product-details.html">Phasellus Vel Hendrerit</a></h3>
-											<div class="price">
-												<span>$70.00</span>
-												<span class="old">$80.11</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- single-product end -->
+
 							</div>
 						</div>
 					</div>
@@ -1148,7 +1041,11 @@
 		<!-- wow js -->
         <script src="js/wow.min.js"></script>
 		<script>
-			$(".zoom").elevateZoom();
+			$(".zoom").elevateZoom({
+				responsive:"True",
+				zoomWindowWidth:300,
+				zoomWindowHeight:300,
+			});
 		</script>
 		<!-- plugins js -->
         <script src="js/plugins.js"></script>
