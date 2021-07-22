@@ -52,13 +52,13 @@
         <!-- Add your site or application content here -->
 
 		<!-- header start -->
-        <header>
+		<header>
 			<div class="header-top-area">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="top-info">
-								<p>Call us free 24/7 : (+86) 6 888 888</p>
+								<p>{{checkLogin()}}</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -172,12 +172,27 @@
 											<!--												</ul>-->
 											<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
+											<li><a href="all-orders.html">orders</a></li>
 										</ul>
 									</nav>
 								</div>
 							</div>
 							<div class="col-md-2 col-sm-8 col-xs-6 header-right">
-								<div class="my-cart">
+								<div class="my-cart" ng-if="!checkLogin2()">
+									<div class="total-cart">
+										<a href="cart.html">
+											<img src="img/cart/cart.png" alt="" />
+											<span>{{results.length}}</span>
+										</a>
+									</div>
+									<ul>
+										<li class="cart-border">
+											<label>"You haven't been signed in!"</label>
+											<label>"Please sign in before checking for your shopping cart!"</label>
+										</li>
+									</ul>
+								</div>
+								<div class="my-cart" ng-if="checkLogin2()">
 									<div class="total-cart">
 										<a href="cart.html">
 											<img src="img/cart/cart.png" alt="" />
@@ -245,23 +260,23 @@
 								</div>
 
 								<div class="header-search">
-									  <!-- SEARCH BAR -->
-									  <div class="dropdown">
+									<!-- SEARCH BAR -->
+									<div class="dropdown">
 										<a href="javascript:void(0);" class="search-open">
 											<img src="img/search.png" alt="" />
 										</a>
 										<div class="search-inside animated bounceInUp"> <i class="icon-close search-close fa fa-times"></i>
-										  <div class="search-overlay"></div>
-										  <div class="position-center-center">
-											  <div class="search">
-												  <form>
-													  <input id="searchString" placeholder="Search Shop" type="search">
-													  <button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
-												  </form>
-											  </div>
-										  </div>
+											<div class="search-overlay"></div>
+											<div class="position-center-center">
+												<div class="search">
+													<form>
+														<input id="searchString" placeholder="Search Shop" type="search">
+														<button ng-click="setSearchString()"><i class="fa fa-search"></i></button>
+													</form>
+												</div>
+											</div>
 										</div>
-									  </div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -286,7 +301,6 @@
 											</ul>
 										</li>
 										<li><a href="about.html">About</a></li>
-										<li><a href="all-orders.html">AllOrders</a></li>
 										<li><a href="blog.html">blog</a></li>
 										<li><a href="shop.html">Shop</a>
 											<ul>
@@ -320,7 +334,6 @@
 										<li><a href="#">Pages</a>
 											<ul>
 												<li><a href="about.html">about</a></li>
-												<li><a href="all-orders.html">all-orders</a></li>
 												<li><a href="contact.html">contact</a></li>
 												<li><a href="cart.html">shopping cart</a></li>
 												<li><a href="checkout.html">checkout</a></li>

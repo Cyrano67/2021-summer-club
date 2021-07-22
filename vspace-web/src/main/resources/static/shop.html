@@ -64,13 +64,13 @@
         <!-- Add your site or application content here -->
 
 		<!-- header start -->
-        <header>
+		<header>
 			<div class="header-top-area">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="top-info">
-								<p>Call us free 24/7 : (+86) 6 888 888</p>
+								<p>{{checkLogin()}}</p>
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -184,6 +184,7 @@
 											<!--												</ul>-->
 											<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
+											<li><a href="all-orders.html">orders</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -561,14 +562,14 @@
 									<option value="audi">16</option>
 								</select>
 							</div>
-							<div class="shop-breadcrumb">
-								<ul>
-									<li class="active"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-								</ul>
-							</div>
+<!--							<div class="shop-breadcrumb">-->
+<!--								<ul>-->
+<!--									<li class="active"><a href="#">1</a></li>-->
+<!--									<li><a href="#">2</a></li>-->
+<!--									<li><a href="#">3</a></li>-->
+<!--									<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
+<!--								</ul>-->
+<!--							</div>-->
 
 							<div class="clear"></div>
 							<!-- Tab panes -->
@@ -1401,10 +1402,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div style="text-align: center;">
-						<div class="page">
-							<tm-pagination conf="paginationConf"></tm-pagination>
+						<div style="text-align: center;">
+							<div class="page">
+								<tm-pagination conf="paginationConf"></tm-pagination>
+							</div>
 						</div>
 					</div>
 				</div>
