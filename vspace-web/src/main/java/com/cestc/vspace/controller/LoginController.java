@@ -172,4 +172,22 @@ public class LoginController {
 		return result;
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "login/logout.do", method = RequestMethod.GET)
+	public Result logout(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		
+		String loginstatus = (String) request.getSession().getAttribute("autologin");
+		
+		Result result = new Result();
+		System.out.println("---------------注销成功--------------------------------");
+		// 自动登录
+		request.getSession().removeAttribute("phone");
+		request.getSession().removeAttribute("password");
+		request.getSession().removeAttribute("uname");
+		request.getSession().removeAttribute("uid");
+		result.setResultTag(true);
+	
+		return result;
+	}
+	
 }

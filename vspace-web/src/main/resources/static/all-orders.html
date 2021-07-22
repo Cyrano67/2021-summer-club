@@ -198,7 +198,7 @@
 										</a>
 									</div>
 									<ul>
-										<li ng-repeat="r in results track by $index">
+										<li ng-repeat="r in results">
 											<div class="cart-img">
 												<a href="#"><img alt="" src="img/cart/1.jpg"></a>
 											</div>
@@ -425,12 +425,12 @@
 <!--												<td class="product-name">here2</td>-->
 <!--												<td class="product-price">here3</td>-->
 <!--											</tr>-->
-											<tr ng-repeat="o in order_nums track by $index">
+											<tr ng-repeat="o in order_nums">
 <!--												<td class="product-thumbnail">here</td>-->
 												<td class="product-thumbnail">{{o}}</td>
 												<td class="product-name">
 <!--													{{inactive_orders[index]}}-->
-													<div ng-repeat="i in inactive_orders track by $index">
+													<div ng-repeat="i in inactive_orders">
 														<a href="#" ng-if="i[0]==o" ng-click="jumpDetail(i[2])">{{i[1]}}</a>
 <!--														<span ng-click="jumpDetail(i[2])">{{i[1]}}</span>-->
 <!--														<a ng-if="i[0]==o" href="#" ng-click="jumpDetail(i[2])">{{i[1]}}</a>-->

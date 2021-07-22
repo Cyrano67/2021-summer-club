@@ -8,4 +8,15 @@ app.controller("home_controller",function($scope,$controller,$http){
     $scope.homeInit = function (){
         $scope.init();
     }
+    
+    $scope.logOut = function (){
+    	window.sessionStorage.removeItem("autologin");
+    	window.sessionStorage.removeItem("uname");
+    	window.sessionStorage.removeItem("uid");
+    	$http.get(('/login/logout.do')).success(function(response){
+    		window.location = "index.html";
+    	});
+    	}
+    	
+    	
 })
