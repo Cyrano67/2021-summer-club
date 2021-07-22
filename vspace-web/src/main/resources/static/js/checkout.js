@@ -14,6 +14,7 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
     $scope.uid = window.sessionStorage.getItem("uid");
     
     $scope.initialCheckOut=function(){
+        $scope.findCartsByPhone();
         $scope.get_Cart();
         $scope.userId = $scope.uid;
         console.log($scope.uid);
