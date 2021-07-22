@@ -40,6 +40,8 @@
 	 	<script src="js/LoginStatusAdapt.js"></script>
 		<!--引入base控制器-->
 		<script src="js/controller/base_controller.js"></script>
+<!--		&lt;!&ndash;引入shop控制器&ndash;&gt;-->
+<!--		<script src="js/controller/shop-controller.js"></script>-->
 		<!--引入主页控制器-->
 		<script src="js/controller/home-controller.js"></script>
     </head>
@@ -445,7 +447,7 @@
 									</a>
 									<div class="banner-caption">
 										<span class="shop-cat-subtitle">Sale off</span>
-										<h2><a href="#">best fashion</a></h2>
+										<h2><a href="#" ng-click="setSpecialSearchString('best')">best fashion</a></h2>
 										<span class="shop-cat-sale">cloth Collection 2021</span>
 									</div>
 								</div>
@@ -457,7 +459,7 @@
 									</a>
 									<div class="banner-caption">
 										<span class="shop-cat-subtitle">Sale off</span>
-										<h2><a href="#">new fashion</a></h2>
+										<h2><a href="#" ng-click="setSpecialSearchString('new')">new fashion</a></h2>
 										<span class="shop-cat-sale">cloth Collection 2021</span>
 									</div>
 								</div>
@@ -469,7 +471,7 @@
 									</a>
 									<div class="banner-caption">
 										<span class="shop-cat-subtitle">Best Sell</span>
-										<h2><a href="#">cotton fashion</a></h2>
+										<h2><a href="#" ng-click="setSpecialSearchString('cotton')">cotton fashion</a></h2>
 										<span class="shop-cat-sale">cloth Collection 2021</span>
 									</div>
 								</div>
@@ -482,8 +484,8 @@
 								<img src="img/banner/black-collection.jpg" alt="" />
 							</a>
 							<div class="banner-caption">
-								<span class="shop-cat-subtitle">Black</span>
-								<h2><a href="#">Collection</a></h2>
+								<span class="shop-cat-subtitle" ng-click="setSpecialSearchString('black')">Black</span>
+								<h2><a href="#" ng-click="setSpecialSearchString('black')">Collection</a></h2>
 								<span class="shop-cat-sale">Best Selling</span>
 							</div>
 						</div>
@@ -525,7 +527,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(1873)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(1083)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -561,7 +563,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(209)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(209)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -596,7 +598,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(234)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(234)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -632,7 +634,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(245)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(245)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -668,7 +670,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(261)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(261)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -704,7 +706,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(274)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(274)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -739,7 +741,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(275)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(275)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -775,7 +777,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(290)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(290)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -816,7 +818,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(207)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(207)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -852,7 +854,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(213)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(213)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -887,7 +889,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(219)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(219)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -923,7 +925,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(224)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(224)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -958,7 +960,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(229)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(229)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -994,7 +996,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(233)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(233)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1029,7 +1031,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(242)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(242)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1065,7 +1067,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(249)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(249)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1106,7 +1108,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(212)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(212)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1142,7 +1144,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(218)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(218)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1178,7 +1180,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(250)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(250)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1213,7 +1215,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(325)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(325)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1249,7 +1251,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(387)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(387)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1284,7 +1286,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(411)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(411)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1320,7 +1322,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(420)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(420)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>
@@ -1355,7 +1357,7 @@
 																<a href="#" ><i class="fa fa-heart"></i></a>
 															</div>
 															<div class="button-cart">
-																<button><i class="fa fa-shopping-cart" ng-click="shopInsertCart(456)"></i> add to cart</button>
+																<button ng-click="homeInsertCart(456)"><i class="fa fa-shopping-cart"></i> add to cart</button>
 															</div>
 														</div>
 													</div>

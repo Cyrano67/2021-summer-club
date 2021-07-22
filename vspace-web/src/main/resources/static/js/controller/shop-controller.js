@@ -78,6 +78,8 @@ app.controller("shop-controller",function ($scope,$controller,$http){
     }
 
     $scope.shopInsertCart = function (cid){
+        console.log("in shopinsertcart:");
+        console.log(cid);
         window.sessionStorage.setItem("product_id",cid);
         $scope.product_num=1;
         $scope.insertCart();

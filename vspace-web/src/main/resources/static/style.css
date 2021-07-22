@@ -1758,13 +1758,12 @@ h3.sidebar-title::before {
 12. breadcrumb-area
 -------------------------------------*/
 .page-title-area {
-  background: rgba(0, 0, 0, 0) url("img/breadcrumbs.jpg") no-repeat scroll center center / cover ;
+  background: rgba(0, 0, 0, 0) url("img/breadcrumbs1.jpg") no-repeat scroll center center / cover ;
   padding: 124px 0;
 }
 .title-heading {
   text-align: left;
-}
-.title-heading h1 {
+}.title-heading h1 {
 	color: #fff;
 	font-size: 34px;
 	font-weight: 600;
