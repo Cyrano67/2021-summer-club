@@ -64,7 +64,7 @@
         <!-- Add your site or application content here -->
 
 		<!-- header start -->
-        <header>
+		<header>
 			<div class="header-top-area">
 				<div class="container">
 					<div class="row">
@@ -184,6 +184,7 @@
 											<!--												</ul>-->
 											<!--											</li>-->
 											<li><a href="contact.html">contact</a></li>
+											<li><a href="all-orders.html">orders</a></li>
 										</ul>
 									</nav>
 								</div>
@@ -561,14 +562,14 @@
 									<option value="audi">16</option>
 								</select>
 							</div>
-							<div class="shop-breadcrumb">
-								<ul>
-									<li class="active"><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-								</ul>
-							</div>
+<!--							<div class="shop-breadcrumb">-->
+<!--								<ul>-->
+<!--									<li class="active"><a href="#">1</a></li>-->
+<!--									<li><a href="#">2</a></li>-->
+<!--									<li><a href="#">3</a></li>-->
+<!--									<li><a href="#"><i class="fa fa-angle-right"></i></a></li>-->
+<!--								</ul>-->
+<!--							</div>-->
 
 							<div class="clear"></div>
 							<!-- Tab panes -->
@@ -587,7 +588,7 @@
 													<span class="tag-line">new</span>
 													<div class="product-action">
 														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
+															<a href="#" data-toggle="modal" ng-click="jumpDetail(goods.cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 															<a href="#" ><i class="fa fa-heart"></i></a>
 														</div>
 														<div class="button-cart">
@@ -605,8 +606,8 @@
 													</div>
 													<h3><a href="product-details.html">{{showGoodsName(goods.cname)}}</a></h3>
 													<div class="price">
-														<span>{{goods.price}}</span>
-														<span class="old">$80.11</span>
+														<span>${{goods.price}}</span>
+														<span class="old">${{goods.price+20}}</span>
 													</div>
 												</div>
 											</div>
@@ -1139,13 +1140,13 @@
 												<div class="product-content">
 													<h3><a href="product-details.html">{{showGoodsName(goods.cname)}}</a></h3>
 													<div class="price">
-														<span>{{goods.price}}</span>
-														<span class="old">$90.11</span>
+														<span>${{goods.price}}</span>
+														<span class="old">${{goods.price+20}}</span>
 													</div>
 													<p>{{goods.discription}}</p>
 													<div class="product-action">
 														<div class="button-top">
-															<a href="#" data-toggle="modal" data-target="#productModal"><i class="fa fa-search"></i></a>
+															<a href="#" data-toggle="modal" ng-click="jumpDetail(goods.cid)" data-target="#productModal"><i class="fa fa-search"></i></a>
 															<a href="#" ><i class="fa fa-heart"></i></a>
 														</div>
 														<div class="button-cart">
@@ -1401,10 +1402,10 @@
 								</div>
 							</div>
 						</div>
-					</div>
-					<div style="text-align: center;">
-						<div class="page">
-							<tm-pagination conf="paginationConf"></tm-pagination>
+						<div style="text-align: center;">
+							<div class="page">
+								<tm-pagination conf="paginationConf"></tm-pagination>
+							</div>
 						</div>
 					</div>
 				</div>

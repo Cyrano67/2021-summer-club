@@ -62,14 +62,12 @@ app.controller("base_controller",function($scope,$controller,$http){
         console.log("进入查找");//,window.sessionStorage.getItem("uid")
         let uidd=window.sessionStorage.getItem("uid");
         var userr={"uid":uidd,"uname":"12","password":"1","email":"1","phone":"1","role":0};
-        $http.get("/cart/find_by_user?uid="+window.sessionStorage.getItem("uid")).success(function(results){
+        $http.post("/cart/find_by_user?uid="+window.sessionStorage.getItem("uid")).success(function(results){
             //循环转换imageUrl为json
-            for (let i = 0; i < results.length; i++) {
-                results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
-            }
+            // for (let i = 0; i < results.length; i++) {
+            //     results[i].relateOne.picAddr = "http://116.63.130.162:49155/group1/M00/00/00/rBIBBGDxLBSAQeQmAABtjLq27Oc832.jpg";
+            // }
             $scope.results = results;
-            console.log(results);
-            $scope.results.temp=window.sessionStorage.getItem("uid");
             $scope.calculateSumPrice($scope.results);
         });
     }
@@ -77,6 +75,9 @@ app.controller("base_controller",function($scope,$controller,$http){
     $scope.calculateSumPrice=function(results){
         var totalPrice = 0;
         for (let i = 0; i < results.length; i++) {
+            console.log(results[i].relateOne.cid);
+            console.log(results[i].relateOne.price);
+            console.log(results[i].relateOne.cname);
             totalPrice += results[i].entity.quantity * results[i].relateOne.price;
         }
         $scope.goodsTotalPrice = parseFloat(totalPrice.toFixed(2));//保留两位小数

@@ -1,6 +1,9 @@
 //通过模块对象创建一个控制器对象
 app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
 
+    //继承base_controller
+    $controller("base_controller",{$scope:$scope});
+
     $scope.address = {"sid":0, "receiverName":"", "receiverPhone":"15523304127","receiverProvince":"cq", "receiverCity":"cq","receiverStreet":"Shapingba","receiverAddress":"CQU",
         "Postcode":"400032"};
     var parse = Date.parse(2018,11,3,12,28);
@@ -11,6 +14,7 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
     $scope.uid = window.sessionStorage.getItem("uid");
     
     $scope.initialCheckOut=function(){
+        $scope.findCartsByPhone();
         $scope.get_Cart();
         $scope.userId = $scope.uid;
         console.log($scope.uid);
