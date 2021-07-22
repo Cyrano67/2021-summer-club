@@ -65,7 +65,7 @@ public class AliSyncNotifyController {
 				returnUrl = "redirect:/index.html";}
 			else{
 				System.out.println("验签失败");
-				returnUrl = "redirect:/checkout.html";}
+				returnUrl = "redirect:/index.html";}
 				} 
 		catch (Exception e) {
 			returnUrl = "redirect:/check-fail.html";}

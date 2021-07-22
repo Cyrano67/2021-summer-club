@@ -49,15 +49,17 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
 			//在支付成功之后同步通知的页面设置成"my-account.html页面"
 			window.sessionStorage.setItem("show-order","yes");
 			//关闭当前页面,新开一个支付页面,支付成功之后跳转到用户订单页面
-			window.close();
 			//设置支付结果跳转显示页面
 			let div = document.createElement('div');
 			div.innerHTML = response.relateOne; // html code
+			console.log(div.innerHTML);
 			document.body.appendChild(div);
 			//punchout_form该名称通过后台支付响应得到的payresult进行观察获取
 			document.forms.punchout_form.setAttribute('target','_blank');//新开浏览器窗口
 			document.forms.punchout_form.submit();
-			
+			window.opener = null;
+			window.open("about:blank","_self");   
+			window.close();
            if(response.entrelateOneity != null){
         	   alert("Successful PlaceOrder");
            }
