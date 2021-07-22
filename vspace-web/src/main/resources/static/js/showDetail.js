@@ -21,8 +21,6 @@ app.controller("richman-details-show-ctrl",function($scope,$controller,$http){
     }
     // 直接发送post请求，初始化自己
     $http.post('/details/info',$scope.cid).success(function(response){
-//        $scope.acess="oks";
-
         $scope.cname=response.cname;
         $scope.price=response.price;
         $scope.discription=response.discription;
