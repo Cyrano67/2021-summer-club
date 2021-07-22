@@ -163,6 +163,14 @@ app.controller("base_controller",function($scope,$controller,$http){
         });
     }
 
+    $scope.homeInsertCart = function (cid){
+        console.log("in homeinsertcart:");
+        console.log(cid);
+        window.sessionStorage.setItem("product_id",cid);
+        $scope.product_num=1;
+        $scope.insertCart();
+    }
+
     //创建方法用于查询所有的一级商品类型
     $scope.findAllFirstLevelCategory=function (){
         $http.get("/index/findAllFirstLevelCategory").success(function(result){
