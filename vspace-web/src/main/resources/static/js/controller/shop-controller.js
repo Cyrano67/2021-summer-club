@@ -40,7 +40,7 @@ app.controller("shop-controller",function ($scope,$controller,$http){
         var searchString=window.sessionStorage.getItem("searchString");
         //没有设置过则默认
         if(searchString===null || searchString===""){
-            $scope.searchString="男士";
+            $scope.searchString="tee";
         }
         //设置过则设置
         else{
