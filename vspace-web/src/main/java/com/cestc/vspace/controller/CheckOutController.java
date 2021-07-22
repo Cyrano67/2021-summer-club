@@ -86,7 +86,8 @@ public class CheckOutController {
         orders.setShippingId(sid);
         System.out.println("~~~~~~~~~~~~~~~~~RelateOne Payment~~~~~~~~~~~~~~~~~~~");
     	System.out.println(orders.getPayment());
-        int oid = ordersinfoService.insertOrder(dataShippingInfoOrderInfo.getRelateOne());
+//        int oid = ordersinfoService.insertOrder(dataShippingInfoOrderInfo.getRelateOne());
+    	int oid = ordersinfoService.insertOrder(orders);
         String payResult = paymentService.pay(oid);
     	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     	System.out.println(payResult);
