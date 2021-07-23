@@ -27,7 +27,7 @@ app.controller("vspace-checkout-controller",function($scope,$controller,$http) {
             // alert("uid1");
             $scope.order_list = response;
             for (let i = 0; i < response.length; i++) {
-            	$scope.order.cinfo =  $scope.order.cinfo + response[i].relateOne.cname +";";
+            	$scope.order.cinfo =  $scope.order.cinfo + response[i].relateOne.cname + " × " + response[i].entity.quantity +";";
                 $scope.order.clink = $scope.order.clink + response[i].relateOne.cid + ";";
                 $scope.totalcost += response[i].entity.quantity * response[i].relateOne.price;
             }

@@ -540,7 +540,7 @@
 											</td>
 											<td class="product-total">
 
-												<span class="amount">￥{{o.entity.quantity * o.relateOne.price}}</span>
+												<span class="amount">${{o.entity.quantity * o.relateOne.price}}</span>
 											</td>
 										</tr>
 									</li>
@@ -548,7 +548,7 @@
 								<tfoot>
 								<tr class="cart-subtotal">
 									<th>Cart Subtotal</th>
-									<td><span class="amount">￥ {{totalcost}}</span></td>
+									<td><span class="amount">$ {{totalcost}}</span></td>
 								</tr>
 								<tr class="shipping">
 									<th>Shipping</th>
@@ -557,7 +557,7 @@
 											<li>
 												<input type="radio" />
 												<label>
-													Flat Rate: <span class="amount">￥ 0</span>
+													Flat Rate: <span class="amount">$ 0</span>
 												</label>
 											</li>
 											<li>

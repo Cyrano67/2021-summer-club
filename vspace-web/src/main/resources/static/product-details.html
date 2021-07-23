@@ -360,8 +360,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="title-heading text-center">
-							<h1>PRODUCT SINGLE STYLE</h1>
-							<p>We are a featured brand that calls itself fashion</p>
+							<h1>BEST PRODUCT</h1>
+							<p>We only handle the best product</p>
 						</div>
 					</div>
 				</div>
@@ -377,7 +377,7 @@
 							<ul>
 								<li><a href="index.html">HOME</a></li>
 								<li><a href="shop.html">shop</a></li>
-								<li><span>men</span></li>
+								<li><span>{{cname}}</span></li>
 							</ul>
 						</div>
 					</div>
@@ -772,11 +772,16 @@
 						<aside class="widget widget-categories">
 							<h3 class="sidebar-title">Categories</h3>
 							<ul class="sidebar-menu">
-								<li><a href="#">Clothes</a> <span class="count">(14)</span></li>
-								<li><a href="#">Men</a> <span class="count">(9)</span></li>
-								<li><a href="#">Shoes</a> <span class="count">(2)</span></li>
-								<li><a href="#">Sunglasses</a> <span class="count">(2)</span></li>
-								<li><a href="#">Women</a> <span class="count">(8)</span></li>
+<!--								<li><a href="#">Clothes</a> <span class="count">(14)</span></li>-->
+<!--								<li><a href="#">Men</a> <span class="count">(9)</span></li>-->
+<!--								<li><a href="#">Shoes</a> <span class="count">(2)</span></li>-->
+<!--								<li><a href="#">Sunglasses</a> <span class="count">(2)</span></li>-->
+<!--								<li><a href="#">Women</a> <span class="count">(8)</span></li>-->
+								<li><a href="#" ng-click="setAdditionalSearchString('new')">new</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('old')">old</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('best')">best</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('S/S')">S/S</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('L/S')">L/S</a> <span class="count">({{list.length}})</span></li>
 							</ul>
 						</aside>
 						<!-- widget-categories end -->
@@ -836,19 +841,26 @@
 						<aside class="widget product-tag">
 							<h3 class="sidebar-title">Popular Tags</h3>
 							<ul>
-								<li><a href="#">Top</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Collection</a></li>
-								<li><a href="#">Women</a></li>
-								<li><a href="#">men</a></li>
-								<li><a href="#">gallery</a></li>
-								<li><a href="#">new</a></li>
-								<li><a href="#">Collection men</a></li>
-								<li><a href="#">Top</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Collection</a></li>
-								<li><a href="#">best</a></li>
-								<li><a href="shop.html">cloth</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('gallery')">gallery</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('new')">new</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('top')">Top</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('best')">best</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('cloth')">cloth</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('crown')">crown</a></li>
+								<li><a href="#" ng-click="setSpecialSearchString('tee')">tee</a></li>
+<!--								<li><a href="#">Top</a></li>-->
+<!--								<li><a href="#">Fashion</a></li>-->
+<!--								<li><a href="#">Collection</a></li>-->
+<!--								<li><a href="#">Women</a></li>-->
+<!--								<li><a href="#">men</a></li>-->
+<!--								<li><a href="#">gallery</a></li>-->
+<!--								<li><a href="#">new</a></li>-->
+<!--								<li><a href="#">Collection men</a></li>-->
+<!--								<li><a href="#">Top</a></li>-->
+<!--								<li><a href="#">Fashion</a></li>-->
+<!--								<li><a href="#">Collection</a></li>-->
+<!--								<li><a href="#">best</a></li>-->
+<!--								<li><a href="shop.html">cloth</a></li>-->
 							</ul>
 						</aside>
 						<!-- widget-tags end -->

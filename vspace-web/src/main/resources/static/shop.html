@@ -374,8 +374,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="title-heading text-center">
-							<h1>OUR SHOP WITH left SIDEBAR</h1>
-							<p>We are a featured brand that calls itself fashion</p>
+							<h1>BEST SHOPS WITH BEST CLOTHES</h1>
+							<p>We looked spruce in our best clothes</p>
 						</div>
 					</div>
 				</div>
@@ -409,11 +409,16 @@
 						<aside class="widget widget-categories">
 							<h3 class="sidebar-title">Categories</h3>
 							<ul class="sidebar-menu">
-								<li><a href="#">{{searchString}}</a> <span class="count">(14)</span></li>
-								<li><a href="#">{{minPrice}}</a> <span class="count">(9)</span></li>
-								<li><a href="#">{{maxPrice}}</a> <span class="count">(2)</span></li>
-								<li><a href="#">{{sortSelect}}</a> <span class="count">(2)</span></li>
-								<li><a href="#">Women</a> <span class="count">(8)</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('new')">new</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('old')">old</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('best')">best</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('S/S')">S/S</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('L/S')">L/S</a> <span class="count">({{list.length}})</span></li>
+<!--								<li><a href="#" ng-click="setAdditionalSearchString('new')">{{searchString}}</a> <span class="count">(14)</span></li>-->
+<!--								<li><a href="#" ng-click="setAdditionalSearchString('best')">{{minPrice}}</a> <span class="count">(9)</span></li>-->
+<!--								<li><a href="#" ng-click="setAdditionalSearchString('black')">{{maxPrice}}</a> <span class="count">(2)</span></li>-->
+<!--								<li><a href="#" ng-click="setAdditionalSearchString('black')">{{sortSelect}}</a> <span class="count">(2)</span></li>-->
+<!--								<li><a href="#" ng-click="setAdditionalSearchString('black')">Women</a> <span class="count">(8)</span></li>-->
 							</ul>
 						</aside>
 						<!-- widget-categories end -->
@@ -433,7 +438,7 @@
 						<!-- shop-filter end -->
 						<!-- filter-by start -->
 						<aside class="widget filter-by">
-							<h3 class="sidebar-title">Product price</h3>
+							<h3 class="sidebar-title">Product size</h3>
 							<ul class="sidebar-menu">
 								<li><a href="#">L</a> <span class="count">(1)</span></li>
 								<li><a href="#">M</a> <span class="count">(1)</span></li>
@@ -447,13 +452,13 @@
 						<aside class="widget filter-by">
 							<h3 class="sidebar-title">Color</h3>
 							<ul class="sidebar-menu">
-								<li><a href="#">Black</a> <span class="count">(1)</span></li>
-								<li><a href="#">White</a> <span class="count">(8)</span></li>
-								<li><a href="#">Orange</a> <span class="count">(5)</span></li>
-								<li><a href="#">Blue</a> <span class="count">(7)</span></li>
-								<li><a href="#">Yellow</a> <span class="count">(11)</span></li>
-								<li><a href="#">Brown</a> <span class="count">(16)</span></li>
-								<li><a href="#">red</a> <span class="count">(9)</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('black')">Black</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('white')">White</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('orange')">Orange</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('blue')">Blue</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('yellow')">Yellow</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('brown')">Brown</a> <span class="count">({{list.length}})</span></li>
+								<li><a href="#" ng-click="setAdditionalSearchString('red')">red</a> <span class="count">({{list.length}})</span></li>
 							</ul>
 						</aside>
 						<!-- widget end -->

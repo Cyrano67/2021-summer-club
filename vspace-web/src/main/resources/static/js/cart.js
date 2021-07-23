@@ -36,7 +36,7 @@ app.controller("vspace-cart-controller",function($scope,$controller,$http){
     $scope.minus=function(index,caid){
         $scope.results[index].entity.quantity --;
         if ($scope.results[index].entity.quantity < 1) {
-            $scope.results[index].entity.quantityt = 1
+            $scope.results[index].entity.quantity = 1;
         }
         //计算总价
         $scope.calculateSumPrice($scope.results);
